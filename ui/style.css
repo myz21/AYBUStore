@@ -1386,13 +1386,27 @@ body[data-theme="dark"] .product-media {
   background: #ffffff;
 }
 
-body[data-theme="dark"] .section-head h2,
 body[data-theme="dark"] .product-info h3 {
+  color: #16233f;
+}
+
+body[data-theme="dark"] .section-head h2 {
   color: #f3f6ff;
 }
 
 body[data-theme="dark"] .price {
   color: #f2cb58;
+}
+
+body[data-theme="dark"] .footer-map-info h3,
+body[data-theme="dark"] .fmi-row,
+body[data-theme="dark"] .hours-row,
+body[data-theme="dark"] .hours-row span {
+  color: #eef3ff;
+}
+
+body[data-theme="dark"] .fmi-divider {
+  border-top-color: rgba(255, 255, 255, 0.14);
 }
 
 body[data-theme="dark"] .design-preview,
