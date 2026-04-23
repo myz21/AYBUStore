@@ -1473,11 +1473,13 @@ body.page-leave main {
   top: 50%;
   left: 50%;
   width: min(920px, calc(100vw - 28px));
+  max-height: 90vh;
   transform: translate(-50%, -50%) scale(0.96);
   opacity: 0;
   pointer-events: none;
   border-radius: 22px;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   background: linear-gradient(160deg, #fffefb, #f4f7ff);
   border: 1px solid rgba(132, 148, 176, 0.28);
   box-shadow: 0 36px 84px rgba(6, 13, 26, 0.32);
@@ -2078,7 +2080,13 @@ body.page-leave main {
   }
 
   .design-modal {
-    width: calc(100vw - 20px);
+    width: calc(100vw - 32px);
+    max-height: 85vh;
+  }
+
+  .design-upload,
+  .design-preview {
+    min-height: 160px;
   }
 
   .design-modal-head,
