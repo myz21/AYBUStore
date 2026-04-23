@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="app.js" defer></script>
+  <script type="module" src="firebase-auth.js"></script>
 </head>
 <body class="login-page">
   <a class="skip-link" href="#loginMain">İçeriğe Geç</a>
@@ -26,6 +27,8 @@
         <a href="index.html#products">Ürünler</a>
         <a href="bolumler.html">Bölümler</a>
         <a href="index.html#mapSection">Mağaza</a>
+        <a class="menu-auth-link" href="login.html" aria-current="page">Giriş Yap</a>
+        <a class="menu-auth-link" href="register.html">Üye Ol</a>
       </nav>
 
       <div class="header-actions">
@@ -54,7 +57,7 @@
       <h2 id="loginTitle">AYBÜ Hesabınıza Giriş Yapın</h2>
       <p>Sepetinizi, siparişlerinizi ve favori ürünlerinizi yönetmek için giriş yapın.</p>
 
-      <form class="login-form" id="loginForm" novalidate>
+      <form class="login-form" id="loginForm" novalidate data-auth-mode="firebase">
         <label for="email">E-posta</label>
         <input id="email" name="email" type="email" autocomplete="email" required placeholder="ornek@aybu.edu.tr" aria-label="E-posta adresi">
 
@@ -73,6 +76,8 @@
           <a href="register.html" class="auth-secondary-cta" aria-label="Üye ol sayfasına git">Üye Ol</a>
         </div>
       </form>
+
+      <p id="loginStatus" class="auth-status" role="status" aria-live="polite"></p>
 
       <p class="register-line">Hesabın yok mu? <a href="register.html" aria-label="Üye ol sayfasına git">Hemen Üye Ol</a></p>
     </section>
