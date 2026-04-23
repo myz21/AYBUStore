@@ -95,7 +95,7 @@ input {
   top: 10px;
   z-index: 55;
   backdrop-filter: blur(14px);
-  width: min(1400px, calc(100% - 20px));
+  width: min(1500px, calc(100% - 20px));
   margin: 0 auto;
   border-radius: 18px;
   background:
