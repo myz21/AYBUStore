@@ -1,0 +1,11 @@
+*
+
+!.gitignore
+!README.md
+
+!app/
+!app/**
+!ui/
+!ui/**
+!images/
+!images/**
