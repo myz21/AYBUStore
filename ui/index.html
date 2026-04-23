@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AYBU Store | Ana Sayfa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">İçeriğe Geç</a>
+
+  <div class="top-strip">
+    AYBÜ Kurumsal Mağaza: Kampüs ruhunu taşıyan resmi ürünler burada.
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="AYBU Store ana sayfaya git">
+        <img class="brand-mark" src="../images/logo2.png" alt="AYBU Store logosu">
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Menüyü aç veya kapat" aria-expanded="false" aria-controls="siteNav">☰</button>
+
+      <nav class="site-nav" id="siteNav" aria-label="Ana menü">
+        <a href="index.html" aria-current="page">Ana Sayfa</a>
+        <a href="#products">Ürünler</a>
+        <a href="#mapSection">Mağaza</a>
+        <a href="login.html">Giriş</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="link-btn" href="login.html" aria-label="Giriş sayfasına git">Üyelik</a>
+        <button class="icon-btn" type="button" aria-label="Ara">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 18a8 8 0 1 1 5.293-14.001A8 8 0 0 1 10 18Zm11.707 2.293-5.1-5.1a10 10 0 1 0-1.414 1.414l5.1 5.1a1 1 0 0 0 1.414-1.414Z"/></svg>
+        </button>
+        <button class="cart-btn" data-cart-open aria-label="Sepetim panelini aç" aria-controls="cartDrawer" aria-expanded="false">SEPETİM</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-tabs" aria-label="Mobil kategori sekmeleri">
+    <button class="tab-arrow" type="button" aria-label="Sola kaydır" data-tabs-prev>‹</button>
+    <div class="tab-track" id="tabTrack">
+      <a class="tab active" href="index.html" aria-current="page">Mağaza Ana Sayfa</a>
+      <a class="tab" href="#products">Tüm Ürünler</a>
+      <a class="tab" href="#products">Giyim</a>
+      <a class="tab" href="#products">Aksesuar</a>
+    </div>
+    <button class="tab-arrow" type="button" aria-label="Sağa kaydır" data-tabs-next>›</button>
+  </nav>
+
+  <main id="mainContent">
+    <section class="hero" aria-label="Kampanya slider">
+      <div class="hero-track" id="heroTrack">
+        <article class="hero-slide active" style="--hero-image: url('../images/banner.png');" aria-label="Banner 1"></article>
+
+        <article class="hero-slide" style="--hero-image: url('../images/aybu-kesfet-banner.png');" aria-label="Banner 2"></article>
+
+        <article class="hero-slide" style="--hero-image: url('../images/kampusun-yeni-uyesi.png');" aria-label="Banner 3"></article>
+
+        <article class="hero-slide" style="--hero-image: url('../images/takvim_banner.png');" aria-label="Banner 4"></article>
+
+        <article class="hero-slide" style="--hero-image: url('../images/baharda-kampüs-banner.png');" aria-label="Banner 5"></article>
+      </div>
+
+      <button class="hero-nav prev" type="button" data-slide-prev aria-label="Önceki slayt">‹</button>
+      <button class="hero-nav next" type="button" data-slide-next aria-label="Sonraki slayt">›</button>
+
+      <div class="hero-dots" id="heroDots" aria-label="Slider göstergeleri"></div>
+    </section>
+
+    <section class="products" id="products" aria-labelledby="productsTitle">
+      <div class="section-head">
+        <h2 id="productsTitle">Çok Satanlar</h2>
+        <a href="#products" class="pill-btn" aria-label="Tüm ürünleri gör">Tüm Ürünler</a>
+      </div>
+
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-media">
+            <img src="../images/blue_swearshirt.png" alt="AYBÜ Lacivert Sweatshirt">
+          </div>
+          <div class="product-info">
+            <h3>AYBÜ Lacivert Sweatshirt</h3>
+            <p class="price">₺ 1.190</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media">
+            <img src="../images/aybu-turquoise-hoodie.png" alt="AYBÜ Turkuaz Baskılı Sweatshirt">
+          </div>
+          <div class="product-info">
+            <h3>AYBÜ Turkuaz Baskılı Sweatshirt</h3>
+            <p class="price">₺ 1.150</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media">
+            <img src="../images/red_sweatshirt.png" alt="AYBÜ Minimal Logolu Sweatshirt">
+          </div>
+          <div class="product-info">
+            <h3>AYBÜ Minimal Logolu Sweatshirt</h3>
+            <p class="price">₺ 1.090</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media">
+            <img src="../images/black_tshirt.png" alt="AYBÜ Siyah Tişört">
+          </div>
+          <div class="product-info">
+            <h3>AYBÜ Siyah Tişört</h3>
+            <p class="price">₺ 690</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media">
+            <img src="../images/glass.png" alt="AYBÜ Cam Kupa">
+          </div>
+          <div class="product-info">
+            <h3>AYBÜ Cam Kupa</h3>
+            <p class="price">₺ 280</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media">
+            <img src="../images/glass2.png" alt="AYBÜ Turkuaz Cam Bardak">
+          </div>
+          <div class="product-info">
+            <h3>AYBÜ Turkuaz Cam Bardak</h3>
+            <p class="price">₺ 320</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media">
+            <div class="product-emoji" role="img" aria-label="Hoodie">🧥</div>
+          </div>
+          <div class="product-info">
+            <h3>AYBÜ Hoodie (Oversize)</h3>
+            <p class="price">₺ 1.390</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media">
+            <div class="product-emoji" role="img" aria-label="Kupa">☕</div>
+          </div>
+          <div class="product-info">
+            <h3>AYBÜ Kupa (Seramik)</h3>
+            <p class="price">₺ 260</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media">
+            <img src="../images/aybu-defter.png" alt="AYBÜ Defter">
+          </div>
+          <div class="product-info">
+            <h3>AYBÜ Defter (Çizgili)</h3>
+            <p class="price">₺ 140</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media">
+            <div class="product-emoji" role="img" aria-label="Bez çanta">👜</div>
+          </div>
+          <div class="product-info">
+            <h3>AYBÜ Bez Çanta</h3>
+            <p class="price">₺ 220</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media">
+            <img src="../images/aybu-anahtarlik.png" alt="AYBÜ Anahtarlık (Metal)">
+          </div>
+          <div class="product-info">
+            <h3>AYBÜ Anahtarlık (Metal)</h3>
+            <p class="price">₺ 90</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media">
+            <div class="product-emoji" role="img" aria-label="Şapka">🧢</div>
+          </div>
+          <div class="product-info">
+            <h3>AYBÜ Şapka (Nakış)</h3>
+            <p class="price">₺ 310</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="map-wrap" id="mapSection" aria-labelledby="mapTitle">
+      <!-- ===== KONUM & İLETİŞİM (images/aybustore.html içindeki map bölümü) ===== -->
+      <div class="footer-map">
+        <div class="footer-map-info">
+          <h3 id="mapTitle">Mağazamız</h3>
+          <div class="fmi-row">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>AYBU Kampüsü, Etlik, Pursaklar Cad.<br>06760 Keçiören – Ankara</span>
+          </div>
+          <hr class="fmi-divider">
+          <div class="hours-row"><span>Pazartesi–Cuma:</span> 09:00–17:00</div>
+          <div class="hours-row"><span>Cumartesi:</span> 10:00–14:00</div>
+          <div class="hours-row"><span>Pazar:</span> Kapalı</div>
+          <hr class="fmi-divider">
+          <div class="fmi-row">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.03 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <span>+90 312 000 00 00</span>
+          </div>
+          <div class="fmi-row">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>magaza@aybu.edu.tr</span>
+          </div>
+          <button class="map-cta" onclick="window.open('https://share.google/flxjU211WdA3UaArU','_blank')" aria-label="Haritada yol tarifi al">📍 Yol Tarifi Al</button>
+        </div>
+        <div class="map-embed">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3055.12!2d32.86!3d39.97!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d34f190454adbb%3A0xb17e46f41f0fa0ab!2sAnkara%20Y%C4%B1ld%C4%B1r%C4%B1m%20Beyaz%C4%B1t%20%C3%9Cniversitesi!5e0!3m2!1str!2str!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="AYBÜ harita"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" aria-label="Alt bilgi">
+    <div class="footer-inner">
+      <div>
+        <h3>AYBU Store</h3>
+        <p>Ankara Yıldırım Beyazıt Üniversitesi resmi ürün mağazası.</p>
+      </div>
+
+      <nav class="footer-links" aria-label="Yardım bağlantıları">
+        <a href="login.html">Hesabım</a>
+        <a href="#mapSection">İletişim</a>
+        <a href="#products">Ürünler</a>
+      </nav>
+
+      <div class="social-links" aria-label="Sosyal medya bağlantıları">
+        <a href="https://tr.linkedin.com/school/ybuankara/" target="_blank" rel="noopener noreferrer" aria-label="AYBÜ LinkedIn sayfası">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7 0h3.8v2.2h.1c.53-1 1.84-2.2 3.8-2.2 4.07 0 4.82 2.68 4.82 6.16V24h-4v-7.2c0-1.72-.03-3.94-2.4-3.94-2.4 0-2.77 1.87-2.77 3.82V24h-4V8z"/></svg>
+        </a>
+        <a href="https://instagram.com/ybuankara" target="_blank" rel="noopener noreferrer" aria-label="AYBÜ Instagram sayfası">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm8.36 1.72a4.03 4.03 0 00-2.87-.97H8.76c-1.08 0-1.95.13-2.66.41-.7.27-1.3.67-1.87 1.23a4.03 4.03 0 00-1.23 1.87c-.28.71-.41 1.58-.41 2.66v4.48c0 1.08.13 1.95.41 2.66.27.7.67 1.3 1.23 1.87a4.03 4.03 0 001.87 1.23c.71.28 1.58.41 2.66.41h4.48c1.08 0 1.95-.13 2.66-.41.7-.27 1.3-.67 1.87-1.23a4.03 4.03 0 001.23-1.87c.28-.71.41-1.58.41-2.66V8.92c0-1.08-.13-1.95-.41-2.66a4.03 4.03 0 00-1.23-1.87zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.75A3.25 3.25 0 1012 15.25 3.25 3.25 0 0012 8.75zm5.25-2.12a1.13 1.13 0 110 2.26 1.13 1.13 0 010-2.26z"/></svg>
+        </a>
+      </div>
+    </div>
+    <p class="copy">© <span id="yearNow"></span> AYBU Store. Tüm hakları saklıdır.</p>
+  </footer>
+
+  <nav class="bottom-nav" aria-label="Alt menü">
+    <a class="bn-item active" href="index.html" aria-current="page">
+      <span class="bn-ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1v-10.5Z"/></svg>
+      </span>
+      <span class="bn-label">Ana Sayfa</span>
+    </a>
+    <a class="bn-item" href="#products">
+      <span class="bn-ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16v2H4V6Zm0 5h16v2H4v-2Zm0 5h16v2H4v-2Z"/></svg>
+      </span>
+      <span class="bn-label">Kategoriler</span>
+    </a>
+    <a class="bn-item bn-center" href="#cartDrawer" data-cart-open aria-label="Sepeti aç">
+      <span class="bn-center-btn" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M7 7V6a5 5 0 0 1 10 0v1h3l-1.2 14.2A2 2 0 0 1 16.8 23H7.2a2 2 0 0 1-1.99-1.8L4 7h3Zm2 0h6V6a3 3 0 0 0-6 0v1Z"/></svg>
+      </span>
+      <span class="bn-label">Sepet (0)</span>
+    </a>
+    <a class="bn-item" href="#mapSection">
+      <span class="bn-ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 22a2.4 2.4 0 0 0 2.35-2h-4.7A2.4 2.4 0 0 0 12 22Zm7-6V11a7 7 0 1 0-14 0v5L3 18v1h18v-1l-2-2Z"/></svg>
+      </span>
+      <span class="bn-label">Bildirimler</span>
+    </a>
+    <a class="bn-item" href="login.html">
+      <span class="bn-ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-5 0-9 2.5-9 5.5V22h18v-2.5C21 16.5 17 14 12 14Z"/></svg>
+      </span>
+      <span class="bn-label">Profil</span>
+    </a>
+  </nav>
+
+  <aside class="chatkit" id="chatkit" aria-hidden="true" aria-labelledby="chatkitTitle" role="dialog" aria-modal="true" tabindex="-1">
+    <div class="chatkit-header">
+      <div>
+        <strong id="chatkitTitle">Canlı Destek</strong>
+        <small>Genelde 1-2 dk içinde yanıt</small>
+      </div>
+      <button class="chatkit-close" type="button" data-chatkit-close aria-label="Sohbeti kapat">×</button>
+    </div>
+    <div class="chatkit-body" id="chatkitBody" aria-label="Sohbet mesajları">
+      <div class="chatkit-msg bot">
+        <div class="bubble">Merhaba! Size nasıl yardımcı olabilirim?</div>
+        <div class="meta">AYBU Store • şimdi</div>
+      </div>
+    </div>
+    <form class="chatkit-input" id="chatkitForm" aria-label="Mesaj gönder">
+      <input id="chatkitText" type="text" placeholder="Mesajınızı yazın..." autocomplete="off" aria-label="Mesaj">
+      <button type="submit" class="chatkit-send" aria-label="Gönder">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21 23 12 2 3v7l15 2-15 2v7Z"/></svg>
+      </button>
+    </form>
+  </aside>
+
+  <button class="chatkit-fab" type="button" data-chatkit-open aria-label="Canlı destek sohbetini aç">
+    <span aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg>
+    </span>
+  </button>
+
+  <div class="drawer-overlay" id="drawerOverlay" data-cart-close hidden></div>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-labelledby="cartTitle" role="dialog" aria-modal="true" tabindex="-1">
+    <div class="drawer-header">
+      <h2 id="cartTitle">Sepetim</h2>
+      <button class="drawer-close" type="button" data-cart-close aria-label="Sepet panelini kapat">×</button>
+    </div>
+
+    <p class="drawer-note">AYBÜ resmi ürünleri güvenli ödeme adımına hazır.</p>
+
+    <div class="drawer-item" role="group" aria-label="Sepetteki ürün satırı">
+      <img src="../images/black_tshirt.png" alt="AYBÜ Siyah Tişört küçük görsel">
+      <div>
+        <h3>AYBÜ Siyah Tişört</h3>
+        <p>Adet: 1</p>
+        <strong>₺ 690</strong>
+      </div>
+    </div>
+
+    <div class="drawer-summary">
+      <div><span>Ara Toplam</span><strong>₺ 690</strong></div>
+      <div><span>Kargo</span><strong>₺ 0</strong></div>
+      <div class="total"><span>Toplam</span><strong>₺ 690</strong></div>
+    </div>
+
+    <button class="checkout-btn" type="button" aria-label="Alışverişi tamamla">ALIŞVERİŞİ TAMAMLA</button>
+    <button class="continue-btn" type="button" data-cart-close aria-label="Alışverişe devam et">ALIŞVERİŞE DEVAM ET</button>
+  </aside>
+</body>
+</html>
