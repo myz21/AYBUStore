@@ -78,10 +78,14 @@
     <section class="products" id="products" aria-labelledby="productsTitle">
       <div class="section-head">
         <h2 id="productsTitle">Çok Satanlar</h2>
-        <a href="#products" class="pill-btn" aria-label="Tüm ürünleri gör">Tüm Ürünler</a>
+        <div class="products-toolbar" role="group" aria-label="Ürün görünüm seçenekleri">
+          <button class="view-btn active" type="button" data-view-mode="all" aria-pressed="true">Tümü</button>
+          <button class="view-btn" type="button" data-view-mode="four" aria-pressed="false">4'lü</button>
+          <button class="view-btn" type="button" data-view-mode="list" aria-pressed="false">Liste</button>
+        </div>
       </div>
 
-      <div class="product-grid">
+      <div class="product-grid" id="productGrid">
         <article class="product-card">
           <div class="product-media">
             <img src="../images/blue_swearshirt.png" alt="AYBÜ Lacivert Sweatshirt">
@@ -201,6 +205,11 @@
             <p class="price">₺ 310</p>
           </div>
         </article>
+      </div>
+      <div class="products-pager" id="productsPager" hidden>
+        <button class="pager-btn" type="button" data-products-prev aria-label="Önceki ürün grubu">‹ Önceki</button>
+        <span class="pager-info" id="productsPagerInfo" aria-live="polite">1 / 1</span>
+        <button class="pager-btn" type="button" data-products-next aria-label="Sonraki ürün grubu">Sonraki ›</button>
       </div>
     </section>
 
