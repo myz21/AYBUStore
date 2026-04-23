@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AYBU Store | Bölümler</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body data-theme="light">
+  <a class="skip-link" href="#departmentsMain">İçeriğe Geç</a>
+
+  <div class="top-strip">
+    AYBÜ Kurumsal Mağaza: Kampüs ruhunu taşıyan resmi ürünler burada.
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="AYBU Store ana sayfaya git">
+        <img class="brand-mark" src="../images/logo2.png" alt="AYBU Store logosu">
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Menüyü aç veya kapat" aria-expanded="false" aria-controls="siteNav">☰</button>
+
+      <nav class="site-nav" id="siteNav" aria-label="Ana menü">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="index.html#products">Ürünler</a>
+        <a href="bolumler.html" aria-current="page">Bölümler</a>
+        <a href="index.html#mapSection">Mağaza</a>
+        <a href="login.html">Giriş</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="link-btn" href="register.html" aria-label="Üye ol sayfasına git">Üyelik</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Temayı değiştir">
+          <span class="theme-toggle-icon" aria-hidden="true">◐</span>
+          <span class="theme-toggle-label">Koyu Tema</span>
+        </button>
+        <button class="cart-btn" data-cart-open aria-label="Sepetim panelini aç" aria-controls="cartDrawer" aria-expanded="false">SEPETİM</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="departments-main" id="departmentsMain">
+    <aside class="filters-sidebar" aria-label="Filtreler">
+      <div class="filter-card">
+        <button class="filter-toggle" type="button">Göre filtrele: bölüm</button>
+      </div>
+      <div class="filter-card">
+        <button class="filter-toggle" type="button">Göre Filtrele: Beden</button>
+      </div>
+      <div class="filter-card">
+        <button class="filter-toggle" type="button">Göre Filtrele: Kumaş</button>
+      </div>
+      <div class="filter-card">
+        <button class="filter-toggle" type="button">Göre Filtrele: Hacim</button>
+      </div>
+      <div class="filter-card">
+        <button class="filter-toggle" type="button">Göre Filtrele: Körük</button>
+      </div>
+      <div class="filter-card">
+        <button class="filter-toggle" type="button">Göre Filtrele: Model</button>
+      </div>
+      <div class="filter-card">
+        <button class="filter-toggle" type="button">Göre Filtrele: Hız Seçenekleri</button>
+      </div>
+      <div class="filter-card">
+        <button class="filter-toggle" type="button">Göre Filtrele: Materyal</button>
+      </div>
+      <div class="filter-card">
+        <button class="filter-toggle" type="button">Göre Filtrele: Kalem Baskı Türü</button>
+      </div>
+      <div class="filter-card">
+        <button class="filter-toggle" type="button">Göre Filtrele: 1. T-shirt Beden</button>
+      </div>
+      <div class="filter-card">
+        <button class="filter-toggle" type="button">Göre Filtrele: 2. T-shirt Beden</button>
+      </div>
+      <div class="filter-card">
+        <button class="filter-toggle" type="button">Göre Filtrele: Renk</button>
+      </div>
+    </aside>
+
+    <section class="departments-content" aria-labelledby="departmentsTitle">
+      <div class="departments-head">
+        <h1 id="departmentsTitle">Bolumler</h1>
+        <label class="departments-sort">
+          <span>Göre sırala</span>
+          <select>
+            <option>En Çok Satanlar</option>
+            <option>Yeni Gelenler</option>
+            <option>Fiyat: Artan</option>
+            <option>Fiyat: Azalan</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="departments-placeholder">
+        <p>Bölümler sayfası filtre paneli hazır. İstersen bir sonraki adımda bunu gerçek ürün listesi ve açılır filtre içerikleriyle doldurabiliriz.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" aria-label="Alt bilgi">
+    <div class="footer-inner">
+      <section class="footer-col" aria-labelledby="footerStoreTitle">
+        <h3 id="footerStoreTitle">AYBU STORE</h3>
+        <nav class="footer-links" aria-label="AYBU Store bağlantıları">
+          <a href="index.html">Hakkımızda</a>
+          <a href="index.html">Sıkça Sorulan Sorular</a>
+          <a href="index.html">Kargo Bilgisi</a>
+          <a href="index.html">İade &amp; Değişim</a>
+          <a href="index.html">Gizlilik Politikası</a>
+        </nav>
+      </section>
+
+      <section class="footer-col" aria-labelledby="footerContactTitle">
+        <h3 id="footerContactTitle">BİZE ULAŞIN</h3>
+        <div class="footer-contact-list">
+          <a href="tel:+903120000000">+90 312 000 00 00</a>
+          <a href="tel:+905430000000">+90 543 000 00 00</a>
+          <a href="mailto:magaza@aybu.edu.tr">magaza@aybu.edu.tr</a>
+        </div>
+        <div class="social-links" aria-label="Sosyal medya bağlantıları">
+          <a href="https://instagram.com/ybuankara" target="_blank" rel="noopener noreferrer" aria-label="AYBÜ Instagram sayfası">IG</a>
+          <a href="https://tr.linkedin.com/school/ybuankara/" target="_blank" rel="noopener noreferrer" aria-label="AYBÜ LinkedIn sayfası">IN</a>
+          <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="AYBÜ X sayfası">X</a>
+        </div>
+      </section>
+
+      <section class="footer-col" aria-labelledby="footerAccountTitle">
+        <h3 id="footerAccountTitle">HESABIM</h3>
+        <nav class="footer-links" aria-label="Hesap bağlantıları">
+          <a href="login.html">Oturum Aç</a>
+          <a href="register.html">Kayıt Ol</a>
+          <a href="login.html">Sipariş Geçmişi</a>
+          <a href="login.html">İstek Listem</a>
+          <a href="login.html">Adres Bilgilerim</a>
+        </nav>
+      </section>
+
+      <section class="footer-col" aria-labelledby="footerSecureTitle">
+        <h3 id="footerSecureTitle">GÜVENLİ ALIŞVERİŞ</h3>
+        <div class="payment-badges" aria-label="Ödeme yöntemleri">
+          <span>TROY</span>
+          <span>MASTER</span>
+          <span>VISA</span>
+          <span>AMEX</span>
+        </div>
+        <div class="footer-links" aria-label="Güvenli alışveriş bilgileri">
+          <span>SSL Güvenli Ödeme</span>
+          <span>256-bit Şifreleme</span>
+          <span>Mesafeli Satış Sözleşmesi</span>
+        </div>
+      </section>
+    </div>
+    <div class="copy">
+      <span>© <span id="yearNow"></span> AYBUStore — Ankara Yıldırım Beyazıt Üniversitesi Resmi Mağazası</span>
+      <span>Tüm hakları saklıdır.</span>
+    </div>
+  </footer>
+
+  <div class="drawer-overlay" id="drawerOverlay" data-cart-close hidden></div>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-labelledby="cartTitle" role="dialog" aria-modal="true" tabindex="-1">
+    <div class="drawer-header">
+      <h2 id="cartTitle">Sepetim</h2>
+      <button class="drawer-close" type="button" data-cart-close aria-label="Sepet panelini kapat">×</button>
+    </div>
+
+    <p class="drawer-note">AYBÜ resmi ürünleri güvenli ödeme adımına hazır.</p>
+
+    <div class="drawer-item" role="group" aria-label="Sepetteki ürün satırı">
+      <img src="../images/black_tshirt.png" alt="AYBÜ Siyah Tişört küçük görsel">
+      <div>
+        <h3>AYBÜ Siyah Tişört</h3>
+        <p>Adet: 1</p>
+        <strong>₺ 690</strong>
+      </div>
+    </div>
+
+    <div class="drawer-summary">
+      <div><span>Ara Toplam</span><strong>₺ 690</strong></div>
+      <div><span>Kargo</span><strong>₺ 0</strong></div>
+      <div class="total"><span>Toplam</span><strong>₺ 690</strong></div>
+    </div>
+
+    <button class="checkout-btn" type="button" aria-label="Alışverişi tamamla">ALIŞVERİŞİ TAMAMLA</button>
+    <button class="continue-btn" type="button" data-cart-close aria-label="Alışverişe devam et">ALIŞVERİŞE DEVAM ET</button>
+  </aside>
+</body>
+</html>
