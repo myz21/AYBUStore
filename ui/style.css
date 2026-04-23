@@ -1374,13 +1374,25 @@ body[data-theme="dark"] .hero::after {
 }
 
 body[data-theme="dark"] .products,
-body[data-theme="dark"] .product-card,
 body[data-theme="dark"] .footer-map-info,
 body[data-theme="dark"] .login-panel,
 body[data-theme="dark"] .register-panel,
-body[data-theme="dark"] .design-modal,
-body[data-theme="dark"] .product-media {
+body[data-theme="dark"] .design-modal {
   background: linear-gradient(180deg, rgba(10, 14, 24, 0.98), rgba(13, 18, 32, 0.98));
+}
+
+body[data-theme="dark"] .product-card,
+body[data-theme="dark"] .product-media {
+  background: #ffffff;
+}
+
+body[data-theme="dark"] .section-head h2,
+body[data-theme="dark"] .product-info h3 {
+  color: #f3f6ff;
+}
+
+body[data-theme="dark"] .price {
+  color: #f2cb58;
 }
 
 body[data-theme="dark"] .design-preview,
