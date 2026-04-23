@@ -131,12 +131,13 @@ input {
 }
 
 .brand-mark {
-  width: 52px;
-  height: 52px;
-  border-radius: 4px;
-  object-fit: cover;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  height: 100px;        /* header yüksekliğine uyumlu */
+  width: auto;         /* kareye zorlamasın */
+  max-width: 220px;    /* çok uzunsa taşmasın (isteğe göre 180-260) */
+  border-radius: 0;    /* kare kutu hissini azaltır (istersen 4px bırak) */
+  object-fit: contain; /* kırpma yok, logo tam görünsün */
+  background: transparent;
+  border: none;
 }
 
 .brand span {
@@ -1829,9 +1830,11 @@ body[data-theme="dark"] .departments-placeholder {
   }
 
   .brand-mark {
-    width: 44px;
-    height: 44px;
+    height: 88px;
+    width: auto;
+    max-width: 160px;
   }
+
 
   .mobile-tabs {
     top: 56px;
