@@ -619,38 +619,52 @@ main {
 
 .site-footer {
   margin-top: 36px;
-  background: linear-gradient(140deg, #031126, #0a2858);
-  color: #dbeafe;
-  padding: 26px 18px 18px;
+  background: #121212;
+  color: #b9c2d0;
+  padding: 38px 18px 20px;
 }
 
 .footer-inner {
   max-width: 1240px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 20px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 30px;
   align-items: start;
 }
 
-.footer-inner h3 {
-  margin: 0 0 8px;
+.footer-col h3 {
+  margin: 0 0 14px;
+  padding-bottom: 12px;
   color: var(--white);
   font-family: "Space Grotesk", sans-serif;
-}
-
-.footer-inner p {
-  margin: 0;
-  color: #bdd3eb;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-links {
   display: grid;
-  gap: 8px;
+  gap: 10px;
+  font-size: 15px;
 }
 
-.footer-links a:hover {
+.footer-links a,
+.footer-links span,
+.footer-contact-list a {
+  color: #b9c2d0;
+}
+
+.footer-links a:hover,
+.footer-contact-list a:hover {
   color: var(--white);
+}
+
+.footer-contact-list {
+  display: grid;
+  gap: 10px;
+  font-size: 15px;
+  margin-bottom: 16px;
 }
 
 .social-links {
@@ -659,29 +673,61 @@ main {
 }
 
 .social-links a {
-  width: 38px;
+  min-width: 38px;
   height: 38px;
+  padding: 0 12px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.24);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.06);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
 }
 
-.social-links svg {
-  width: 19px;
-  height: 19px;
-  fill: currentColor;
+.payment-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.payment-badges span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 46px;
+  height: 24px;
+  padding: 0 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.payment-badges span:nth-child(1) { background: #6f6f73; }
+.payment-badges span:nth-child(2) { background: #eb001b; }
+.payment-badges span:nth-child(3) { background: #1a1f71; }
+.payment-badges span:nth-child(4) { background: #2563eb; }
+
+.footer-col .footer-links[aria-label="Güvenli alışveriş bilgileri"] span {
+  color: #d2d8e2;
 }
 
 .copy {
   max-width: 1240px;
-  margin: 16px auto 0;
+  margin: 28px auto 0;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
-  padding-top: 12px;
+  padding-top: 18px;
   font-size: 13px;
-  color: #a8c3df;
+  color: #8d97a6;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
 .drawer-overlay {
@@ -1031,7 +1077,7 @@ main {
   }
 
   .footer-inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .login-main {
@@ -1121,6 +1167,15 @@ main {
 
   .bottom-nav {
     display: grid;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .copy {
+    flex-direction: column;
   }
 
   .header-actions .link-btn {
