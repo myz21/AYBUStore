@@ -358,6 +358,7 @@
   function initLoginForm() {
     var form = byId("loginForm");
     if (!form) return;
+    if (form.getAttribute("data-auth-mode") === "firebase") return;
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -376,6 +377,7 @@
   function initRegisterForm() {
     var form = byId("registerForm");
     if (!form) return;
+    if (form.getAttribute("data-auth-mode") === "firebase") return;
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
