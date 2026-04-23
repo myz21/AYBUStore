@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="style.css">
   <script src="app.js" defer></script>
 </head>
-<body>
+<body data-theme="light">
   <a class="skip-link" href="#mainContent">İçeriğe Geç</a>
 
   <div class="top-strip">
@@ -36,6 +36,11 @@
         <div class="header-search" data-header-search>
           <input id="headerSearchInput" class="header-search-input" type="search" placeholder="Ürün ara..." aria-label="Ürün ara">
         </div>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Temayı değiştir">
+          <span class="theme-toggle-icon" aria-hidden="true">◐</span>
+          <span class="theme-toggle-label">Koyu Tema</span>
+        </button>
+        <button class="design-btn" type="button" data-design-open aria-label="Tasarım ekleme panelini aç">Tasarım Ekle</button>
         <button class="icon-btn" type="button" aria-label="Aramayı aç veya kapat" aria-expanded="false" aria-controls="headerSearchInput" data-search-toggle>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 18a8 8 0 1 1 5.293-14.001A8 8 0 0 1 10 18Zm11.707 2.293-5.1-5.1a10 10 0 1 0-1.414 1.414l5.1 5.1a1 1 0 0 0 1.414-1.414Z"/></svg>
         </button>
@@ -73,6 +78,15 @@
       <button class="hero-nav next" type="button" data-slide-next aria-label="Sonraki slayt">›</button>
 
       <div class="hero-dots" id="heroDots" aria-label="Slider göstergeleri"></div>
+    </section>
+
+    <section class="design-launch" aria-labelledby="designLaunchTitle">
+      <div class="design-launch-copy">
+        <p class="design-kicker">Kendi Tasarımın</p>
+        <h2 id="designLaunchTitle">Kampüs ruhunu kendi çizginle ürüne taşı.</h2>
+        <p>Tişört, hoodie ve sweatshirt ürünlerine kendi görselini yerleştir. Dosyanı yükle, konum seç, önizle ve bize gönder.</p>
+      </div>
+      <button class="design-launch-btn" type="button" data-design-open aria-label="Tasarım yükleme penceresini aç">Tasarım Ekle</button>
     </section>
 
     <section class="products" id="products" aria-labelledby="productsTitle">
@@ -353,6 +367,66 @@
       <svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg>
     </span>
   </button>
+
+  <div class="design-overlay" id="designOverlay" data-design-close hidden></div>
+
+  <aside class="design-modal" id="designModal" aria-hidden="true" aria-labelledby="designModalTitle" role="dialog" aria-modal="true" tabindex="-1">
+    <div class="design-modal-head">
+      <div>
+        <strong id="designModalTitle">Tasarım Yükle</strong>
+        <p>Kendi tasarımınızı ürüne ekleyin</p>
+      </div>
+      <button class="design-modal-close" type="button" data-design-close aria-label="Tasarım penceresini kapat">×</button>
+    </div>
+
+    <div class="design-modal-body">
+      <label class="design-upload" for="designFileInput">
+        <span class="design-upload-icon" aria-hidden="true">✦</span>
+        <strong>Dosya Seçin veya Sürükleyin</strong>
+        <span>PNG, JPG, SVG desteklenir · Maks. 10 MB</span>
+        <input id="designFileInput" type="file" accept="image/png,image/jpeg,image/svg+xml,image/webp" hidden>
+      </label>
+
+      <div class="design-preview" id="designPreviewBox" aria-label="Tasarım önizleme alanı">
+        <img id="designPreviewImage" src="../images/ürünler-banner.png" alt="Yüklenecek tasarım önizlemesi">
+        <span id="designPreviewLabel">Önizleme</span>
+      </div>
+
+      <form class="design-form" id="designForm">
+        <div class="design-form-row">
+          <label class="design-field">
+            <span>ÜRÜN SEÇİN</span>
+            <select id="designProduct">
+              <option>AYBU Hoodie</option>
+              <option>AYBU Tişört</option>
+              <option>AYBU Sweatshirt</option>
+              <option>AYBU Polo</option>
+            </select>
+          </label>
+
+          <label class="design-field">
+            <span>TASARIM KONUMU</span>
+            <select id="designPlacement">
+              <option>Göğüs (Sol)</option>
+              <option>Göğüs (Orta)</option>
+              <option>Sırt</option>
+              <option>Kol</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="design-field design-field-full">
+          <span>AÇIKLAMA</span>
+          <input id="designNote" type="text" placeholder="Tasarımınız hakkında not ekleyin...">
+        </label>
+      </form>
+    </div>
+
+    <div class="design-modal-actions">
+      <button class="design-cancel" type="button" data-design-close>İptal</button>
+      <button class="design-submit" type="submit" form="designForm">Tasarımı Gönder</button>
+    </div>
+  </aside>
 
   <div class="drawer-overlay" id="drawerOverlay" data-cart-close hidden></div>
 
