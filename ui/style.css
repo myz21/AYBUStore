@@ -177,9 +177,7 @@ input {
   color: var(--white);
 }
 
-.site-nav .menu-auth-link {
-  display: none;
-}
+
 
 .header-actions {
   display: inline-flex;
@@ -1739,21 +1737,18 @@ body[data-theme="dark"] .departments-placeholder {
   outline-offset: 2px;
 }
 
-@media (max-width: 1023px) {
+
   .header-inner {
     grid-template-columns: auto 1fr auto auto;
     grid-template-areas: "brand spacer actions menu";
   }
-
   .brand {
     grid-area: brand;
   }
-
   .header-actions {
     grid-area: actions;
     justify-self: end;
   }
-
   .menu-toggle {
     display: inline-flex;
     grid-area: menu;
@@ -1766,7 +1761,6 @@ body[data-theme="dark"] .departments-placeholder {
     border: 1px solid rgba(255, 255, 255, 0.28);
     background: rgba(255, 255, 255, 0.08);
   }
-
   .site-nav {
     position: absolute;
     left: auto;
@@ -1781,21 +1775,15 @@ body[data-theme="dark"] .departments-placeholder {
     flex-direction: column;
     gap: 10px;
     transform-origin: top right;
+    z-index: 1000; /* Added to ensure it appears over other elements */
   }
-
-  .mobile-tabs {
-    display: flex;
-  }
-
   .site-nav.open {
     display: flex;
   }
-
   .site-nav a {
     padding-bottom: 0;
     border-bottom: none;
   }
-
   .site-nav .menu-auth-link {
     display: inline-flex;
     align-items: center;
@@ -1809,8 +1797,40 @@ body[data-theme="dark"] .departments-placeholder {
     font-weight: 800;
     letter-spacing: 0.02em;
   }
-
   .site-nav .menu-auth-link:last-child {
+    background: linear-gradient(135deg, var(--amber-500), #d97706);
+    border-color: transparent;
+    color: #ffffff;
+  }
+
+@media (max-width: 1023px) {
+.brand {
+    grid-area: brand;
+  }
+
+.menu-toggle {
+    display: inline-flex;
+    grid-area: menu;
+    justify-self: end;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    justify-content: center;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+.mobile-tabs {
+    display: flex;
+  }
+
+.site-nav a {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+.site-nav .menu-auth-link:last-child {
     background: linear-gradient(135deg, var(--amber-500), #d97706);
     border-color: transparent;
     color: #ffffff;
