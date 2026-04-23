@@ -13,6 +13,10 @@
 <body class="login-page">
   <a class="skip-link" href="#registerMain">İçeriğe Geç</a>
 
+  <div class="top-strip">
+    AYBÜ Kurumsal Mağaza: Kampüs ruhunu taşıyan resmi ürünler burada.
+  </div>
+
   <header class="site-header" id="siteHeader">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="AYBU Store ana sayfaya git">
@@ -25,11 +29,16 @@
         <a href="index.html">Ana Sayfa</a>
         <a href="index.html#products">Ürünler</a>
         <a href="index.html#mapSection">Mağaza</a>
-        <a href="login.html">Giriş</a>
-        <a href="register.html" aria-current="page">Üye Ol</a>
       </nav>
 
       <div class="header-actions">
+        <a class="link-btn" href="register.html" aria-label="Üye ol sayfasına git">Üyelik</a>
+        <div class="header-search" data-header-search>
+          <input id="headerSearchInput" class="header-search-input" type="search" placeholder="Ürün ara..." aria-label="Ürün ara">
+        </div>
+        <button class="icon-btn" type="button" aria-label="Aramayı aç veya kapat" aria-expanded="false" aria-controls="headerSearchInput" data-search-toggle>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 18a8 8 0 1 1 5.293-14.001A8 8 0 0 1 10 18Zm11.707 2.293-5.1-5.1a10 10 0 1 0-1.414 1.414l5.1 5.1a1 1 0 0 0 1.414-1.414Z"/></svg>
+        </button>
         <button class="cart-btn" data-cart-open aria-label="Sepetim panelini aç" aria-controls="cartDrawer" aria-expanded="false">SEPETİM</button>
       </div>
     </div>
@@ -69,28 +78,61 @@
   </main>
 
   <footer class="site-footer" aria-label="Alt bilgi">
-    <div class="footer-inner">
-      <div>
+    <div class="footer-inner footer-grid">
+      <section class="footer-col" aria-label="AYBU Store bilgileri">
         <h3>AYBU Store</h3>
         <p>Ankara Yıldırım Beyazıt Üniversitesi resmi ürün mağazası.</p>
-      </div>
+        <nav class="footer-links" aria-label="Kurumsal bağlantılar">
+          <a href="index.html#mapSection">Hakkımızda</a>
+          <a href="index.html#products">Sıkça Sorulan Sorular</a>
+          <a href="index.html#products">Kargo Bilgisi</a>
+          <a href="index.html#products">İade ve Değişim</a>
+          <a href="index.html#products">Gizlilik Politikası</a>
+        </nav>
+      </section>
 
-      <nav class="footer-links" aria-label="Yardım bağlantıları">
-        <a href="index.html">Ana Sayfa</a>
-        <a href="index.html#mapSection">İletişim</a>
-        <a href="index.html#products">Ürünler</a>
-      </nav>
+      <section class="footer-col" aria-label="İletişim bilgileri">
+        <h3>Bize Ulaşın</h3>
+        <p class="footer-contact-row"><span aria-hidden="true">📞</span><a href="tel:+903120000000">+90 312 000 00 00</a></p>
+        <p class="footer-contact-row"><span aria-hidden="true">✉️</span><a href="mailto:magaza@aybu.edu.tr">magaza@aybu.edu.tr</a></p>
+        <div class="social-links" aria-label="Sosyal medya bağlantıları">
+          <a href="https://tr.linkedin.com/school/ybuankara/" target="_blank" rel="noopener noreferrer" aria-label="AYBÜ LinkedIn sayfası">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7 0h3.8v2.2h.1c.53-1 1.84-2.2 3.8-2.2 4.07 0 4.82 2.68 4.82 6.16V24h-4v-7.2c0-1.72-.03-3.94-2.4-3.94-2.4 0-2.77 1.87-2.77 3.82V24h-4V8z"/></svg>
+          </a>
+          <a href="https://instagram.com/ybuankara" target="_blank" rel="noopener noreferrer" aria-label="AYBÜ Instagram sayfası">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm8.36 1.72a4.03 4.03 0 00-2.87-.97H8.76c-1.08 0-1.95.13-2.66.41-.7.27-1.3.67-1.87 1.23a4.03 4.03 0 00-1.23 1.87c-.28.71-.41 1.58-.41 2.66v4.48c0 1.08.13 1.95.41 2.66.27.7.67 1.3 1.23 1.87a4.03 4.03 0 001.87 1.23c.71.28 1.58.41 2.66.41h4.48c1.08 0 1.95-.13 2.66-.41.7-.27 1.3-.67 1.87-1.23a4.03 4.03 0 001.23-1.87c.28-.71.41-1.58.41-2.66V8.92c0-1.08-.13-1.95-.41-2.66a4.03 4.03 0 00-1.23-1.87zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.75A3.25 3.25 0 1012 15.25 3.25 3.25 0 0012 8.75zm5.25-2.12a1.13 1.13 0 110 2.26 1.13 1.13 0 010-2.26z"/></svg>
+          </a>
+        </div>
+      </section>
 
-      <div class="social-links" aria-label="Sosyal medya bağlantıları">
-        <a href="https://tr.linkedin.com/school/ybuankara/" target="_blank" rel="noopener noreferrer" aria-label="AYBÜ LinkedIn sayfası">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7 0h3.8v2.2h.1c.53-1 1.84-2.2 3.8-2.2 4.07 0 4.82 2.68 4.82 6.16V24h-4v-7.2c0-1.72-.03-3.94-2.4-3.94-2.4 0-2.77 1.87-2.77 3.82V24h-4V8z"/></svg>
-        </a>
-        <a href="https://instagram.com/ybuankara" target="_blank" rel="noopener noreferrer" aria-label="AYBÜ Instagram sayfası">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm8.36 1.72a4.03 4.03 0 00-2.87-.97H8.76c-1.08 0-1.95.13-2.66.41-.7.27-1.3.67-1.87 1.23a4.03 4.03 0 00-1.23 1.87c-.28.71-.41 1.58-.41 2.66v4.48c0 1.08.13 1.95.41 2.66.27.7.67 1.3 1.23 1.87a4.03 4.03 0 001.87 1.23c.71.28 1.58.41 2.66.41h4.48c1.08 0 1.95-.13 2.66-.41.7-.27 1.3-.67 1.87-1.23a4.03 4.03 0 001.23-1.87c.28-.71.41-1.58.41-2.66V8.92c0-1.08-.13-1.95-.41-2.66a4.03 4.03 0 00-1.23-1.87zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.75A3.25 3.25 0 1012 15.25 3.25 3.25 0 0012 8.75zm5.25-2.12a1.13 1.13 0 110 2.26 1.13 1.13 0 010-2.26z"/></svg>
-        </a>
-      </div>
+      <section class="footer-col" aria-label="Hesap bağlantıları">
+        <h3>Hesabım</h3>
+        <nav class="footer-links" aria-label="Hesap bağlantıları">
+          <a href="login.html">Oturum Aç</a>
+          <a href="register.html">Kayıt Ol</a>
+          <a href="index.html#products">Sipariş Geçmişi</a>
+          <a href="index.html#products">İstek Listem</a>
+        </nav>
+      </section>
+
+      <section class="footer-col" aria-label="Güvenli alışveriş bilgileri">
+        <h3>Güvenli Alışveriş</h3>
+        <div class="pay-row" aria-label="Ödeme yöntemleri">
+          <span class="pay-badge">TROY</span>
+          <span class="pay-badge pay-master">MASTER</span>
+          <span class="pay-badge pay-visa">VISA</span>
+          <span class="pay-badge pay-amex">AMEX</span>
+        </div>
+        <nav class="footer-links" aria-label="Ödeme ve sözleşme bağlantıları">
+          <a href="index.html#products">SSL Güvenli Ödeme</a>
+          <a href="index.html#products">Mesafeli Satış Sözleşmesi</a>
+        </nav>
+      </section>
     </div>
-    <p class="copy">© <span id="yearNow"></span> AYBU Store. Tüm hakları saklıdır.</p>
+    <div class="copy copy-row">
+      <p>© <span id="yearNow"></span> AYBU Store — Ankara Yıldırım Beyazıt Üniversitesi Resmi Mağazası</p>
+      <p>Tüm hakları saklıdır.</p>
+    </div>
   </footer>
 
   <div class="drawer-overlay" id="drawerOverlay" data-cart-close hidden></div>
