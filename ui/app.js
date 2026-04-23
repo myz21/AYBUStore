@@ -14,6 +14,42 @@
     if (y) y.textContent = String(new Date().getFullYear());
   }
 
+  function initThemeToggle() {
+    var toggle = document.querySelector("[data-theme-toggle]");
+    if (!toggle) return;
+
+    var bodyEl = document.body;
+    var label = toggle.querySelector(".theme-toggle-label");
+    var storageKey = "aybu-theme";
+
+    function applyTheme(theme) {
+      bodyEl.setAttribute("data-theme", theme);
+      if (label) {
+        label.textContent = theme === "dark" ? "Açık Tema" : "Koyu Tema";
+      }
+      toggle.setAttribute("aria-pressed", String(theme === "dark"));
+    }
+
+    var savedTheme = null;
+    try {
+      savedTheme = window.localStorage.getItem(storageKey);
+    } catch (err) {
+      savedTheme = null;
+    }
+
+    applyTheme(savedTheme === "dark" ? "dark" : "light");
+
+    toggle.addEventListener("click", function () {
+      var nextTheme = bodyEl.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      applyTheme(nextTheme);
+      try {
+        window.localStorage.setItem(storageKey, nextTheme);
+      } catch (err) {
+        // Ignore storage failures in demo mode.
+      }
+    });
+  }
+
   function initMenu() {
     var toggle = byId("menuToggle");
     var nav = byId("siteNav");
@@ -242,6 +278,83 @@
     });
   }
 
+  function initDesignModal() {
+    var modal = byId("designModal");
+    var overlay = byId("designOverlay");
+    var openButtons = qsa("[data-design-open]");
+    var closeButtons = qsa("[data-design-close]");
+    var form = byId("designForm");
+    var fileInput = byId("designFileInput");
+    var previewImage = byId("designPreviewImage");
+    var previewLabel = byId("designPreviewLabel");
+    if (!modal || !overlay || !openButtons.length || !closeButtons.length || !form) return;
+
+    var lastFocused = null;
+
+    function setOpen(isOpen, source) {
+      modal.classList.toggle("open", isOpen);
+      modal.setAttribute("aria-hidden", String(!isOpen));
+      overlay.hidden = !isOpen;
+      body.classList.toggle("no-scroll", isOpen);
+
+      if (isOpen) {
+        lastFocused = source || document.activeElement;
+        modal.focus();
+      } else if (lastFocused && typeof lastFocused.focus === "function") {
+        lastFocused.focus();
+      }
+    }
+
+    openButtons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        setOpen(true, btn);
+      });
+    });
+
+    closeButtons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        setOpen(false);
+      });
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && modal.classList.contains("open")) {
+        setOpen(false);
+      }
+    });
+
+    if (fileInput && previewImage && previewLabel) {
+      fileInput.addEventListener("change", function () {
+        var file = fileInput.files && fileInput.files[0];
+        if (!file) return;
+
+        var reader = new FileReader();
+        reader.onload = function (event) {
+          previewImage.src = String(event.target && event.target.result ? event.target.result : previewImage.src);
+          previewLabel.textContent = file.name;
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var product = byId("designProduct");
+      var placement = byId("designPlacement");
+      var note = byId("designNote");
+
+      window.alert(
+        "Tasarım talebiniz alındı. Ürün: " +
+        (product ? product.value : "-") +
+        ", Konum: " +
+        (placement ? placement.value : "-") +
+        (note && note.value.trim() ? ", Not: " + note.value.trim() : "") +
+        "."
+      );
+      setOpen(false);
+    });
+  }
+
   function initLoginForm() {
     var form = byId("loginForm");
     if (!form) return;
@@ -344,10 +457,12 @@
   }
 
   initYear();
+  initThemeToggle();
   initMenu();
   initSlider();
   initMobileTabs();
   initHeaderSearch();
+  initDesignModal();
   initCartDrawer();
   initLoginForm();
   initRegisterForm();

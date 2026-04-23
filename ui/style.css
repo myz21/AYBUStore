@@ -1656,6 +1656,19 @@ body[data-theme="dark"] .design-submit {
   .login-hero {
     min-height: 300px;
   }
+
+  .design-launch {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .design-modal-body {
+    grid-template-columns: 1fr;
+  }
+
+  .design-form-row {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 639px) {
@@ -1742,12 +1755,50 @@ body[data-theme="dark"] .design-submit {
     display: none;
   }
 
+  .theme-toggle-label,
+  .design-btn {
+    display: none;
+  }
+
   .cart-btn {
     display: none;
   }
 
   .header-actions.search-open .header-search {
     width: min(58vw, 220px);
+  }
+
+  .design-launch {
+    padding: 20px 18px;
+    border-radius: 18px;
+  }
+
+  .design-launch h2 {
+    font-size: 26px;
+  }
+
+  .design-launch-btn {
+    width: 100%;
+  }
+
+  .design-modal {
+    width: calc(100vw - 20px);
+  }
+
+  .design-modal-head,
+  .design-modal-body,
+  .design-modal-actions {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .design-modal-actions {
+    justify-content: stretch;
+  }
+
+  .design-cancel,
+  .design-submit {
+    flex: 1;
   }
 
   .hero-content {
