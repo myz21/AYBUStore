@@ -10,17 +10,12 @@
   <link rel="stylesheet" href="style.css">
   <script src="app.js" defer></script>
 </head>
-<body data-theme="light">
+<body class="page-index">
   <a class="skip-link" href="#mainContent">İçeriğe Geç</a>
-
-  <div class="top-strip">
-    AYBÜ Kurumsal Mağaza: Kampüs ruhunu taşıyan resmi ürünler burada.
-  </div>
-
   <header class="site-header" id="siteHeader">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="AYBU Store ana sayfaya git">
-        <img class="brand-mark" src="../images/aybu_store_new.jfif" alt="AYBU Store logosu">
+        <img class="brand-mark" src="../images/logo2.png" alt="AYBU Store logosu">
       </a>
 
       <button class="menu-toggle" id="menuToggle" aria-label="Menüyü aç veya kapat" aria-expanded="false" aria-controls="siteNav">☰</button>
@@ -39,11 +34,6 @@
         <div class="header-search" data-header-search>
           <input id="headerSearchInput" class="header-search-input" type="search" placeholder="Ürün ara..." aria-label="Ürün ara">
         </div>
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Temayı değiştir">
-          <span class="theme-toggle-icon" aria-hidden="true">◐</span>
-          <span class="theme-toggle-label">Koyu Tema</span>
-        </button>
-        <button class="design-btn" type="button" data-design-open aria-label="Tasarım ekleme panelini aç">Tasarım Ekle</button>
         <button class="icon-btn" type="button" aria-label="Aramayı aç veya kapat" aria-expanded="false" aria-controls="headerSearchInput" data-search-toggle>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 18a8 8 0 1 1 5.293-14.001A8 8 0 0 1 10 18Zm11.707 2.293-5.1-5.1a10 10 0 1 0-1.414 1.414l5.1 5.1a1 1 0 0 0 1.414-1.414Z"/></svg>
         </button>
@@ -247,7 +237,7 @@
           <button class="map-cta" onclick="window.open('https://share.google/flxjU211WdA3UaArU','_blank')" aria-label="Haritada yol tarifi al">📍 Yol Tarifi Al</button>
         </div>
         <div class="map-embed">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3055.12!2d32.86!3d39.97!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d34f190454adbb%3A0xb17e46f41f0fa0ab!2sAnkara%20Y%C4%B1ld%C4%B1r%C4%B1m%20Beyaz%C4%B1t%20%C3%9Cniversitesi!5e0!3m2!1str!2str!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="AYBÜ harita"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3057.6825859808796!2d32.8159157124834!3d39.970848871395894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d34c029ec9701b%3A0xfb0b0a3bf440a10a!2zQW5rYXJhIFnEsWxkxLFyxLFtIEJleWF6xLF0IMOcbml2ZXJzaXRlc2kgMTUgVGVtbXV6IMWeZWhpdGxlcmkgWWVybfFn2tlc2ki!5e0!3m2!1str!2str!4v1776981183560!5m2!1str!2str" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="AYBÜ harita"></iframe>
         </div>
       </div>
     </section>
@@ -377,8 +367,8 @@
   <aside class="design-modal" id="designModal" aria-hidden="true" aria-labelledby="designModalTitle" role="dialog" aria-modal="true" tabindex="-1">
     <div class="design-modal-head">
       <div>
-        <strong id="designModalTitle">Tasarım Yükle</strong>
-        <p>Kendi tasarımınızı ürüne ekleyin</p>
+        <strong id="designModalTitle">Tasarım Stüdyosu</strong>
+        <p>Kendi tasarımınızı canlı önizleme ile hazırlayın.</p>
       </div>
       <button class="design-modal-close" type="button" data-design-close aria-label="Tasarım penceresini kapat">×</button>
     </div>
@@ -386,20 +376,23 @@
     <div class="design-modal-body">
       <label class="design-upload" for="designFileInput">
         <span class="design-upload-icon" aria-hidden="true">✦</span>
-        <strong>Dosya Seçin veya Sürükleyin</strong>
-        <span>PNG, JPG, SVG desteklenir · Maks. 10 MB</span>
+        <strong>Görsel Yükle</strong>
+        <span>PNG, JPG, SVG, WEBP · Maks. 10 MB</span>
         <input id="designFileInput" type="file" accept="image/png,image/jpeg,image/svg+xml,image/webp" hidden>
       </label>
 
       <div class="design-preview" id="designPreviewBox" aria-label="Tasarım önizleme alanı">
-        <img id="designPreviewImage" src="../images/ürünler-banner.png" alt="Yüklenecek tasarım önizlemesi">
-        <span id="designPreviewLabel">Önizleme</span>
+        <div class="design-preview-canvas">
+          <img id="designPreviewImage" src="../images/logo2.png" alt="Yüklenecek tasarım önizlemesi" data-default-src="../images/logo2.png" data-default-alt="Tasarım yüklenmedi, örnek önizleme görseli">
+          <span class="design-placement-badge" id="designPlacementBadge">Göğüs (Sol)</span>
+        </div>
+        <span id="designPreviewLabel">Henüz dosya yüklenmedi</span>
       </div>
 
       <form class="design-form" id="designForm">
         <div class="design-form-row">
           <label class="design-field">
-            <span>ÜRÜN SEÇİN</span>
+            <span>ÜRÜN</span>
             <select id="designProduct">
               <option>AYBU Hoodie</option>
               <option>AYBU Tişört</option>
@@ -419,6 +412,17 @@
           </label>
         </div>
 
+        <div class="design-form-row">
+          <label class="design-field">
+            <span>BOYUT</span>
+            <input id="designScale" type="range" min="70" max="150" step="1" value="100" aria-label="Tasarım boyutu">
+          </label>
+          <label class="design-field">
+            <span>AÇI</span>
+            <input id="designRotate" type="range" min="-25" max="25" step="1" value="0" aria-label="Tasarım açısı">
+          </label>
+        </div>
+
         <label class="design-field design-field-full">
           <span>AÇIKLAMA</span>
           <input id="designNote" type="text" placeholder="Tasarımınız hakkında not ekleyin...">
@@ -427,6 +431,7 @@
     </div>
 
     <div class="design-modal-actions">
+      <button class="design-preview-reset" id="designPreviewReset" type="button" aria-label="Yüklenen önizlemeyi sıfırla" hidden>Sıfırla</button>
       <button class="design-cancel" type="button" data-design-close>İptal</button>
       <button class="design-submit" type="submit" form="designForm">Tasarımı Gönder</button>
     </div>
