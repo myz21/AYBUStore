@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AYBU Store | Giriş</title>
+  <title>AYBU Store | Üye Ol</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
   <script src="app.js" defer></script>
 </head>
 <body class="login-page">
-  <a class="skip-link" href="#loginMain">İçeriğe Geç</a>
+  <a class="skip-link" href="#registerMain">İçeriğe Geç</a>
 
   <header class="site-header" id="siteHeader">
     <div class="header-inner">
@@ -25,8 +25,8 @@
         <a href="index.html">Ana Sayfa</a>
         <a href="index.html#products">Ürünler</a>
         <a href="index.html#mapSection">Mağaza</a>
-        <a href="login.html" aria-current="page">Giriş</a>
-        <a href="register.html">Üye Ol</a>
+        <a href="login.html">Giriş</a>
+        <a href="register.html" aria-current="page">Üye Ol</a>
       </nav>
 
       <div class="header-actions">
@@ -35,40 +35,36 @@
     </div>
   </header>
 
-  <main class="login-main" id="loginMain">
+  <main class="login-main" id="registerMain">
     <section class="login-hero" aria-hidden="true">
       <img src="../images/ürünler-banner.png" alt="">
       <div class="login-hero-overlay">
         <p>AYBÜ Store</p>
-        <h1>Hesabına Giriş Yap</h1>
+        <h1>Yeni Hesap Oluştur</h1>
       </div>
     </section>
 
-    <section class="login-panel" aria-labelledby="loginTitle">
-      <h2 id="loginTitle">AYBÜ Hesabınıza Giriş Yapın</h2>
-      <p>Sepetinizi, siparişlerinizi ve favori ürünlerinizi yönetmek için giriş yapın.</p>
+    <section class="register-panel" aria-labelledby="registerTitle">
+      <div class="register-banner" aria-hidden="true">
+        <img src="../images/ürünler-banner.png" alt="">
+      </div>
+      <h2 id="registerTitle">Üye Ol</h2>
+      <p>AYBÜ Store deneyimine başlamak için hesap oluşturun.</p>
 
-      <form class="login-form" id="loginForm" novalidate>
-        <label for="email">E-posta</label>
-        <input id="email" name="email" type="email" autocomplete="email" required placeholder="ornek@aybu.edu.tr" aria-label="E-posta adresi">
+      <form class="login-form" id="registerForm" novalidate>
+        <label for="regName">Ad Soyad</label>
+        <input id="regName" name="name" type="text" autocomplete="name" required placeholder="Ad Soyad" aria-label="Ad soyad">
 
-        <label for="password">Şifre</label>
-        <input id="password" name="password" type="password" autocomplete="current-password" required placeholder="••••••••" aria-label="Şifre">
+        <label for="regEmail">E-posta</label>
+        <input id="regEmail" name="email" type="email" autocomplete="email" required placeholder="ornek@aybu.edu.tr" aria-label="E-posta adresi">
 
-        <div class="login-options">
-          <label class="remember">
-            <input type="checkbox" name="remember"> Beni Hatırla
-          </label>
-          <a href="#" aria-label="Şifremi unuttum bağlantısı">Şifremi Unuttum</a>
-        </div>
+        <label for="regPassword">Şifre</label>
+        <input id="regPassword" name="password" type="password" autocomplete="new-password" required placeholder="••••••••" aria-label="Şifre oluştur">
 
-        <div class="auth-actions">
-          <button type="submit" class="hero-cta">Giriş Yap</button>
-          <a href="register.html" class="auth-secondary-cta" aria-label="Üye ol sayfasına git">Üye Ol</a>
-        </div>
+        <button type="submit" class="hero-cta">Üye Ol</button>
       </form>
 
-      <p class="register-line">Hesabın yok mu? <a href="register.html" aria-label="Üye ol sayfasına git">Hemen Üye Ol</a></p>
+      <p class="register-line">Zaten hesabın var mı? <a href="login.html" aria-label="Giriş sayfasına git">Giriş Yap</a></p>
     </section>
   </main>
 

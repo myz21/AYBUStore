@@ -386,6 +386,28 @@ main {
   transform: translateY(-1px);
 }
 
+.auth-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.auth-secondary-cta {
+  display: inline-block;
+  text-align: center;
+  padding: 11px 18px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #f7fbff;
+  color: var(--navy-800);
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.auth-secondary-cta:hover {
+  background: #eef6ff;
+}
+
 .products {
   margin-top: 28px;
   background: var(--white);
