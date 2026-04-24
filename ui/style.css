@@ -214,8 +214,6 @@ body.site-header-collapsed:not(.page-leave) .site-header {
   }
 }
 
-
-
 .header-actions {
   display: inline-flex;
   align-items: center;
@@ -1421,38 +1419,6 @@ body.page-leave main {
   font-size: 14px;
 }
 
-.auth-status {
-  display: none;
-  margin-top: 12px;
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid transparent;
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.auth-status.is-visible {
-  display: block;
-}
-
-.auth-status.is-info {
-  background: #eef6ff;
-  border-color: #c8dcff;
-  color: #1f3a66;
-}
-
-.auth-status.is-success {
-  background: #ecfdf3;
-  border-color: #a6e9c5;
-  color: #0f5132;
-}
-
-.auth-status.is-error {
-  background: #fff1f2;
-  border-color: #fecdd3;
-  color: #9f1239;
-}
-
 .register-line a,
 .login-options a {
   color: #92400e;
@@ -1473,13 +1439,11 @@ body.page-leave main {
   top: 50%;
   left: 50%;
   width: min(920px, calc(100vw - 28px));
-  max-height: 90vh;
   transform: translate(-50%, -50%) scale(0.96);
   opacity: 0;
   pointer-events: none;
   border-radius: 22px;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
   background: linear-gradient(160deg, #fffefb, #f4f7ff);
   border: 1px solid rgba(132, 148, 176, 0.28);
   box-shadow: 0 36px 84px rgba(6, 13, 26, 0.32);
@@ -1810,36 +1774,22 @@ body.page-leave main {
   outline-offset: 2px;
 }
 
-
+@media (max-width: 1023px) {
   .header-inner {
-    grid-template-columns: auto 1fr auto auto;
-    grid-template-areas: "brand spacer actions menu";
+    grid-template-columns: auto auto 1fr auto;
   }
-  .brand {
-    grid-area: brand;
-  }
-  .header-actions {
-    grid-area: actions;
-    justify-self: end;
-  }
+
   .menu-toggle {
     display: inline-flex;
-    grid-area: menu;
-    justify-self: end;
+    justify-self: start;
     align-items: center;
-    width: 42px;
-    height: 42px;
-    justify-content: center;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    background: rgba(255, 255, 255, 0.08);
   }
+
   .site-nav {
     position: absolute;
-    left: auto;
+    left: 12px;
     right: 12px;
     top: calc(100% + 6px);
-    width: min(320px, calc(100vw - 24px));
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.0);
     background: rgba(15, 23, 42, 0.95);
@@ -1847,66 +1797,19 @@ body.page-leave main {
     display: none;
     flex-direction: column;
     gap: 10px;
-    transform-origin: top right;
-    z-index: 1000; /* Added to ensure it appears over other elements */
   }
+
+  .mobile-tabs {
+    display: flex;
+  }
+
   .site-nav.open {
     display: flex;
   }
+
   .site-nav a {
     padding-bottom: 0;
     border-bottom: none;
-  }
-  .site-nav .menu-auth-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 4px;
-    padding: 10px 12px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    background: rgba(255, 255, 255, 0.08);
-    color: #f8fafc;
-    font-weight: 800;
-    letter-spacing: 0.02em;
-  }
-  .site-nav .menu-auth-link:last-child {
-    background: linear-gradient(135deg, var(--amber-500), #d97706);
-    border-color: transparent;
-    color: #ffffff;
-  }
-
-@media (max-width: 1023px) {
-.brand {
-    grid-area: brand;
-  }
-
-.menu-toggle {
-    display: inline-flex;
-    grid-area: menu;
-    justify-self: end;
-    align-items: center;
-    width: 42px;
-    height: 42px;
-    justify-content: center;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    background: rgba(255, 255, 255, 0.08);
-  }
-
-.mobile-tabs {
-    display: flex;
-  }
-
-.site-nav a {
-    padding-bottom: 0;
-    border-bottom: none;
-  }
-
-.site-nav .menu-auth-link:last-child {
-    background: linear-gradient(135deg, var(--amber-500), #d97706);
-    border-color: transparent;
-    color: #ffffff;
   }
 
   .hero {
@@ -2080,13 +1983,7 @@ body.page-leave main {
   }
 
   .design-modal {
-    width: calc(100vw - 32px);
-    max-height: 85vh;
-  }
-
-  .design-upload,
-  .design-preview {
-    min-height: 160px;
+    width: calc(100vw - 20px);
   }
 
   .design-modal-head,
