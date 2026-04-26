@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { ChangeEvent, FormEvent } from "react";
 import { Button } from "../ui/Button";
 import { Input } from "../ui/Input";
@@ -29,6 +29,8 @@ import {
 import type { ChatMessageSeed, Product } from "../../types";
 
 type PageView = "home" | "departments" | "login" | "register";
+type HomeSectionKey = "hero" | "design" | "products" | "contact";
+type ScrollTarget = "products" | "store";
 
 const formatTry = (value: number): string => {
   return new Intl.NumberFormat("tr-TR", {
@@ -44,10 +46,28 @@ export const MainStorefrontFeature = () => {
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
   const [isDesignOpen, setIsDesignOpen] = useState<boolean>(false);
   const [isChatOpen, setIsChatOpen] = useState<boolean>(false);
+  const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
+  const [isHeaderHidden, setIsHeaderHidden] = useState<boolean>(false);
+  const [pendingScrollTarget, setPendingScrollTarget] = useState<ScrollTarget | null>(null);
+  const [activeNavId, setActiveNavId] = useState<string>("home");
+  const [isPageTransitioning, setIsPageTransitioning] = useState<boolean>(false);
+  const [isCartRendered, setIsCartRendered] = useState<boolean>(false);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
   const [chatInput, setChatInput] = useState<string>("");
   const [chatMessages, setChatMessages] = useState<ChatMessageSeed[]>(chatSeedMessages);
+  const [visibleHomeSections, setVisibleHomeSections] = useState<Record<HomeSectionKey, boolean>>({
+    hero: false,
+    design: false,
+    products: false,
+    contact: false,
+  });
+  const homeSectionRefs = useRef<Record<HomeSectionKey, HTMLElement | null>>({
+    hero: null,
+    design: null,
+    products: null,
+    contact: null,
+  });
 
   const [selectedProduct, setSelectedProduct] = useState<string>(designProductOptions[0]?.label ?? "");
   const [selectedPlacement, setSelectedPlacement] = useState<string>(
@@ -80,12 +100,133 @@ export const MainStorefrontFeature = () => {
   }, [pageView]);
 
   useEffect(() => {
+    if (isCartOpen) return;
+    const timer = window.setTimeout(() => {
+      setIsCartRendered(false);
+    }, 420);
+    return () => window.clearTimeout(timer);
+  }, [isCartOpen]);
+
+  useEffect(() => {
+    if (pageView === "departments") {
+      setActiveNavId("departments");
+      return;
+    }
+    if (pageView === "login" || pageView === "register") {
+      setActiveNavId("home");
+      return;
+    }
+
+    const sectionPairs: Array<{ id: "home" | "products" | "store"; key: HomeSectionKey }> = [
+      { id: "home", key: "hero" },
+      { id: "products", key: "products" },
+      { id: "store", key: "contact" },
+    ];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const sectionKey = entry.target.getAttribute("data-home-section") as HomeSectionKey | null;
+          if (!sectionKey || !entry.isIntersecting) return;
+          const pair = sectionPairs.find((item) => item.key === sectionKey);
+          if (pair) setActiveNavId(pair.id);
+        });
+      },
+      { threshold: 0.45, rootMargin: "-20% 0px -45% 0px" },
+    );
+
+    sectionPairs.forEach((pair) => {
+      const element = homeSectionRefs.current[pair.key];
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, [pageView]);
+
+  useEffect(() => {
+    if (pageView !== "home" || !pendingScrollTarget) return;
+    const targetKey = pendingScrollTarget === "products" ? "products" : "contact";
+    const target = homeSectionRefs.current[targetKey];
+    if (target) {
+      window.requestAnimationFrame(() => {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+    setPendingScrollTarget(null);
+  }, [pageView, pendingScrollTarget]);
+
+  useEffect(() => {
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
+    let lastY = window.scrollY || 0;
+    let ticking = false;
+    const revealTop = 28;
+    const collapseAfter = 70;
+    const deltaThreshold = 6;
+
+    const update = () => {
+      ticking = false;
+      const y = window.scrollY || 0;
+      const delta = y - lastY;
+      lastY = y;
+
+      if (y < revealTop) {
+        setIsHeaderHidden(false);
+        return;
+      }
+
+      if (delta > deltaThreshold && y > collapseAfter) {
+        setIsHeaderHidden(true);
+      } else if (delta < -deltaThreshold) {
+        setIsHeaderHidden(false);
+      }
+    };
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (pageView !== "home") return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const key = entry.target.getAttribute("data-home-section") as HomeSectionKey | null;
+          if (!key) return;
+          if (entry.isIntersecting) {
+            setVisibleHomeSections((prev) => ({ ...prev, [key]: true }));
+          }
+        });
+      },
+      { threshold: 0.18, rootMargin: "0px 0px -10% 0px" },
+    );
+
+    (Object.keys(homeSectionRefs.current) as HomeSectionKey[]).forEach((key) => {
+      const element = homeSectionRefs.current[key];
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, [pageView]);
+
+  useEffect(() => {
     const onEscape = (event: KeyboardEvent) => {
       if (event.key !== "Escape") return;
       setIsMenuOpen(false);
       setIsCartOpen(false);
       setIsDesignOpen(false);
       setIsChatOpen(false);
+      setIsSearchOpen(false);
     };
     window.addEventListener("keydown", onEscape);
     return () => window.removeEventListener("keydown", onEscape);
@@ -146,8 +287,78 @@ export const MainStorefrontFeature = () => {
     setIsDesignOpen(false);
   };
 
+  const setHomeSectionRef = (key: HomeSectionKey) => (element: HTMLElement | null) => {
+    homeSectionRefs.current[key] = element;
+  };
+
+  const getRevealClasses = (key: HomeSectionKey): string => {
+    return visibleHomeSections[key]
+      ? "translate-y-0 opacity-100 blur-0"
+      : "translate-y-4 opacity-0 blur-[2px]";
+  };
+
+  const scrollToHomeTarget = (target: ScrollTarget) => {
+    if (pageView !== "home") {
+      navigateToView("home");
+      setPendingScrollTarget(target);
+      return;
+    }
+    const targetKey = target === "products" ? "products" : "contact";
+    homeSectionRefs.current[targetKey]?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const handleNavAction = (navId: string) => {
+    setActiveNavId(navId);
+    if (navId === "home") {
+      navigateToView("home");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    if (navId === "products") {
+      scrollToHomeTarget("products");
+      return;
+    }
+    if (navId === "departments") {
+      navigateToView("departments");
+      return;
+    }
+    if (navId === "store") {
+      scrollToHomeTarget("store");
+    }
+  };
+
+  const openCartDrawer = () => {
+    if (isCartOpen) return;
+    setIsCartRendered(true);
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        setIsCartOpen(true);
+      });
+    });
+  };
+
+  const navigateToView = (targetView: PageView) => {
+    if (targetView === pageView) return;
+    setIsPageTransitioning(true);
+    window.setTimeout(() => {
+      setPageView(targetView);
+      window.requestAnimationFrame(() => {
+        setIsPageTransitioning(false);
+      });
+    }, 180);
+  };
+
   const renderHeader = () => (
-    <header className="sticky top-2 z-40 mx-auto w-[min(1200px,calc(100%-1rem))] rounded-2xl border border-amber-200/30 bg-slate-900/90 px-4 py-2 text-slate-100 shadow-xl backdrop-blur">
+    <header
+      className={`sticky top-2 z-40 mx-auto w-[min(1200px,calc(100%-1rem))] rounded-2xl border border-amber-200/30 bg-slate-900/90 px-4 py-2 text-slate-100 shadow-xl backdrop-blur transform-gpu will-change-transform motion-reduce:transition-none ${
+        isHeaderHidden
+          ? "scale-[0.985] opacity-0 pointer-events-none"
+          : "scale-100 opacity-100"
+      } transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]`}
+      style={{
+        transform: isHeaderHidden ? "translate3d(0, -120%, 0)" : "translate3d(0, 0, 0)",
+      }}
+    >
       <div className="flex items-center gap-3">
         <button
           type="button"
@@ -162,7 +373,7 @@ export const MainStorefrontFeature = () => {
         <button
           type="button"
           className="text-left"
-          onClick={() => setPageView("home")}
+          onClick={() => navigateToView("home")}
           aria-label="Ana sayfaya dön"
         >
           <img
@@ -181,30 +392,70 @@ export const MainStorefrontFeature = () => {
             <button
               key={item.id}
               type="button"
-              className="rounded-lg px-3 py-2 text-sm text-slate-100 transition hover:bg-slate-800"
+              className={`relative rounded-xl px-3 py-2 text-sm transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                activeNavId === item.id
+                  ? "bg-white/10 text-amber-100 shadow-[0_0_0_1px_rgba(251,191,36,0.22),0_8px_22px_-14px_rgba(251,191,36,0.75)] backdrop-blur-sm"
+                  : "text-slate-100 hover:bg-white/5"
+              }`}
               onClick={() => {
-                if (item.id === "departments") setPageView("departments");
-                else setPageView("home");
+                handleNavAction(item.id);
                 setIsMenuOpen(false);
               }}
             >
-              {item.label}
+              <span
+                className={`absolute inset-0 rounded-xl bg-gradient-to-r from-amber-300/0 via-amber-200/20 to-amber-300/0 transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                  activeNavId === item.id ? "opacity-100" : "opacity-0"
+                }`}
+              />
+              <span className="relative z-10">{item.label}</span>
             </button>
           ))}
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
-          <Input
-            value={searchQuery}
-            onChange={(event) => setSearchQuery(event.target.value)}
-            placeholder="Ürün ara..."
-            className="hidden border-slate-600 bg-slate-800 text-slate-100 placeholder:text-slate-400 lg:block"
-            aria-label="Ürün ara"
-          />
-          <Button variant="secondary" size="sm" onClick={() => setPageView("register")}>
+          <div className="relative flex items-center">
+            <div
+              className={`flex items-center gap-2 overflow-hidden rounded-xl bg-slate-800/90 transition-all duration-300 ease-out ${
+                isSearchOpen
+                  ? "pointer-events-auto mr-2 max-w-[340px] px-2 py-1 opacity-100"
+                  : "pointer-events-none mr-0 max-w-0 px-0 py-0 opacity-0"
+              }`}
+              aria-hidden={!isSearchOpen}
+            >
+              <Input
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                placeholder="Ürün ara..."
+                className="h-9 min-w-[170px] border-slate-600 bg-slate-800 text-slate-100 placeholder:text-slate-400"
+                aria-label="Ürün ara"
+              />
+            </div>
+            <button
+              type="button"
+              onClick={() => setIsSearchOpen((prev) => !prev)}
+              className={`grid h-9 w-9 place-items-center rounded-xl border transition ${
+                isSearchOpen
+                  ? "border-slate-200 bg-white text-slate-800"
+                  : "border-slate-600 bg-slate-800 text-slate-100 hover:bg-slate-700"
+              }`}
+              aria-expanded={isSearchOpen}
+              aria-label="Ürün arama kutusunu aç veya kapat"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4 fill-current">
+                <path d="M10 18a8 8 0 1 1 5.293-14.001A8 8 0 0 1 10 18Zm11.707 2.293-5.1-5.1a10 10 0 1 0-1.414 1.414l5.1 5.1a1 1 0 0 0 1.414-1.414Z" />
+              </svg>
+            </button>
+          </div>
+          <Button variant="secondary" size="sm" onClick={() => navigateToView("register")}>
             Üyelik
           </Button>
-          <Button size="sm" onClick={() => setIsCartOpen(true)}>
+          <Button
+            size="sm"
+            onClick={openCartDrawer}
+            className={`transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+              isCartOpen ? "scale-[1.02] shadow-[0_10px_28px_-18px_rgba(251,191,36,0.9)]" : ""
+            }`}
+          >
             Sepetim
           </Button>
         </div>
@@ -251,11 +502,18 @@ export const MainStorefrontFeature = () => {
   );
 
   const renderCartDrawer = () => {
-    if (!isCartOpen) return null;
+    if (!isCartRendered) return null;
     return (
-      <div className="fixed inset-0 z-50 bg-slate-900/50 p-3" onClick={() => setIsCartOpen(false)}>
+      <div
+        className={`fixed inset-0 z-50 p-3 transition-colors duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          isCartOpen ? "bg-slate-900/55" : "bg-slate-900/0"
+        }`}
+        onClick={() => setIsCartOpen(false)}
+      >
         <aside
-          className="ml-auto h-full w-full max-w-sm rounded-xl bg-white p-4 shadow-2xl"
+          className={`ml-auto h-full w-full max-w-sm rounded-xl bg-white p-4 shadow-2xl transform-gpu transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+            isCartOpen ? "translate-x-0 opacity-100" : "translate-x-6 opacity-0"
+          }`}
           onClick={(event) => event.stopPropagation()}
           aria-label="Sepet paneli"
         >
@@ -469,18 +727,38 @@ export const MainStorefrontFeature = () => {
     <main className="mx-auto w-[min(1200px,100%)] px-4 py-6">
       <nav className="mb-4 flex gap-2 overflow-x-auto lg:hidden">
         {mobileTabItems.map((item) => (
-          <Button key={item.id} variant="secondary" size="sm" onClick={() => setPageView(item.id.includes("departments") ? "departments" : "home")}>
+          <Button
+            key={item.id}
+            variant="secondary"
+            size="sm"
+            onClick={() => navigateToView(item.id.includes("departments") ? "departments" : "home")}
+          >
             {item.label}
           </Button>
         ))}
       </nav>
 
-      <section className="relative overflow-hidden rounded-2xl bg-slate-200">
-        <img
-          src={heroSlides[currentSlideIndex]?.imageUrl}
-          alt={heroSlides[currentSlideIndex]?.ariaLabel}
-          className="h-52 w-full object-cover md:h-80"
-        />
+      <section
+        ref={setHomeSectionRef("hero")}
+        data-home-section="hero"
+        className={`relative mx-auto w-full max-w-[1204px] overflow-hidden rounded-2xl bg-slate-200 transition-all duration-700 ease-out ${getRevealClasses("hero")}`}
+      >
+        <div className="relative h-[460px] w-full">
+          {heroSlides.map((slide, index) => {
+            const isActive = index === currentSlideIndex;
+            return (
+              <img
+                key={slide.id}
+                src={slide.imageUrl}
+                alt={slide.ariaLabel}
+                className={`absolute inset-0 h-full w-full object-cover object-center transition-all duration-700 ease-out ${
+                  isActive ? "scale-100 opacity-100" : "scale-105 opacity-0"
+                }`}
+              />
+            );
+          })}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent" />
+        </div>
         <div className="absolute bottom-3 right-3 flex gap-2">
           <Button
             size="sm"
@@ -501,7 +779,11 @@ export const MainStorefrontFeature = () => {
         </div>
       </section>
 
-      <section className="mt-4 rounded-2xl border border-slate-200 bg-white p-5">
+      <section
+        ref={setHomeSectionRef("design")}
+        data-home-section="design"
+        className={`mt-4 rounded-2xl border border-slate-200 bg-white p-5 transition-all duration-700 ease-out ${getRevealClasses("design")}`}
+      >
         <p className="text-xs uppercase tracking-wide text-slate-500">{designLaunchContent.kicker}</p>
         <h2 className="mt-1 text-xl font-semibold text-slate-800">{designLaunchContent.title}</h2>
         <p className="mt-2 text-sm text-slate-600">{designLaunchContent.description}</p>
@@ -510,7 +792,11 @@ export const MainStorefrontFeature = () => {
         </div>
       </section>
 
-      <section className="mt-6">
+      <section
+        ref={setHomeSectionRef("products")}
+        data-home-section="products"
+        className={`mt-6 transition-all duration-700 ease-out ${getRevealClasses("products")}`}
+      >
         <div className="mb-4 flex items-center justify-between gap-3">
           <h2 className="text-xl font-semibold text-slate-800">{featuredProductsSection.title}</h2>
           <Button variant="secondary" size="sm">
@@ -536,7 +822,11 @@ export const MainStorefrontFeature = () => {
         </div>
       </section>
 
-      <section className="mt-8 grid gap-4 rounded-2xl border border-slate-200 bg-white p-5 md:grid-cols-2">
+      <section
+        ref={setHomeSectionRef("contact")}
+        data-home-section="contact"
+        className={`mt-8 grid gap-4 rounded-2xl border border-slate-200 bg-white p-5 transition-all duration-700 ease-out md:grid-cols-2 ${getRevealClasses("contact")}`}
+      >
         <div>
           <h3 className="text-lg font-semibold text-slate-800">Mağazamız</h3>
           <p
@@ -631,10 +921,16 @@ export const MainStorefrontFeature = () => {
     <div className="min-h-screen bg-slate-50 text-slate-900">
       {renderHeader()}
 
-      {pageView === "home" ? renderHome() : null}
-      {pageView === "departments" ? renderDepartments() : null}
-      {pageView === "login" ? renderAuthPage("login") : null}
-      {pageView === "register" ? renderAuthPage("register") : null}
+      <div
+        className={`transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+          isPageTransitioning ? "translate-y-2 opacity-0 blur-[1px]" : "translate-y-0 opacity-100 blur-0"
+        }`}
+      >
+        {pageView === "home" ? renderHome() : null}
+        {pageView === "departments" ? renderDepartments() : null}
+        {pageView === "login" ? renderAuthPage("login") : null}
+        {pageView === "register" ? renderAuthPage("register") : null}
+      </div>
 
       {renderFooter()}
       {renderCartDrawer()}
