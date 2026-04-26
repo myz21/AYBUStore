@@ -1,0 +1,645 @@
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+import type { ChangeEvent, FormEvent } from "react";
+import { Button } from "../ui/Button";
+import { Input } from "../ui/Input";
+import { Select } from "../ui/Select";
+import {
+  chatSeedMessages,
+  departmentFilters,
+  departmentSortOptions,
+  departmentsPageContent,
+  designLaunchContent,
+  designPlacementOptions,
+  designProductOptions,
+  drawerCartItems,
+  featuredProductsSection,
+  footerColumns,
+  footerSocialLinks,
+  heroSlides,
+  loginPageContent,
+  mainNavItems,
+  mobileTabItems,
+  paymentMethods,
+  registerPageContent,
+  storeContactInfo,
+  storeOpeningHours,
+} from "../../lib/mockData";
+import type { ChatMessageSeed, Product } from "../../types";
+
+type PageView = "home" | "departments" | "login" | "register";
+
+const formatTry = (value: number): string => {
+  return new Intl.NumberFormat("tr-TR", {
+    style: "currency",
+    currency: "TRY",
+    maximumFractionDigits: 0,
+  }).format(value);
+};
+
+export const MainStorefrontFeature = () => {
+  const [pageView, setPageView] = useState<PageView>("home");
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
+  const [isDesignOpen, setIsDesignOpen] = useState<boolean>(false);
+  const [isChatOpen, setIsChatOpen] = useState<boolean>(false);
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
+  const [chatInput, setChatInput] = useState<string>("");
+  const [chatMessages, setChatMessages] = useState<ChatMessageSeed[]>(chatSeedMessages);
+
+  const [selectedProduct, setSelectedProduct] = useState<string>(designProductOptions[0]?.label ?? "");
+  const [selectedPlacement, setSelectedPlacement] = useState<string>(
+    designPlacementOptions[0]?.label ?? "",
+  );
+  const [designScale, setDesignScale] = useState<number>(100);
+  const [designRotation, setDesignRotation] = useState<number>(0);
+  const [designNote, setDesignNote] = useState<string>("");
+  const [designPreviewUrl, setDesignPreviewUrl] = useState<string>("/images/logo2.png");
+  const [designPreviewLabel, setDesignPreviewLabel] = useState<string>("Henüz dosya yüklenmedi");
+
+  const filteredProducts = useMemo<Product[]>(() => {
+    if (!searchQuery.trim()) return featuredProductsSection.products;
+    const q = searchQuery.toLocaleLowerCase("tr-TR");
+    return featuredProductsSection.products.filter((product) =>
+      product.name.toLocaleLowerCase("tr-TR").includes(q),
+    );
+  }, [searchQuery]);
+
+  const cartSubtotal = useMemo<number>(() => {
+    return drawerCartItems.reduce((acc, item) => acc + item.unitPrice * item.quantity, 0);
+  }, []);
+
+  useEffect(() => {
+    if (pageView !== "home") return;
+    const timer = window.setInterval(() => {
+      setCurrentSlideIndex((prev) => (prev + 1) % heroSlides.length);
+    }, 4500);
+    return () => window.clearInterval(timer);
+  }, [pageView]);
+
+  useEffect(() => {
+    const onEscape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setIsMenuOpen(false);
+      setIsCartOpen(false);
+      setIsDesignOpen(false);
+      setIsChatOpen(false);
+    };
+    window.addEventListener("keydown", onEscape);
+    return () => window.removeEventListener("keydown", onEscape);
+  }, []);
+
+  const appendChatMessage = (text: string, sender: "bot" | "user") => {
+    const message: ChatMessageSeed = {
+      id: `${sender}-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+      sender,
+      text,
+      meta: sender === "user" ? "Siz • şimdi" : "AYBU Store • şimdi",
+    };
+    setChatMessages((prev) => [...prev, message]);
+  };
+
+  const handleChatSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const trimmed = chatInput.trim();
+    if (!trimmed) return;
+    appendChatMessage(trimmed, "user");
+    setChatInput("");
+    window.setTimeout(() => {
+      appendChatMessage("Teşekkürler! Mesajınız alındı, kısa süre içinde dönüş yapacağız.", "bot");
+    }, 450);
+  };
+
+  const handleDesignFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (loadEvent) => {
+      const result = typeof loadEvent.target?.result === "string" ? loadEvent.target.result : "";
+      if (!result) return;
+      setDesignPreviewUrl(result);
+      setDesignPreviewLabel(file.name);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleDesignReset = () => {
+    setDesignPreviewUrl("/images/logo2.png");
+    setDesignPreviewLabel("Henüz dosya yüklenmedi");
+    setDesignScale(100);
+    setDesignRotation(0);
+    setDesignNote("");
+    setSelectedProduct(designProductOptions[0]?.label ?? "");
+    setSelectedPlacement(designPlacementOptions[0]?.label ?? "");
+  };
+
+  const handleDesignSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    appendChatMessage(
+      `Tasarım isteği kaydedildi: ${selectedProduct}, ${selectedPlacement}${
+        designNote.trim() ? `, not: ${designNote.trim()}` : ""
+      }.`,
+      "bot",
+    );
+    setIsDesignOpen(false);
+  };
+
+  const renderHeader = () => (
+    <header className="sticky top-2 z-40 mx-auto w-[min(1200px,calc(100%-1rem))] rounded-2xl border border-amber-200/30 bg-slate-900/90 px-4 py-2 text-slate-100 shadow-xl backdrop-blur">
+      <div className="flex items-center gap-3">
+        <button
+          type="button"
+          className="shrink-0 rounded-md border border-slate-600 px-2 py-1 text-sm lg:hidden"
+          onClick={() => setIsMenuOpen((prev) => !prev)}
+          aria-expanded={isMenuOpen}
+          aria-label="Menüyü aç veya kapat"
+        >
+          ☰
+        </button>
+
+        <button
+          type="button"
+          className="text-left"
+          onClick={() => setPageView("home")}
+          aria-label="Ana sayfaya dön"
+        >
+          <img
+            src="/images/logo2.png"
+            alt="AYBU Store logosu"
+            className="h-12 w-auto object-contain"
+          />
+        </button>
+
+        <nav
+          className={`${
+            isMenuOpen ? "flex" : "hidden"
+          } gap-2 lg:flex`}
+        >
+          {mainNavItems.map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              className="rounded-lg px-3 py-2 text-sm text-slate-100 transition hover:bg-slate-800"
+              onClick={() => {
+                if (item.id === "departments") setPageView("departments");
+                else setPageView("home");
+                setIsMenuOpen(false);
+              }}
+            >
+              {item.label}
+            </button>
+          ))}
+        </nav>
+
+        <div className="ml-auto flex items-center gap-2">
+          <Input
+            value={searchQuery}
+            onChange={(event) => setSearchQuery(event.target.value)}
+            placeholder="Ürün ara..."
+            className="hidden border-slate-600 bg-slate-800 text-slate-100 placeholder:text-slate-400 lg:block"
+            aria-label="Ürün ara"
+          />
+          <Button variant="secondary" size="sm" onClick={() => setPageView("register")}>
+            Üyelik
+          </Button>
+          <Button size="sm" onClick={() => setIsCartOpen(true)}>
+            Sepetim
+          </Button>
+        </div>
+      </div>
+    </header>
+  );
+
+  const renderFooter = () => (
+    <footer className="mt-10 border-t border-slate-200 bg-white/70 px-4 py-8">
+      <div className="mx-auto grid w-[min(1200px,100%)] gap-6 md:grid-cols-3">
+        {footerColumns.map((column) => (
+          <section key={column.id}>
+            <h3 className="mb-2 text-sm font-bold text-slate-800">{column.title}</h3>
+            {column.description ? (
+              <p className="mb-2 text-sm text-slate-600">{column.description}</p>
+            ) : null}
+            <div className="space-y-1">
+              {column.links?.map((link) => (
+                <p key={`${column.id}-${link.label}`} className="text-sm text-slate-500">
+                  {link.label}
+                </p>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+      <div className="mx-auto mt-6 flex w-[min(1200px,100%)] flex-wrap items-center gap-2 text-sm text-slate-500">
+        <span>{storeContactInfo.phone}</span>
+        <span>•</span>
+        <span>{storeContactInfo.email}</span>
+        <span>•</span>
+        {paymentMethods.map((method) => (
+          <span key={method.id} className="rounded bg-slate-100 px-2 py-1 text-xs text-slate-600">
+            {method.label}
+          </span>
+        ))}
+      </div>
+      <div className="mx-auto mt-4 flex w-[min(1200px,100%)] flex-wrap gap-3 text-sm text-slate-500">
+        {footerSocialLinks.map((social) => (
+          <span key={social.id}>{social.platform.toUpperCase()}</span>
+        ))}
+      </div>
+    </footer>
+  );
+
+  const renderCartDrawer = () => {
+    if (!isCartOpen) return null;
+    return (
+      <div className="fixed inset-0 z-50 bg-slate-900/50 p-3" onClick={() => setIsCartOpen(false)}>
+        <aside
+          className="ml-auto h-full w-full max-w-sm rounded-xl bg-white p-4 shadow-2xl"
+          onClick={(event) => event.stopPropagation()}
+          aria-label="Sepet paneli"
+        >
+          <div className="mb-4 flex items-center justify-between">
+            <h2 className="text-lg font-semibold text-slate-800">Sepetim</h2>
+            <Button variant="ghost" size="sm" onClick={() => setIsCartOpen(false)}>
+              ×
+            </Button>
+          </div>
+          <div className="space-y-3">
+            {drawerCartItems.map((item) => (
+              <article key={item.id} className="flex items-center gap-3 rounded-xl border border-slate-200 p-3">
+                <img src={item.imageUrl} alt={item.imageAlt} className="h-14 w-14 rounded object-cover" />
+                <div>
+                  <p className="text-sm font-semibold text-slate-700">{item.name}</p>
+                  <p className="text-xs text-slate-500">Adet: {item.quantity}</p>
+                  <p className="text-sm text-slate-700">{formatTry(item.unitPrice)}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="mt-4 space-y-1 text-sm text-slate-600">
+            <p>Ara Toplam: {formatTry(cartSubtotal)}</p>
+            <p>Kargo: {formatTry(0)}</p>
+            <p className="font-semibold text-slate-800">Toplam: {formatTry(cartSubtotal)}</p>
+          </div>
+          <div className="mt-4 grid gap-2">
+            <Button fullWidth>Alışverişi Tamamla</Button>
+            <Button fullWidth variant="secondary" onClick={() => setIsCartOpen(false)}>
+              Alışverişe Devam Et
+            </Button>
+          </div>
+        </aside>
+      </div>
+    );
+  };
+
+  const renderDesignModal = () => {
+    if (!isDesignOpen) return null;
+    return (
+      <div className="fixed inset-0 z-50 bg-slate-900/50 p-4" onClick={() => setIsDesignOpen(false)}>
+        <aside
+          className="mx-auto w-full max-w-3xl rounded-2xl bg-white p-5 shadow-2xl"
+          onClick={(event) => event.stopPropagation()}
+        >
+          <div className="mb-4 flex items-center justify-between">
+            <div>
+              <h2 className="text-lg font-bold text-slate-800">Tasarım Stüdyosu</h2>
+              <p className="text-sm text-slate-500">Kendi tasarımınızı canlı önizleme ile hazırlayın.</p>
+            </div>
+            <Button variant="ghost" size="sm" onClick={() => setIsDesignOpen(false)}>
+              ×
+            </Button>
+          </div>
+
+          <form onSubmit={handleDesignSubmit} className="grid gap-4 md:grid-cols-2">
+            <label className="rounded-xl border border-dashed border-slate-300 p-4 text-center text-sm text-slate-600">
+              Görsel Yükle
+              <input
+                type="file"
+                accept="image/png,image/jpeg,image/svg+xml,image/webp"
+                className="mt-2 block w-full text-xs"
+                onChange={handleDesignFileChange}
+              />
+            </label>
+
+            <div className="rounded-xl border border-slate-200 p-3">
+              <img
+                src={designPreviewUrl}
+                alt="Tasarım önizleme"
+                className="mx-auto h-48 max-w-full object-contain"
+                style={{
+                  transform: `scale(${designScale / 100}) rotate(${designRotation}deg)`,
+                }}
+              />
+              <p className="mt-2 text-xs text-slate-500">{designPreviewLabel}</p>
+            </div>
+
+            <label className="text-sm text-slate-600">
+              Ürün
+              <Select
+                value={selectedProduct}
+                onChange={(event) => setSelectedProduct(event.target.value)}
+                className="mt-1"
+                options={designProductOptions.map((option) => ({
+                  value: option.label,
+                  label: option.label,
+                }))}
+              />
+            </label>
+
+            <label className="text-sm text-slate-600">
+              Konum
+              <Select
+                value={selectedPlacement}
+                onChange={(event) => setSelectedPlacement(event.target.value)}
+                className="mt-1"
+                options={designPlacementOptions.map((option) => ({
+                  value: option.label,
+                  label: option.label,
+                }))}
+              />
+            </label>
+
+            <label className="text-sm text-slate-600">
+              Boyut ({designScale}%)
+              <input
+                type="range"
+                min={70}
+                max={150}
+                step={1}
+                value={designScale}
+                onChange={(event) => setDesignScale(Number(event.target.value))}
+                className="mt-1 w-full"
+              />
+            </label>
+
+            <label className="text-sm text-slate-600">
+              Açı ({designRotation}°)
+              <input
+                type="range"
+                min={-25}
+                max={25}
+                step={1}
+                value={designRotation}
+                onChange={(event) => setDesignRotation(Number(event.target.value))}
+                className="mt-1 w-full"
+              />
+            </label>
+
+            <label className="md:col-span-2 text-sm text-slate-600">
+              Açıklama
+              <Input
+                type="text"
+                value={designNote}
+                onChange={(event) => setDesignNote(event.target.value)}
+                className="mt-1"
+                placeholder="Tasarımınız hakkında not ekleyin..."
+              />
+            </label>
+
+            <div className="md:col-span-2 flex justify-end gap-2">
+              <Button type="button" variant="ghost" onClick={handleDesignReset}>
+                Sıfırla
+              </Button>
+              <Button type="button" variant="secondary" onClick={() => setIsDesignOpen(false)}>
+                İptal
+              </Button>
+              <Button type="submit">Tasarımı Gönder</Button>
+            </div>
+          </form>
+        </aside>
+      </div>
+    );
+  };
+
+  const renderChat = () => {
+    return (
+      <>
+        {isChatOpen ? (
+          <aside className="fixed bottom-20 right-4 z-50 w-full max-w-sm rounded-2xl border border-slate-200 bg-white shadow-2xl">
+            <header className="flex items-center justify-between border-b border-slate-100 p-3">
+              <div>
+                <p className="font-semibold text-slate-800">Canlı Destek</p>
+                <p className="text-xs text-slate-500">Genelde 1-2 dk içinde yanıt</p>
+              </div>
+              <Button variant="ghost" size="sm" onClick={() => setIsChatOpen(false)}>
+                ×
+              </Button>
+            </header>
+            <div className="max-h-72 space-y-2 overflow-y-auto p-3">
+              {chatMessages.map((message) => (
+                <article key={message.id} className={message.sender === "user" ? "text-right" : "text-left"}>
+                  <p
+                    className={`inline-block rounded-xl px-3 py-2 text-sm ${
+                      message.sender === "user"
+                        ? "bg-slate-800 text-white"
+                        : "bg-slate-100 text-slate-700"
+                    }`}
+                  >
+                    {message.text}
+                  </p>
+                  <p className="mt-1 text-[11px] text-slate-400">{message.meta}</p>
+                </article>
+              ))}
+            </div>
+            <form onSubmit={handleChatSubmit} className="flex gap-2 border-t border-slate-100 p-3">
+              <Input
+                value={chatInput}
+                onChange={(event) => setChatInput(event.target.value)}
+                className="flex-1"
+                placeholder="Mesajınızı yazın..."
+              />
+              <Button type="submit" size="sm">
+                Gönder
+              </Button>
+            </form>
+          </aside>
+        ) : null}
+        <Button
+          className="fixed bottom-4 right-4 z-40 rounded-full px-4"
+          onClick={() => setIsChatOpen((prev) => !prev)}
+        >
+          Destek
+        </Button>
+      </>
+    );
+  };
+
+  const renderHome = () => (
+    <main className="mx-auto w-[min(1200px,100%)] px-4 py-6">
+      <nav className="mb-4 flex gap-2 overflow-x-auto lg:hidden">
+        {mobileTabItems.map((item) => (
+          <Button key={item.id} variant="secondary" size="sm" onClick={() => setPageView(item.id.includes("departments") ? "departments" : "home")}>
+            {item.label}
+          </Button>
+        ))}
+      </nav>
+
+      <section className="relative overflow-hidden rounded-2xl bg-slate-200">
+        <img
+          src={heroSlides[currentSlideIndex]?.imageUrl}
+          alt={heroSlides[currentSlideIndex]?.ariaLabel}
+          className="h-52 w-full object-cover md:h-80"
+        />
+        <div className="absolute bottom-3 right-3 flex gap-2">
+          <Button
+            size="sm"
+            variant="secondary"
+            onClick={() =>
+              setCurrentSlideIndex((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)
+            }
+          >
+            ‹
+          </Button>
+          <Button
+            size="sm"
+            variant="secondary"
+            onClick={() => setCurrentSlideIndex((prev) => (prev + 1) % heroSlides.length)}
+          >
+            ›
+          </Button>
+        </div>
+      </section>
+
+      <section className="mt-4 rounded-2xl border border-slate-200 bg-white p-5">
+        <p className="text-xs uppercase tracking-wide text-slate-500">{designLaunchContent.kicker}</p>
+        <h2 className="mt-1 text-xl font-semibold text-slate-800">{designLaunchContent.title}</h2>
+        <p className="mt-2 text-sm text-slate-600">{designLaunchContent.description}</p>
+        <div className="mt-4">
+          <Button onClick={() => setIsDesignOpen(true)}>{designLaunchContent.ctaLabel}</Button>
+        </div>
+      </section>
+
+      <section className="mt-6">
+        <div className="mb-4 flex items-center justify-between gap-3">
+          <h2 className="text-xl font-semibold text-slate-800">{featuredProductsSection.title}</h2>
+          <Button variant="secondary" size="sm">
+            {featuredProductsSection.ctaLabel}
+          </Button>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {filteredProducts.map((product) => (
+            <article key={product.id} className="rounded-2xl border border-slate-200 bg-white p-3 shadow-sm">
+              <div className="mb-3 flex h-40 items-center justify-center rounded-xl bg-slate-100">
+                {product.imageUrl ? (
+                  <img src={product.imageUrl} alt={product.imageAlt ?? product.name} className="h-full w-full rounded-xl object-cover" />
+                ) : (
+                  <span className="text-5xl" role="img" aria-label={product.emojiLabel ?? product.name}>
+                    {product.emoji}
+                  </span>
+                )}
+              </div>
+              <h3 className="text-sm font-semibold text-slate-800">{product.name}</h3>
+              <p className="mt-1 text-sm text-slate-600">{formatTry(product.price)}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-8 grid gap-4 rounded-2xl border border-slate-200 bg-white p-5 md:grid-cols-2">
+        <div>
+          <h3 className="text-lg font-semibold text-slate-800">Mağazamız</h3>
+          <p
+            className="mt-2 text-sm text-slate-600"
+            dangerouslySetInnerHTML={{ __html: storeContactInfo.campusAddressHtml }}
+          />
+          <div className="mt-3 space-y-1 text-sm text-slate-600">
+            {storeOpeningHours.map((hour) => (
+              <p key={hour.dayLabel}>
+                <span className="font-medium text-slate-700">{hour.dayLabel}:</span> {hour.value}
+              </p>
+            ))}
+          </div>
+          <p className="mt-3 text-sm text-slate-600">{storeContactInfo.phone}</p>
+          <p className="text-sm text-slate-600">{storeContactInfo.email}</p>
+          <div className="mt-3">
+            <Button
+              variant="secondary"
+              onClick={() => window.open(storeContactInfo.directionsUrl, "_blank", "noopener,noreferrer")}
+            >
+              Yol Tarifi Al
+            </Button>
+          </div>
+        </div>
+        <iframe
+          src={storeContactInfo.mapEmbedUrl}
+          title="AYBÜ harita"
+          loading="lazy"
+          className="h-72 w-full rounded-xl border border-slate-200"
+        />
+      </section>
+    </main>
+  );
+
+  const renderDepartments = () => (
+    <main className="mx-auto grid w-[min(1200px,100%)] gap-4 px-4 py-6 lg:grid-cols-[280px,1fr]">
+      <aside className="rounded-2xl border border-slate-200 bg-white p-4">
+        <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-700">Filtreler</h2>
+        <div className="space-y-2">
+          {departmentFilters.map((filter) => (
+            <Button key={filter.id} variant="secondary" size="sm" fullWidth className="justify-start">
+              {filter.label}
+            </Button>
+          ))}
+        </div>
+      </aside>
+      <section className="rounded-2xl border border-slate-200 bg-white p-5">
+        <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+          <h1 className="text-2xl font-semibold text-slate-800">{departmentsPageContent.title}</h1>
+          <Select
+            fullWidth={false}
+            className="text-slate-700"
+            options={departmentSortOptions.map((option) => ({
+              value: option.id,
+              label: option.label,
+            }))}
+          />
+        </div>
+        <p className="rounded-xl bg-slate-50 p-4 text-sm text-slate-600">
+          {departmentsPageContent.placeholderText}
+        </p>
+      </section>
+    </main>
+  );
+
+  const renderAuthPage = (mode: "login" | "register") => {
+    const hero = mode === "login" ? loginPageContent : registerPageContent;
+    return (
+      <main className="mx-auto grid w-[min(1200px,100%)] gap-4 px-4 py-6 lg:grid-cols-[1.1fr,1fr]">
+        <section className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-900">
+          <img src="/images/ürünler-banner.png" alt="" className="h-full w-full object-cover opacity-80" />
+        </section>
+        <section className="rounded-2xl border border-slate-200 bg-white p-6">
+          <h1 className="text-2xl font-semibold text-slate-800">{hero.panelTitle}</h1>
+          <p className="mt-2 text-sm text-slate-600">{hero.panelDescription}</p>
+          <form className="mt-4 grid gap-3">
+            {mode === "register" ? (
+              <Input placeholder="Ad Soyad" />
+            ) : null}
+            <Input placeholder="ornek@aybu.edu.tr" />
+            <Input placeholder="••••••••" type="password" />
+            <Button type="submit" fullWidth>
+              {hero.submitLabel}
+            </Button>
+          </form>
+        </section>
+      </main>
+    );
+  };
+
+  return (
+    <div className="min-h-screen bg-slate-50 text-slate-900">
+      {renderHeader()}
+
+      {pageView === "home" ? renderHome() : null}
+      {pageView === "departments" ? renderDepartments() : null}
+      {pageView === "login" ? renderAuthPage("login") : null}
+      {pageView === "register" ? renderAuthPage("register") : null}
+
+      {renderFooter()}
+      {renderCartDrawer()}
+      {renderDesignModal()}
+      {renderChat()}
+    </div>
+  );
+};
