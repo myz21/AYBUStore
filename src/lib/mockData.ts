@@ -261,6 +261,19 @@ export const loginPageContent: LoginPageContent = {
   registerPrompt: "Hesabın yok mu?",
   registerPromptLinkLabel: "Hemen Üye Ol",
   registerPromptLinkHref: "register.html",
+  securityNote: "Hesap bilgileriniz güvenli altyapı ile korunur.",
+  benefits: [
+    {
+      id: "login-benefit-orders",
+      title: "Sipariş Takibi",
+      description: "Siparişlerinizin güncel durumunu tek ekrandan takip edin.",
+    },
+    {
+      id: "login-benefit-favorites",
+      title: "Favoriler",
+      description: "Beğendiğiniz ürünleri kaydedip hızlıca yeniden görüntüleyin.",
+    },
+  ],
 };
 
 export const registerPageContent: RegisterPageContent = {
@@ -270,6 +283,24 @@ export const registerPageContent: RegisterPageContent = {
   loginPrompt: "Zaten hesabın var mı?",
   loginPromptLinkLabel: "Giriş Yap",
   loginPromptLinkHref: "login.html",
+  securityNote: "Kayıt sonrası kampanya ve duyurulardan öncelikli haberdar olursunuz.",
+  benefits: [
+    {
+      id: "register-benefit-fast-checkout",
+      title: "Hızlı Ödeme",
+      description: "Adres ve iletişim bilgilerinizi kaydederek hızlı sipariş verin.",
+    },
+    {
+      id: "register-benefit-campus-perks",
+      title: "Kampüs Avantajları",
+      description: "Öğrenci odaklı kampanya ve sürpriz indirimleri kaçırmayın.",
+    },
+    {
+      id: "register-benefit-history",
+      title: "Sipariş Geçmişi",
+      description: "Tüm satın alımlarınızı tek panelden düzenli şekilde yönetin.",
+    },
+  ],
 };
 
 export const departmentsPageContent: DepartmentsPageContent = {

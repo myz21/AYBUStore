@@ -5,6 +5,11 @@ import type { ChangeEvent, FormEvent } from "react";
 import { Button } from "../ui/Button";
 import { Input } from "../ui/Input";
 import { Select } from "../ui/Select";
+import { AuthCard } from "../ui/AuthCard";
+import { AuthField } from "../ui/AuthField";
+import { AuthFooterLinkRow } from "../ui/AuthFooterLinkRow";
+import { AuthHeroPanel } from "../ui/AuthHeroPanel";
+import { AuthShell } from "../ui/AuthShell";
 import {
   chatSeedMessages,
   departmentFilters,
@@ -18,19 +23,31 @@ import {
   footerColumns,
   footerSocialLinks,
   heroSlides,
+  loginHeroContent,
   loginPageContent,
   mainNavItems,
   mobileTabItems,
   paymentMethods,
+  registerHeroContent,
   registerPageContent,
   storeContactInfo,
   storeOpeningHours,
 } from "../../lib/mockData";
-import type { ChatMessageSeed, Product } from "../../types";
+import type { AuthBenefit, ChatMessageSeed, Product } from "../../types";
 
 type PageView = "home" | "departments" | "login" | "register";
 type HomeSectionKey = "hero" | "design" | "products" | "contact";
 type ScrollTarget = "products" | "store";
+type AuthMode = "login" | "register";
+type AuthSubmitStatus = "idle" | "loading" | "success";
+
+interface AuthFormState {
+  fullName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  acceptTerms: boolean;
+}
 
 const formatTry = (value: number): string => {
   return new Intl.NumberFormat("tr-TR", {
@@ -78,6 +95,21 @@ export const MainStorefrontFeature = () => {
   const [designNote, setDesignNote] = useState<string>("");
   const [designPreviewUrl, setDesignPreviewUrl] = useState<string>("/images/logo2.png");
   const [designPreviewLabel, setDesignPreviewLabel] = useState<string>("Henüz dosya yüklenmedi");
+  const [authForm, setAuthForm] = useState<AuthFormState>({
+    fullName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    acceptTerms: false,
+  });
+  const [authTouched, setAuthTouched] = useState<Record<keyof AuthFormState, boolean>>({
+    fullName: false,
+    email: false,
+    password: false,
+    confirmPassword: false,
+    acceptTerms: false,
+  });
+  const [authSubmitStatus, setAuthSubmitStatus] = useState<AuthSubmitStatus>("idle");
 
   const filteredProducts = useMemo<Product[]>(() => {
     if (!searchQuery.trim()) return featuredProductsSection.products;
@@ -97,6 +129,18 @@ export const MainStorefrontFeature = () => {
       setCurrentSlideIndex((prev) => (prev + 1) % heroSlides.length);
     }, 4500);
     return () => window.clearInterval(timer);
+  }, [pageView]);
+
+  useEffect(() => {
+    if (pageView !== "login" && pageView !== "register") return;
+    setAuthSubmitStatus("idle");
+    setAuthTouched({
+      fullName: false,
+      email: false,
+      password: false,
+      confirmPassword: false,
+      acceptTerms: false,
+    });
   }, [pageView]);
 
   useEffect(() => {
@@ -346,6 +390,62 @@ export const MainStorefrontFeature = () => {
         setIsPageTransitioning(false);
       });
     }, 180);
+  };
+
+  const getAuthBenefits = (mode: AuthMode): AuthBenefit[] => {
+    if (mode === "login") return loginPageContent.benefits ?? [];
+    return registerPageContent.benefits ?? [];
+  };
+
+  const getAuthErrors = (mode: AuthMode): Partial<Record<keyof AuthFormState, string>> => {
+    const errors: Partial<Record<keyof AuthFormState, string>> = {};
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (mode === "register" && authForm.fullName.trim().length < 3) {
+      errors.fullName = "Ad soyad en az 3 karakter olmalıdır.";
+    }
+    if (!emailPattern.test(authForm.email.trim())) {
+      errors.email = "Geçerli bir e-posta adresi girin.";
+    }
+    if (authForm.password.length < 8) {
+      errors.password = "Şifre en az 8 karakter olmalıdır.";
+    }
+    if (mode === "register" && authForm.confirmPassword !== authForm.password) {
+      errors.confirmPassword = "Şifreler eşleşmiyor.";
+    }
+    if (mode === "register" && !authForm.acceptTerms) {
+      errors.acceptTerms = "Devam etmek için koşulları kabul etmelisiniz.";
+    }
+    return errors;
+  };
+
+  const isAuthSubmittable = (mode: AuthMode): boolean => {
+    return Object.keys(getAuthErrors(mode)).length === 0;
+  };
+
+  const updateAuthField = <K extends keyof AuthFormState>(field: K, value: AuthFormState[K]) => {
+    setAuthForm((prev) => ({ ...prev, [field]: value }));
+    setAuthTouched((prev) => ({ ...prev, [field]: true }));
+    if (authSubmitStatus !== "idle") {
+      setAuthSubmitStatus("idle");
+    }
+  };
+
+  const handleAuthSubmit = (mode: AuthMode) => (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setAuthTouched({
+      fullName: true,
+      email: true,
+      password: true,
+      confirmPassword: true,
+      acceptTerms: true,
+    });
+    if (!isAuthSubmittable(mode)) return;
+
+    setAuthSubmitStatus("loading");
+    window.setTimeout(() => {
+      setAuthSubmitStatus("success");
+    }, 700);
   };
 
   const renderHeader = () => (
@@ -892,28 +992,119 @@ export const MainStorefrontFeature = () => {
     </main>
   );
 
-  const renderAuthPage = (mode: "login" | "register") => {
-    const hero = mode === "login" ? loginPageContent : registerPageContent;
+  const renderAuthPage = (mode: AuthMode) => {
+    const content = mode === "login" ? loginPageContent : registerPageContent;
+    const hero = mode === "login" ? loginHeroContent : registerHeroContent;
+    const errors = getAuthErrors(mode);
+    const benefits = getAuthBenefits(mode);
+    const footerPrompt = mode === "login" ? loginPageContent.registerPrompt : registerPageContent.loginPrompt;
+    const footerActionLabel =
+      mode === "login" ? loginPageContent.registerPromptLinkLabel : registerPageContent.loginPromptLinkLabel;
+
     return (
-      <main className="mx-auto grid w-[min(1200px,100%)] gap-4 px-4 py-6 lg:grid-cols-[1.1fr,1fr]">
-        <section className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-900">
-          <img src="/images/ürünler-banner.png" alt="" className="h-full w-full object-cover opacity-80" />
-        </section>
-        <section className="rounded-2xl border border-slate-200 bg-white p-6">
-          <h1 className="text-2xl font-semibold text-slate-800">{hero.panelTitle}</h1>
-          <p className="mt-2 text-sm text-slate-600">{hero.panelDescription}</p>
-          <form className="mt-4 grid gap-3">
+      <AuthShell>
+        <AuthHeroPanel
+          imageUrl={hero.imageUrl}
+          title={hero.title}
+          subtitle={content.panelDescription}
+          benefits={benefits}
+        />
+        <AuthCard title={content.panelTitle} description={content.panelDescription}>
+          <form onSubmit={handleAuthSubmit(mode)} className="grid gap-2.5">
             {mode === "register" ? (
-              <Input placeholder="Ad Soyad" />
+              <AuthField
+                id="register-full-name"
+                label="Ad Soyad"
+                value={authForm.fullName}
+                onChange={(value) => updateAuthField("fullName", value)}
+                placeholder="Adınız Soyadınız"
+                error={errors.fullName}
+                touched={authTouched.fullName}
+              />
             ) : null}
-            <Input placeholder="ornek@aybu.edu.tr" />
-            <Input placeholder="••••••••" type="password" />
-            <Button type="submit" fullWidth>
-              {hero.submitLabel}
+            <AuthField
+              id={`${mode}-email`}
+              label="E-posta"
+              value={authForm.email}
+              onChange={(value) => updateAuthField("email", value)}
+              placeholder="ornek@aybu.edu.tr"
+              type="email"
+              error={errors.email}
+              touched={authTouched.email}
+            />
+            <AuthField
+              id={`${mode}-password`}
+              label="Şifre"
+              value={authForm.password}
+              onChange={(value) => updateAuthField("password", value)}
+              placeholder="En az 8 karakter"
+              type="password"
+              error={errors.password}
+              touched={authTouched.password}
+            />
+            {mode === "register" ? (
+              <AuthField
+                id="register-confirm-password"
+                label="Şifre Tekrar"
+                value={authForm.confirmPassword}
+                onChange={(value) => updateAuthField("confirmPassword", value)}
+                placeholder="Şifrenizi tekrar yazın"
+                type="password"
+                error={errors.confirmPassword}
+                touched={authTouched.confirmPassword}
+              />
+            ) : null}
+
+            {mode === "register" ? (
+              <div className="mt-1">
+                <label className="flex items-start gap-2 text-xs text-slate-600">
+                  <input
+                    type="checkbox"
+                    checked={authForm.acceptTerms}
+                    onChange={(event) => updateAuthField("acceptTerms", event.target.checked)}
+                    className="mt-0.5 h-4 w-4 rounded border-slate-300 text-amber-500 focus:ring-amber-300"
+                  />
+                  <span>Kullanım koşullarını ve gizlilik politikasını okudum, kabul ediyorum.</span>
+                </label>
+                <p
+                  className={`mt-1 min-h-[1rem] text-[11px] transition-all duration-300 ${
+                    authTouched.acceptTerms && errors.acceptTerms
+                      ? "translate-y-0 text-rose-600 opacity-100"
+                      : "-translate-y-0.5 text-transparent opacity-0"
+                  }`}
+                >
+                  {errors.acceptTerms ?? "."}
+                </p>
+              </div>
+            ) : null}
+
+            <Button
+              type="submit"
+              fullWidth
+              disabled={authSubmitStatus === "loading"}
+              className={`transition-all duration-300 ${
+                authSubmitStatus === "success"
+                  ? "bg-emerald-500 text-white hover:bg-emerald-500"
+                  : ""
+              }`}
+            >
+              {authSubmitStatus === "loading"
+                ? "İşleniyor..."
+                : authSubmitStatus === "success"
+                  ? "Başarılı"
+                  : content.submitLabel}
             </Button>
+
+            <p className="text-xs text-slate-500">{content.securityNote ?? ""}</p>
           </form>
-        </section>
-      </main>
+
+          <AuthFooterLinkRow
+            prompt={footerPrompt}
+            actionLabel={footerActionLabel}
+            onActionClick={() => navigateToView(mode === "login" ? "register" : "login")}
+          />
+        </AuthCard>
+      </AuthShell>
     );
   };
 

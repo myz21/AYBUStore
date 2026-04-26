@@ -92,6 +92,12 @@ export interface AuthHeroContent {
   imageUrl: string;
 }
 
+export interface AuthBenefit {
+  id: string;
+  title: string;
+  description: string;
+}
+
 export interface LoginPageContent {
   panelTitle: string;
   panelDescription: string;
@@ -102,6 +108,8 @@ export interface LoginPageContent {
   registerPrompt: string;
   registerPromptLinkLabel: string;
   registerPromptLinkHref: string;
+  securityNote?: string;
+  benefits?: AuthBenefit[];
 }
 
 export interface RegisterPageContent {
@@ -111,6 +119,8 @@ export interface RegisterPageContent {
   loginPrompt: string;
   loginPromptLinkLabel: string;
   loginPromptLinkHref: string;
+  securityNote?: string;
+  benefits?: AuthBenefit[];
 }
 
 export interface FilterGroup {
