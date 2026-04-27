@@ -1,0 +1,129 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e6]:
+        - link "Yıldız Teknik Üniversitesi" [ref=e8] [cursor=pointer]:
+          - /url: https://www.ytuyildiz.store
+          - img "Yıldız Teknik Üniversitesi" [ref=e9]
+        - generic [ref=e11]:
+          - link "" [ref=e13] [cursor=pointer]:
+            - /url: javascript:void(0);
+            - generic [ref=e14]: 
+          - generic [ref=e18]:
+            - button "" [ref=e20] [cursor=pointer]:
+              - generic [ref=e21]: 
+            - generic [ref=e22]:
+              - textbox "Ürün Ara..." [ref=e23]:
+                - /placeholder: "Ürün \n  Ara..."
+              - text: 
+          - text:   
+    - generic [ref=e29]:
+      - heading "Hesabınıza Giriş Yapın" [level=1] [ref=e31]
+      - generic [ref=e32]:
+        - form [ref=e34]:
+          - textbox "E-Posta" [ref=e36]
+          - textbox "Şifreniz" [ref=e38]
+          - generic [ref=e39]:
+            - generic [ref=e41] [cursor=pointer]:
+              - checkbox "Beni Hatırla" [ref=e42]
+              - text: Beni Hatırla
+            - link "Şifremi Unuttum" [ref=e45] [cursor=pointer]:
+              - /url: https://www.ytuyildiz.store/password/reset
+          - button "Oturum Aç" [ref=e47] [cursor=pointer]
+        - generic [ref=e48]:
+          - paragraph [ref=e49]: Hesabın Yok Mu?
+          - link "Üye Ol, Kampüs’e Katıl!" [ref=e50] [cursor=pointer]:
+            - /url: https://www.ytuyildiz.store/profil/kayit
+    - link [ref=e52] [cursor=pointer]:
+      - /url: https://maps.app.goo.gl/oHn2797utgQabgP76
+      - img [ref=e53]
+    - generic [ref=e55]:
+      - generic [ref=e56]:
+        - generic [ref=e58]:
+          - heading "Kampüs Giyim" [level=4] [ref=e59]
+          - list [ref=e60]:
+            - listitem [ref=e61]:
+              - link "Hakkımızda" [ref=e62] [cursor=pointer]:
+                - /url: ""
+            - listitem [ref=e63]:
+              - link "Sıkça Sorulan Sorular" [ref=e64] [cursor=pointer]:
+                - /url: https://www.ytuyildiz.store/sikca-sorulan-sorular
+        - generic [ref=e66]:
+          - heading "Bize Ulaşın" [level=4] [ref=e67]
+          - list [ref=e68]:
+            - listitem [ref=e69]:
+              - link "☎️ 444 56 77" [ref=e70] [cursor=pointer]:
+                - /url: tel://444 56 77
+            - listitem [ref=e71]:
+              - link " ️ +90 543 352 67 87" [ref=e72] [cursor=pointer]:
+                - /url: https://api.whatsapp.com/send/?phone=905433526787
+                - generic [ref=e73]: 
+                - text: ️ +90 543 352 67 87
+            - listitem [ref=e74]:
+              - link "✉️ info@ytuyildiz.store" [ref=e75] [cursor=pointer]:
+                - /url: mailto://info@ytuyildiz.store
+        - generic [ref=e77]:
+          - heading "Hesabım" [level=4] [ref=e78]
+          - list [ref=e79]:
+            - listitem [ref=e80]:
+              - link "Oturum Aç" [ref=e81] [cursor=pointer]:
+                - /url: https://www.ytuyildiz.store/profil/giris
+            - listitem [ref=e82]:
+              - link "Sipariş Geçmişi" [ref=e83] [cursor=pointer]:
+                - /url: https://www.ytuyildiz.store/satin-alma-gecmisim
+            - listitem [ref=e84]:
+              - link "İstek Listem" [ref=e85] [cursor=pointer]:
+                - /url: https://www.ytuyildiz.store/favori-listem
+      - generic [ref=e86]:
+        - generic [ref=e87]:
+          - heading "Güvenli Alışveriş" [level=4] [ref=e89]
+          - generic [ref=e90]:
+            - img [ref=e91]
+            - img [ref=e92]
+            - img [ref=e93]
+            - img [ref=e94]
+        - generic [ref=e96]:
+          - heading "Sosyal Medya" [level=4] [ref=e97]
+          - generic [ref=e98]:
+            - link [ref=e100] [cursor=pointer]:
+              - /url: ""
+              - img [ref=e101]
+            - link [ref=e103] [cursor=pointer]:
+              - /url: ""
+              - img [ref=e104]
+            - link [ref=e106] [cursor=pointer]:
+              - /url: ""
+              - img [ref=e107]
+    - contentinfo [ref=e108]:
+      - generic [ref=e110]:
+        - generic [ref=e112]: © 2025 Yıldız Teknik Üniversitesi - Tüm Hakları Saklıdır
+        - generic [ref=e113]:
+          - generic [ref=e115]:
+            - link "Üyelik Sözleşmesi ve Site Kullanım Şartları" [ref=e116] [cursor=pointer]:
+              - /url: https://www.ytuyildiz.store/sartlar
+            - link "Gizlilik Politikası ve KVKK Aydınlatma Metni" [ref=e117] [cursor=pointer]:
+              - /url: https://www.ytuyildiz.store/gizlilik-politikasi
+          - generic:
+            - list
+    - generic [ref=e119]:
+      - link " Ana Sayfa" [ref=e121] [cursor=pointer]:
+        - /url: https://www.ytuyildiz.store
+        - generic [ref=e122]: 
+        - generic [ref=e123]: Ana Sayfa
+      - link " Kategoriler" [ref=e125] [cursor=pointer]:
+        - /url: https://www.ytuyildiz.store/kategoriler
+        - generic [ref=e126]: 
+        - generic [ref=e127]: Kategoriler
+      - link " Sepet (0)" [ref=e129] [cursor=pointer]:
+        - /url: https://www.ytuyildiz.store/sepet
+        - generic [ref=e131]: 
+        - generic [ref=e132]: Sepet (0)
+      - link " Bildirimler" [ref=e134] [cursor=pointer]:
+        - /url: https://www.ytuyildiz.store/tum-bildirimler
+        - generic [ref=e136]: 
+        - generic [ref=e137]: Bildirimler
+      - link "Profil" [ref=e139] [cursor=pointer]:
+        - /url: https://www.ytuyildiz.store/profil/giris
+        - img [ref=e141]
+        - generic [ref=e142]: Profil
+  - text:  

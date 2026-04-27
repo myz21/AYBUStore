@@ -1,0 +1,328 @@
+- generic [active] [ref=e1]:
+  - region [ref=e2]:
+    - generic [ref=e4]:
+      - heading [level=2]
+      - generic [ref=e5]:
+        - paragraph [ref=e7]:
+          - text: WUNDER olarak, güvenilir ve gelişmiş bir alışveriş deneyimi sunmak amacıyla çerez kullanıyoruz. Çerezler vasıtasıyla hangi kişisel verileri topladığımız ve nasıl kullandığımız hakkında aydınlatma metnine buradan ulaşabilirsin.
+          - link "Aydınlatma metni" [ref=e8] [cursor=pointer]:
+            - /url: https://wunder.com.tr/pages/gizlilikilkeleri
+        - generic [ref=e9]:
+          - button "Reddet" [ref=e10] [cursor=pointer]
+          - button "KABUL ET" [ref=e11] [cursor=pointer]
+  - generic [ref=e13]:
+    - generic [ref=e14]:
+      - banner [ref=e16]:
+        - generic [ref=e17]:
+          - link "Wunder Logo" [ref=e20] [cursor=pointer]:
+            - /url: /
+            - img "Wunder Logo" [ref=e21]
+          - list [ref=e23]:
+            - listitem [ref=e24] [cursor=pointer]:
+              - generic [ref=e25]:
+                - searchbox "Ürün, Marka veya Kategori ara" [ref=e26]
+                - img [ref=e28]
+            - listitem [ref=e31] [cursor=pointer]:
+              - img [ref=e32]
+            - listitem [ref=e36] [cursor=pointer]:
+              - img [ref=e38]
+      - generic [ref=e41]:
+        - generic [ref=e43]:
+          - link "slider" [ref=e47] [cursor=pointer]:
+            - /url: /wales-bonner-x-adidas
+            - img "slider" [ref=e51]
+          - link [ref=e66] [cursor=pointer]:
+            - /url: /wales-bonner-x-adidas
+            - img [ref=e70]
+        - list [ref=e83]:
+          - listitem [ref=e84] [cursor=pointer]:
+            - button "• 1" [ref=e85]
+          - listitem [ref=e86] [cursor=pointer]:
+            - button "• 2" [ref=e87]
+          - listitem [ref=e88] [cursor=pointer]:
+            - button "• 3" [ref=e89]
+          - listitem [ref=e90] [cursor=pointer]:
+            - button "• 4" [ref=e91]
+          - listitem [ref=e92] [cursor=pointer]:
+            - button "• 5" [ref=e93]
+          - listitem [ref=e94] [cursor=pointer]:
+            - button "• 6" [ref=e95]
+          - listitem [ref=e96] [cursor=pointer]:
+            - button "• 7" [ref=e97]
+          - listitem [ref=e98] [cursor=pointer]:
+            - button "• 8" [ref=e99]
+          - listitem [ref=e100] [cursor=pointer]:
+            - button "• 9" [ref=e101]
+          - listitem [ref=e102] [cursor=pointer]:
+            - button "• 10" [ref=e103]
+          - listitem [ref=e104] [cursor=pointer]:
+            - button "• 11" [ref=e105]
+          - listitem [ref=e106] [cursor=pointer]:
+            - button "• 12" [ref=e107]
+          - listitem [ref=e108] [cursor=pointer]:
+            - button "• 13" [ref=e109]
+      - generic [ref=e112]:
+        - heading "Popüler Ürünler" [level=3] [ref=e114]
+        - generic [ref=e115]:
+          - generic [ref=e117]:
+            - link "Palermo Cow Print 'Chocolate Brown' Puma Palermo Cow Print 'Chocolate Brown' ₺ 6,999.00" [ref=e120] [cursor=pointer]:
+              - /url: /palermo-cow-print-chocolate-brown-406129-01
+              - generic [ref=e121]:
+                - img "Palermo Cow Print 'Chocolate Brown'" [ref=e125]
+                - generic [ref=e126]:
+                  - generic [ref=e127]: Puma
+                  - heading "Palermo Cow Print 'Chocolate Brown'" [level=3] [ref=e128]
+                  - generic [ref=e131]: ₺ 6,999.00
+            - link "Printed Short Sleeve Shirt 'Brown Paisley' Stockholm Surfboard Club Printed Short Sleeve Shirt 'Brown Paisley' ₺ 17,850.00" [ref=e134] [cursor=pointer]:
+              - /url: /printed-short-sleeve-shirt-brown-paisley-u4000280-b30
+              - generic [ref=e135]:
+                - img "Printed Short Sleeve Shirt 'Brown Paisley'" [ref=e139]
+                - generic [ref=e140]:
+                  - generic [ref=e141]: Stockholm Surfboard Club
+                  - heading "Printed Short Sleeve Shirt 'Brown Paisley'" [level=3] [ref=e142]
+                  - generic [ref=e145]: ₺ 17,850.00
+            - link [ref=e148] [cursor=pointer]:
+              - /url: /harlem-cap-shale-i036729-3m6-xx
+              - generic [ref=e149]:
+                - img [ref=e153]
+                - generic [ref=e154]:
+                  - generic [ref=e155]: Carhartt WIP
+                  - heading [level=3] [ref=e156]: Harlem Cap 'Shale'
+                  - generic [ref=e159]: ₺ 3,280.00
+            - link [ref=e162] [cursor=pointer]:
+              - /url: /f50-tunit-beast-royal-blue-kk3651
+              - generic [ref=e163]:
+                - img [ref=e167]
+                - generic [ref=e168]:
+                  - generic [ref=e169]: Y-3
+                  - heading [level=3] [ref=e170]: F50 Tunit Beast 'Royal Blue'
+                  - generic [ref=e173]: ₺ 17,999.00
+            - link [ref=e176] [cursor=pointer]:
+              - /url: /landon-pant-shake-chalk-wash-i033749-3is-5f
+              - generic [ref=e177]:
+                - img [ref=e181]
+                - generic [ref=e182]:
+                  - generic [ref=e183]: Carhartt WIP
+                  - heading [level=3] [ref=e184]: Landon Pant ‘Shake & Chalk Wash’
+                  - generic [ref=e187]: ₺ 11,300.00
+            - link [ref=e190] [cursor=pointer]:
+              - /url: /air-jordan-5-retro-wolf-grey
+              - generic [ref=e191]:
+                - img [ref=e195]
+                - generic [ref=e196]:
+                  - generic [ref=e197]: Jordan
+                  - heading [level=3] [ref=e198]: Air Jordan 5 Retro 'Wolf Grey'
+                  - generic [ref=e201]: ₺ 11,999.00
+            - link [ref=e204] [cursor=pointer]:
+              - /url: /cloudswift-amp-black-3mg10461043
+              - generic [ref=e205]:
+                - img [ref=e209]
+                - generic [ref=e210]:
+                  - generic [ref=e211]: "On"
+                  - heading [level=3] [ref=e212]: Cloudswift AMP 'Black'
+                  - generic [ref=e215]: ₺ 13,499.00
+            - link [ref=e218] [cursor=pointer]:
+              - /url: /w-snake-nixon-double-knee-short-snake-camo-i036866-3r2-60
+              - generic [ref=e219]:
+                - img [ref=e223]
+                - generic [ref=e224]:
+                  - generic [ref=e225]: Carhartt WIP
+                  - heading [level=3] [ref=e226]: W' Snake Nixon Double Knee Short 'Snake Camo'
+                  - generic [ref=e229]: ₺ 12,210.00
+            - link [ref=e232] [cursor=pointer]:
+              - /url: /gel-1130-white-forest-night-1203a609-106
+              - generic [ref=e233]:
+                - img [ref=e237]
+                - generic [ref=e238]:
+                  - generic [ref=e239]: ASICS
+                  - heading [level=3] [ref=e240]: Gel-1130 'White & Forest Night'
+                  - generic [ref=e243]: ₺ 6,999.00
+            - link [ref=e246] [cursor=pointer]:
+              - /url: /heritage-ellipse-tee-white-foa408899-100
+              - generic [ref=e247]:
+                - img [ref=e251]
+                - generic [ref=e252]:
+                  - generic [ref=e253]: Oakley
+                  - heading [level=3] [ref=e254]: Heritage Ellipse Tee 'White'
+                  - generic [ref=e257]: ₺ 1,849.00
+          - img [ref=e259] [cursor=pointer]
+      - generic [ref=e264]:
+        - link "Image SNEAKER" [ref=e265] [cursor=pointer]:
+          - /url: /sneaker
+          - generic [ref=e266]:
+            - img "Image" [ref=e269]
+            - generic [ref=e271]: SNEAKER
+        - link "Image GİYİM" [ref=e272] [cursor=pointer]:
+          - /url: /giyim
+          - generic [ref=e273]:
+            - img "Image" [ref=e276]
+            - generic [ref=e278]: GİYİM
+        - link "Image AKSESUAR" [ref=e279] [cursor=pointer]:
+          - /url: /aksesuar
+          - generic [ref=e280]:
+            - img "Image" [ref=e283]
+            - generic [ref=e285]: AKSESUAR
+      - generic [ref=e288]:
+        - heading "Yeni Gelenler" [level=3] [ref=e290]
+        - generic [ref=e291]:
+          - generic [ref=e293]:
+            - link "L/S Snake Polo ‘Snake Camo Jacquard’ Carhartt WIP L/S Snake Polo ‘Snake Camo Jacquard’ ₺ 15,675.00" [ref=e296] [cursor=pointer]:
+              - /url: /l-s-snake-polo-snake-camo-jacquard-i036170-3ql-xx
+              - generic [ref=e297]:
+                - img "L/S Snake Polo ‘Snake Camo Jacquard’" [ref=e301]
+                - generic [ref=e302]:
+                  - generic [ref=e303]: Carhartt WIP
+                  - heading "L/S Snake Polo ‘Snake Camo Jacquard’" [level=3] [ref=e304]
+                  - generic [ref=e307]: ₺ 15,675.00
+            - link "HAL Studios x ASICS Gel-NYC 2.0 SSHS 'Sulphur & Black' ASICS HAL Studios x ASICS Gel-NYC 2.0 SSHS 'Sulphur & Black' ₺ 9,999.00" [ref=e310] [cursor=pointer]:
+              - /url: /hal-studios-x-asics-gel-nyc-20-sshs-sulphur-black-1203a896-750
+              - generic [ref=e311]:
+                - img "HAL Studios x ASICS Gel-NYC 2.0 SSHS 'Sulphur & Black'" [ref=e315]
+                - generic [ref=e316]:
+                  - generic [ref=e317]: ASICS
+                  - heading "HAL Studios x ASICS Gel-NYC 2.0 SSHS 'Sulphur & Black'" [level=3] [ref=e318]
+                  - generic [ref=e321]: ₺ 9,999.00
+            - link [ref=e324] [cursor=pointer]:
+              - /url: /single-tipped-shirt-black-champagne-m2-157
+              - generic [ref=e325]:
+                - img [ref=e329]
+                - generic [ref=e330]:
+                  - generic [ref=e331]: Fred Perry
+                  - heading [level=3] [ref=e332]: Single Tipped Shirt 'Black Champagne'
+                  - generic [ref=e335]: ₺ 6,999.00
+            - link [ref=e338] [cursor=pointer]:
+              - /url: /loma-suede-leather-cork-brown-1031595
+              - generic [ref=e339]:
+                - img [ref=e343]
+                - generic [ref=e344]:
+                  - generic [ref=e345]: BIRKENSTOCK
+                  - heading [level=3] [ref=e346]: Loma Suede Leather 'Cork Brown'
+                  - generic [ref=e349]: ₺ 9,999.00
+            - link [ref=e352] [cursor=pointer]:
+              - /url: /latch-matte-brown-tortoise-oo9265-6053
+              - generic [ref=e353]:
+                - img [ref=e357]
+                - generic [ref=e358]:
+                  - generic [ref=e359]: Oakley
+                  - heading [level=3] [ref=e360]: Latch 'Matte Brown Tortoise'
+                  - generic [ref=e363]: ₺ 9,800.00
+            - link [ref=e366] [cursor=pointer]:
+              - /url: /s-s-monogram-t-shirt-white-i036212-02-xx
+              - generic [ref=e367]:
+                - img [ref=e371]
+                - generic [ref=e372]:
+                  - generic [ref=e373]: Carhartt WIP
+                  - heading [level=3] [ref=e374]: S/S Monogram T-Shirt 'White'
+                  - generic [ref=e377]: ₺ 4,195.00
+            - link [ref=e380] [cursor=pointer]:
+              - /url: /w-brandon-pant-blue-sand-bleached-i035892-01-sn
+              - generic [ref=e381]:
+                - img [ref=e385]
+                - generic [ref=e386]:
+                  - generic [ref=e387]: Carhartt WIP
+                  - heading [level=3] [ref=e388]: W' Brandon Pant 'Blue Sand Bleached'
+                  - generic [ref=e391]: ₺ 12,210.00
+            - link [ref=e394] [cursor=pointer]:
+              - /url: /knitted-crochet-polo-aurora-coffee-ke0198
+              - generic [ref=e395]:
+                - img [ref=e399]
+                - generic [ref=e400]:
+                  - generic [ref=e401]: adidas
+                  - heading [level=3] [ref=e402]: Knitted Crochet Polo 'Aurora Coffee'
+                  - generic [ref=e405]: ₺ 2,999.00
+            - link [ref=e408] [cursor=pointer]:
+              - /url: /samba-og-crew-white-w-ih9373
+              - generic [ref=e409]:
+                - img [ref=e413]
+                - generic [ref=e414]:
+                  - generic [ref=e415]: adidas
+                  - heading [level=3] [ref=e416]: Samba OG 'Crew White' (W)
+                  - generic [ref=e419]: ₺ 7,799.00
+            - link [ref=e422] [cursor=pointer]:
+              - /url: /philis-backpack-shale-i031575-3is-xx
+              - generic [ref=e423]:
+                - img [ref=e427]
+                - generic [ref=e428]:
+                  - generic [ref=e429]: Carhartt WIP
+                  - heading [level=3] [ref=e430]: Philis Backpack 'Shale'
+                  - generic [ref=e433]: ₺ 8,565.00
+          - img [ref=e435] [cursor=pointer]
+      - generic [ref=e440]:
+        - link "Image Arte Antwerp" [ref=e442] [cursor=pointer]:
+          - /url: /arte-antwerp
+          - img "Image" [ref=e445]
+          - paragraph [ref=e447]: Arte Antwerp
+        - link "Image adidas Sneaker" [ref=e449] [cursor=pointer]:
+          - /url: /adidas-sneaker
+          - img "Image" [ref=e452]
+          - paragraph [ref=e454]: adidas Sneaker
+      - generic [ref=e457]:
+        - article [ref=e458]:
+          - img "mağaza" [ref=e462]
+          - heading "WUNDER - MODA MAĞAZA" [level=4] [ref=e465]:
+            - link "WUNDER - MODA MAĞAZA" [ref=e466] [cursor=pointer]:
+              - /url: https://goo.gl/maps/jPDkqixxt1BABGKq9
+              - strong [ref=e467]: WUNDER - MODA MAĞAZA
+        - article [ref=e468]:
+          - img "mağaza" [ref=e472]
+          - generic [ref=e474]:
+            - heading "WUNDER - TEŞVİKİYE MAĞAZA" [level=4] [ref=e475]:
+              - link:
+                - /url: https://www.google.com.tr/maps/place/Muradiye,+Ahmet+Fetgari+Sk+No:35,+34357+Be%C5%9Fikta%C5%9F%2F%C4%B0stanbul/@41.0492612,28.9955703,18z/data=!4m5!3m4!1s0x14cab70a692e1f53:0x5c4b64ad2157cf00!8m2!3d41.0487168!4d28.9953366
+                - strong
+              - strong [ref=e476]:
+                - generic [ref=e477]:
+                  - link:
+                    - /url: https://maps.app.goo.gl/sTwmxMH2RRCnKyhT7
+                  - link "WUNDER - TEŞVİKİYE MAĞAZA" [ref=e478] [cursor=pointer]:
+                    - /url: https://maps.app.goo.gl/sTwmxMH2RRCnKyhT7
+            - paragraph [ref=e479]
+        - generic [ref=e480]:
+          - generic [ref=e481]: WUNDER Bülten
+          - paragraph [ref=e482]: Yeni çıkan ürünler, lansmanlar, indirimler ve daha fazlası için bültene kayıt olun!
+          - textbox "E-mail" [ref=e483]
+          - generic [ref=e484]:
+            - checkbox [ref=e485] [cursor=pointer]
+            - paragraph [ref=e487]: İletişim e-postalarının tarafıma gönderilmesine izin veriyorum.
+          - button "KAYIT OL" [disabled] [ref=e489] [cursor=pointer]
+          - generic [ref=e491]:
+            - text: Bu site reCAPTCHA tarafından korunmaktadır ve Google
+            - link "Gizlilik Politikası" [ref=e492] [cursor=pointer]:
+              - /url: https://policies.google.com/privacy
+            - text: ve
+            - link "Hizmet Şartları" [ref=e493] [cursor=pointer]:
+              - /url: https://policies.google.com/terms
+            - text: geçerlidir.
+    - contentinfo [ref=e495]:
+      - generic [ref=e498]:
+        - generic [ref=e500]:
+          - generic [ref=e501]: SİTE HARİTASI
+          - img [ref=e503]
+        - generic [ref=e506]:
+          - generic [ref=e507]: MÜŞTERİ HİZMETLERİ
+          - img [ref=e509]
+        - generic [ref=e512]:
+          - generic [ref=e513]: HESABIM
+          - img [ref=e515]
+        - generic [ref=e518]:
+          - generic [ref=e519]: POPÜLER MODELLER
+          - img [ref=e521]
+        - generic [ref=e524]:
+          - generic [ref=e525]: POPÜLER KATEGORİLER
+          - img [ref=e527]
+        - generic [ref=e530]:
+          - generic [ref=e531]: SOSYAL MEDYA
+          - img [ref=e533]
+      - generic [ref=e536]:
+        - generic [ref=e537]:
+          - generic [ref=e538]: Copyright © 2026 WUNDER. İçeriklerin izinsiz kopyalanması yasaktır.
+          - generic [ref=e539]:
+            - text: ikas
+            - link "E-Ticaret" [ref=e540] [cursor=pointer]:
+              - /url: https://ikas.com/tr?utm_source=wunder&utm_medium=referral_link
+            - text: Altyapısı ile Hazırlanmıştır.
+        - generic [ref=e542]:
+          - img [ref=e544]
+          - img [ref=e552]
+          - img [ref=e558]
+  - alert [ref=e563]

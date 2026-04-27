@@ -1,0 +1,728 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e6]:
+        - link "Yıldız Teknik Üniversitesi" [ref=e8] [cursor=pointer]:
+          - /url: https://www.ytuyildiz.store
+          - img "Yıldız Teknik Üniversitesi" [ref=e9]
+        - generic [ref=e11]:
+          - text: 
+          - generic [ref=e15]:
+            - text: 
+            - generic [ref=e16]:
+              - textbox "Ürün Ara..." [ref=e17]:
+                - /placeholder: "Ürün \n  Ara..."
+              - button "" [ref=e19] [cursor=pointer]:
+                - generic [ref=e20]: 
+          - text: 
+          - link "Turkish TR " [ref=e23] [cursor=pointer]:
+            - /url: javascript:void(0)
+            - img "Turkish" [ref=e24]
+            - generic [ref=e25]: TR
+            - text: 
+          - link "Oturum Aç" [ref=e28] [cursor=pointer]:
+            - /url: https://www.ytuyildiz.store/profil/giris
+            - img [ref=e29]
+            - generic [ref=e32]: Oturum Aç
+          - generic [ref=e34]:
+            - link "Sepetim" [ref=e35] [cursor=pointer]:
+              - /url: javascript:void(0)
+              - img [ref=e36]
+              - generic [ref=e39]: Sepetim
+            - text: 
+    - generic [ref=e44]:
+      - button "❮" [ref=e45] [cursor=pointer]
+      - list [ref=e46]:
+        - listitem [ref=e47]:
+          - link "Mağaza Ana Sayfa" [ref=e48] [cursor=pointer]:
+            - /url: https://www.ytuyildiz.store/magaza/y%C4%B1ld%C4%B1z_teknik_%C3%BCniversitesi
+        - listitem [ref=e49]:
+          - link "Tüm Ürünler" [ref=e50] [cursor=pointer]:
+            - /url: https://www.ytuyildiz.store/magaza/y%C4%B1ld%C4%B1z_teknik_%C3%BCniversitesi/all-products
+        - listitem [ref=e51]:
+          - link "Giyim" [ref=e52] [cursor=pointer]:
+            - /url: https://www.ytuyildiz.store/kategori/giyim
+        - listitem [ref=e53]:
+          - link "YTU Okulları" [ref=e54] [cursor=pointer]:
+            - /url: https://ytuyildiz.store/magaza/ytu_okullar%C4%B1
+      - button "❯" [ref=e55] [cursor=pointer]
+    - generic [ref=e59]:
+      - generic [ref=e60]:
+        - button "" [disabled] [ref=e61] [cursor=pointer]:
+          - generic [ref=e62]: 
+        - generic [ref=e64]:
+          - tabpanel [ref=e65]:
+            - img "0 offer" [ref=e68]
+          - tabpanel [ref=e69]:
+            - link [ref=e72] [cursor=pointer]:
+              - /url: https://www.ytuyildiz.store/urun/yildiz-teknik-universitesi-ayicik
+              - img [ref=e73]
+          - tabpanel [ref=e74]:
+            - img [ref=e77]
+          - tabpanel [ref=e78]:
+            - img [ref=e81]
+          - tabpanel [ref=e82]:
+            - img [ref=e85]
+        - button "" [ref=e86] [cursor=pointer]:
+          - generic [ref=e87]: 
+        - tablist [ref=e88]:
+          - tab "1 of 5" [selected] [ref=e89] [cursor=pointer]: "1"
+          - tab "2 of 5" [ref=e90] [cursor=pointer]: "2"
+          - tab "3 of 5" [ref=e91] [cursor=pointer]: "3"
+          - tab "4 of 5" [ref=e92] [cursor=pointer]: "4"
+          - tab "5 of 5" [ref=e93] [cursor=pointer]: "5"
+      - generic [ref=e94]:
+        - generic [ref=e95]:
+          - link "YTU Junior" [ref=e96] [cursor=pointer]:
+            - /url: https://www.ytuyildiz.store/magaza/ytu_okullar%C4%B1
+            - img "YTU Junior" [ref=e97]
+          - link "YTU Bölümler" [ref=e98] [cursor=pointer]:
+            - /url: https://www.ytuyildiz.store/etiket/bolumler
+            - img "YTU Bölümler" [ref=e99]
+          - link "YTU Mezunlar" [ref=e100] [cursor=pointer]:
+            - /url: https://www.ytuyildiz.store/etiket/mezunlar
+            - img "YTU Mezunlar" [ref=e101]
+          - link "YTU Kitaplar" [ref=e102] [cursor=pointer]:
+            - /url: https://www.ytuyildiz.store/etiket/kitaplar
+            - img "YTU Kitaplar" [ref=e103]
+          - link "YTU Aile" [ref=e104] [cursor=pointer]:
+            - /url: https://www.ytuyildiz.store/etiket/aile
+            - img "YTU Aile" [ref=e105]
+        - generic [ref=e107]:
+          - heading "Tüm Ürünler" [level=1] [ref=e109]
+          - text: 
+          - generic [ref=e110]:
+            - generic [ref=e111]: Göre sırala
+            - generic [ref=e112]:
+              - combobox [ref=e113]:
+                - option "Çok Satanlar" [selected]
+                - option "En Yeni"
+                - option "En Eski"
+                - 'option "Fiyat: Düşükten Yükseğe"'
+                - 'option "Fiyat: Yüksekten Düşüğe"'
+              - combobox "Çok Satanlar" [ref=e114] [cursor=pointer]:
+                - generic [ref=e117]: Çok Satanlar
+                - text: 
+        - generic [ref=e118]:
+          - generic [ref=e119]:
+            - generic [ref=e120]:
+              - link "YTÜ Yıldız Store - Spor Okulu T-shirt" [ref=e127] [cursor=pointer]:
+                - /url: https://www.ytuyildiz.store/urun/ytu-spor-okulu-t-shirt
+                - img "YTÜ Yıldız Store - Spor Okulu T-shirt" [ref=e128]
+              - generic [ref=e129]:
+                - link "" [ref=e130] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e131]: 
+                - link "" [ref=e132] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e133]: 
+            - generic [ref=e134]:
+              - generic [ref=e135]: 600,00TL
+              - heading "YTÜ Yıldız Store - Spor Okulu T-shirt Bisiklet Yaka T-shirt" [level=3] [ref=e136]:
+                - link "YTÜ Yıldız Store - Spor Okulu T-shirt Bisiklet Yaka T-shirt" [ref=e137] [cursor=pointer]:
+                  - /url: https://www.ytuyildiz.store/urun/ytu-spor-okulu-t-shirt
+          - generic [ref=e138]:
+            - generic [ref=e139]:
+              - generic [ref=e141]:
+                - generic [ref=e143]:
+                  - tabpanel [ref=e144]:
+                    - link "YTÜ Yıldız Store - DAD T-shirt" [ref=e146] [cursor=pointer]:
+                      - /url: https://www.ytuyildiz.store/urun/ytu-dad-t-shirt
+                      - img "YTÜ Yıldız Store - DAD T-shirt" [ref=e147]
+                  - tabpanel [ref=e148]:
+                    - link [ref=e150] [cursor=pointer]:
+                      - /url: https://www.ytuyildiz.store/urun/ytu-dad-t-shirt
+                      - img [ref=e151]
+                  - tabpanel [ref=e152]:
+                    - link [ref=e154] [cursor=pointer]:
+                      - /url: https://www.ytuyildiz.store/urun/ytu-dad-t-shirt
+                      - img [ref=e155]
+                - tablist [ref=e156]:
+                  - tab "1 of 3" [selected] [ref=e157] [cursor=pointer]: "1"
+                  - tab "2 of 3" [ref=e158] [cursor=pointer]: "2"
+                  - tab "3 of 3" [ref=e159] [cursor=pointer]: "3"
+              - generic [ref=e160]:
+                - link "" [ref=e161] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e162]: 
+                - link "" [ref=e163] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e164]: 
+              - button "3" [ref=e166] [cursor=pointer]:
+                - generic [ref=e167]:
+                  - img [ref=e168]
+                  - text: "3"
+            - generic [ref=e169]:
+              - generic [ref=e170]: 600,00TL
+              - heading "YTÜ Yıldız Store - DAD T-shirt T-shirt" [level=3] [ref=e171]:
+                - link "YTÜ Yıldız Store - DAD T-shirt T-shirt" [ref=e172] [cursor=pointer]:
+                  - /url: https://www.ytuyildiz.store/urun/ytu-dad-t-shirt
+          - generic [ref=e173]:
+            - generic [ref=e174]:
+              - generic [ref=e176]:
+                - generic [ref=e178]:
+                  - tabpanel [ref=e179]:
+                    - link "YTÜ Yıldız Store - Bro T-shirt" [ref=e181] [cursor=pointer]:
+                      - /url: https://www.ytuyildiz.store/urun/ytu-bro-t-shirt
+                      - img "YTÜ Yıldız Store - Bro T-shirt" [ref=e182]
+                  - tabpanel [ref=e183]:
+                    - link [ref=e185] [cursor=pointer]:
+                      - /url: https://www.ytuyildiz.store/urun/ytu-bro-t-shirt
+                      - img [ref=e186]
+                  - tabpanel [ref=e187]:
+                    - link [ref=e189] [cursor=pointer]:
+                      - /url: https://www.ytuyildiz.store/urun/ytu-bro-t-shirt
+                      - img [ref=e190]
+                - tablist [ref=e191]:
+                  - tab "1 of 3" [selected] [ref=e192] [cursor=pointer]: "1"
+                  - tab "2 of 3" [ref=e193] [cursor=pointer]: "2"
+                  - tab "3 of 3" [ref=e194] [cursor=pointer]: "3"
+              - generic [ref=e195]:
+                - link "" [ref=e196] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e197]: 
+                - link "" [ref=e198] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e199]: 
+              - button "3" [ref=e201] [cursor=pointer]:
+                - generic [ref=e202]:
+                  - img [ref=e203]
+                  - text: "3"
+            - generic [ref=e204]:
+              - generic [ref=e205]: 600,00TL
+              - heading "YTÜ Yıldız Store - Bro T-shirt T-shirt" [level=3] [ref=e206]:
+                - link "YTÜ Yıldız Store - Bro T-shirt T-shirt" [ref=e207] [cursor=pointer]:
+                  - /url: https://www.ytuyildiz.store/urun/ytu-bro-t-shirt
+          - generic [ref=e208]:
+            - generic [ref=e209]:
+              - generic [ref=e211]:
+                - generic [ref=e213]:
+                  - tabpanel [ref=e214]:
+                    - link "YTÜ Yıldız Store - Grandpa T-shirt" [ref=e216] [cursor=pointer]:
+                      - /url: https://www.ytuyildiz.store/urun/ytu-grandpa-t-shirt
+                      - img "YTÜ Yıldız Store - Grandpa T-shirt" [ref=e217]
+                  - tabpanel [ref=e218]:
+                    - link [ref=e220] [cursor=pointer]:
+                      - /url: https://www.ytuyildiz.store/urun/ytu-grandpa-t-shirt
+                      - img [ref=e221]
+                  - tabpanel [ref=e222]:
+                    - link [ref=e224] [cursor=pointer]:
+                      - /url: https://www.ytuyildiz.store/urun/ytu-grandpa-t-shirt
+                      - img [ref=e225]
+                - tablist [ref=e226]:
+                  - tab "1 of 3" [selected] [ref=e227] [cursor=pointer]: "1"
+                  - tab "2 of 3" [ref=e228] [cursor=pointer]: "2"
+                  - tab "3 of 3" [ref=e229] [cursor=pointer]: "3"
+              - generic [ref=e230]:
+                - link "" [ref=e231] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e232]: 
+                - link "" [ref=e233] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e234]: 
+              - button "3" [ref=e236] [cursor=pointer]:
+                - generic [ref=e237]:
+                  - img [ref=e238]
+                  - text: "3"
+            - generic [ref=e239]:
+              - generic [ref=e240]: 600,00TL
+              - heading "YTÜ Yıldız Store - Grandpa T-shirt T-shirt" [level=3] [ref=e241]:
+                - link "YTÜ Yıldız Store - Grandpa T-shirt T-shirt" [ref=e242] [cursor=pointer]:
+                  - /url: https://www.ytuyildiz.store/urun/ytu-grandpa-t-shirt
+          - generic [ref=e243]:
+            - generic [ref=e244]:
+              - link "YTÜ Yıldız Store - Somebody in YTU - ikili set" [ref=e251] [cursor=pointer]:
+                - /url: https://www.ytuyildiz.store/urun/somebody-in-ytu-ikili-set
+                - img "YTÜ Yıldız Store - Somebody in YTU - ikili set" [ref=e252]
+              - generic [ref=e253]:
+                - link "" [ref=e254] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e255]: 
+                - link "" [ref=e256] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e257]: 
+              - button "1" [ref=e259] [cursor=pointer]:
+                - generic [ref=e260]:
+                  - img [ref=e261]
+                  - text: "1"
+            - generic [ref=e262]:
+              - generic [ref=e263]: 1.000,00TL
+              - heading "YTÜ Yıldız Store - Somebody in YTU - ikili set T-shirt" [level=3] [ref=e264]:
+                - link "YTÜ Yıldız Store - Somebody in YTU - ikili set T-shirt" [ref=e265] [cursor=pointer]:
+                  - /url: https://www.ytuyildiz.store/urun/somebody-in-ytu-ikili-set
+          - generic [ref=e266]:
+            - generic [ref=e267]:
+              - generic [ref=e269]:
+                - generic [ref=e271]:
+                  - tabpanel [ref=e272]:
+                    - link "YTÜ Yıldız Store - Grandma T-shirt" [ref=e274] [cursor=pointer]:
+                      - /url: https://www.ytuyildiz.store/urun/ytu-grandma-t-shirt
+                      - img "YTÜ Yıldız Store - Grandma T-shirt" [ref=e275]
+                  - tabpanel [ref=e276]:
+                    - link [ref=e278] [cursor=pointer]:
+                      - /url: https://www.ytuyildiz.store/urun/ytu-grandma-t-shirt
+                      - img [ref=e279]
+                  - tabpanel [ref=e280]:
+                    - link [ref=e282] [cursor=pointer]:
+                      - /url: https://www.ytuyildiz.store/urun/ytu-grandma-t-shirt
+                      - img [ref=e283]
+                - tablist [ref=e284]:
+                  - tab "1 of 3" [selected] [ref=e285] [cursor=pointer]: "1"
+                  - tab "2 of 3" [ref=e286] [cursor=pointer]: "2"
+                  - tab "3 of 3" [ref=e287] [cursor=pointer]: "3"
+              - generic [ref=e288]:
+                - link "" [ref=e289] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e290]: 
+                - link "" [ref=e291] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e292]: 
+              - button "3" [ref=e294] [cursor=pointer]:
+                - generic [ref=e295]:
+                  - img [ref=e296]
+                  - text: "3"
+            - generic [ref=e297]:
+              - generic [ref=e298]: 600,00TL
+              - heading "YTÜ Yıldız Store - Grandma T-shirt T-shirt" [level=3] [ref=e299]:
+                - link "YTÜ Yıldız Store - Grandma T-shirt T-shirt" [ref=e300] [cursor=pointer]:
+                  - /url: https://www.ytuyildiz.store/urun/ytu-grandma-t-shirt
+          - generic [ref=e301]:
+            - generic [ref=e302]:
+              - generic [ref=e304]:
+                - generic [ref=e306]:
+                  - tabpanel [ref=e307]:
+                    - link "YTÜ Yıldız Store - Sister T-shirt" [ref=e309] [cursor=pointer]:
+                      - /url: https://www.ytuyildiz.store/urun/ytu-sister-t-shirt
+                      - img "YTÜ Yıldız Store - Sister T-shirt" [ref=e310]
+                  - tabpanel [ref=e311]:
+                    - link [ref=e313] [cursor=pointer]:
+                      - /url: https://www.ytuyildiz.store/urun/ytu-sister-t-shirt
+                      - img [ref=e314]
+                  - tabpanel [ref=e315]:
+                    - link [ref=e317] [cursor=pointer]:
+                      - /url: https://www.ytuyildiz.store/urun/ytu-sister-t-shirt
+                      - img [ref=e318]
+                - tablist [ref=e319]:
+                  - tab "1 of 3" [selected] [ref=e320] [cursor=pointer]: "1"
+                  - tab "2 of 3" [ref=e321] [cursor=pointer]: "2"
+                  - tab "3 of 3" [ref=e322] [cursor=pointer]: "3"
+              - generic [ref=e323]:
+                - link "" [ref=e324] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e325]: 
+                - link "" [ref=e326] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e327]: 
+              - button "3" [ref=e329] [cursor=pointer]:
+                - generic [ref=e330]:
+                  - img [ref=e331]
+                  - text: "3"
+            - generic [ref=e332]:
+              - generic [ref=e333]: 600,00TL
+              - heading "YTÜ Yıldız Store - Sister T-shirt T-shirt" [level=3] [ref=e334]:
+                - link "YTÜ Yıldız Store - Sister T-shirt T-shirt" [ref=e335] [cursor=pointer]:
+                  - /url: https://www.ytuyildiz.store/urun/ytu-sister-t-shirt
+          - generic [ref=e336]:
+            - generic [ref=e337]:
+              - generic [ref=e339]:
+                - generic [ref=e341]:
+                  - tabpanel [ref=e342]:
+                    - link "YTÜ Yıldız Store - MOM T-shirt" [ref=e344] [cursor=pointer]:
+                      - /url: https://www.ytuyildiz.store/urun/ytu-mom-t-shirt
+                      - img "YTÜ Yıldız Store - MOM T-shirt" [ref=e345]
+                  - tabpanel [ref=e346]:
+                    - link [ref=e348] [cursor=pointer]:
+                      - /url: https://www.ytuyildiz.store/urun/ytu-mom-t-shirt
+                      - img [ref=e349]
+                  - tabpanel [ref=e350]:
+                    - link [ref=e352] [cursor=pointer]:
+                      - /url: https://www.ytuyildiz.store/urun/ytu-mom-t-shirt
+                      - img [ref=e353]
+                - tablist [ref=e354]:
+                  - tab "1 of 3" [selected] [ref=e355] [cursor=pointer]: "1"
+                  - tab "2 of 3" [ref=e356] [cursor=pointer]: "2"
+                  - tab "3 of 3" [ref=e357] [cursor=pointer]: "3"
+              - generic [ref=e358]:
+                - link "" [ref=e359] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e360]: 
+                - link "" [ref=e361] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e362]: 
+              - button "3" [ref=e364] [cursor=pointer]:
+                - generic [ref=e365]:
+                  - img [ref=e366]
+                  - text: "3"
+            - generic [ref=e367]:
+              - generic [ref=e368]: 600,00TL
+              - heading "YTÜ Yıldız Store - MOM T-shirt YTÜ - Grandma T-shirt" [level=3] [ref=e369]:
+                - link "YTÜ Yıldız Store - MOM T-shirt YTÜ - Grandma T-shirt" [ref=e370] [cursor=pointer]:
+                  - /url: https://www.ytuyildiz.store/urun/ytu-mom-t-shirt
+          - generic [ref=e371]:
+            - generic [ref=e372]:
+              - link [ref=e374] [cursor=pointer]:
+                - /url: https://www.ytuyildiz.store/urun/yildiz-teknik-universitesi-elektronik-ve-haberlesme-muhendisligi-model-1
+                - img [ref=e375]
+              - generic [ref=e376]:
+                - link "" [ref=e377] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e378]: 
+                - link "" [ref=e379] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e380]: 
+              - button "17" [ref=e382] [cursor=pointer]:
+                - generic [ref=e383]:
+                  - img [ref=e384]
+                  - text: "17"
+            - generic [ref=e385]:
+              - generic [ref=e386]: 1.500,00TL
+              - heading "YTÜ Yıldız Store - Elektronik ve Haberleşme Mühendisliği Model 1 Hoodie" [level=3] [ref=e387]:
+                - link "YTÜ Yıldız Store - Elektronik ve Haberleşme Mühendisliği Model 1 Hoodie" [ref=e388] [cursor=pointer]:
+                  - /url: https://www.ytuyildiz.store/urun/yildiz-teknik-universitesi-elektronik-ve-haberlesme-muhendisligi-model-1
+          - generic [ref=e389]:
+            - generic [ref=e390]:
+              - link [ref=e392] [cursor=pointer]:
+                - /url: https://www.ytuyildiz.store/urun/yildiz-teknik-universitesi-kontrol-ve-otomasyon-muhendisligi-model-1
+                - img [ref=e393]
+              - generic [ref=e394]:
+                - link "" [ref=e395] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e396]: 
+                - link "" [ref=e397] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e398]: 
+              - button "17" [ref=e400] [cursor=pointer]:
+                - generic [ref=e401]:
+                  - img [ref=e402]
+                  - text: "17"
+            - generic [ref=e403]:
+              - generic [ref=e404]: 1.500,00TL
+              - heading "YTÜ Yıldız Store - Kontrol ve Otomasyon Mühendisliği Model 1 Hoodie" [level=3] [ref=e405]:
+                - link "YTÜ Yıldız Store - Kontrol ve Otomasyon Mühendisliği Model 1 Hoodie" [ref=e406] [cursor=pointer]:
+                  - /url: https://www.ytuyildiz.store/urun/yildiz-teknik-universitesi-kontrol-ve-otomasyon-muhendisligi-model-1
+          - generic [ref=e407]:
+            - generic [ref=e408]:
+              - link "YTÜ Yıldız Store - Campus Heart – İkili Set" [ref=e415] [cursor=pointer]:
+                - /url: https://www.ytuyildiz.store/urun/ytu-campus-heart-ikili-set
+                - img "YTÜ Yıldız Store - Campus Heart – İkili Set" [ref=e416]
+              - generic [ref=e417]:
+                - link "" [ref=e418] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e419]: 
+                - link "" [ref=e420] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e421]: 
+              - button "1" [ref=e423] [cursor=pointer]:
+                - generic [ref=e424]:
+                  - img [ref=e425]
+                  - text: "1"
+            - generic [ref=e426]:
+              - generic [ref=e427]: 2.750,00TL
+              - heading "YTÜ Yıldız Store - Campus Heart – İkili Set Hoodie" [level=3] [ref=e428]:
+                - link "YTÜ Yıldız Store - Campus Heart – İkili Set Hoodie" [ref=e429] [cursor=pointer]:
+                  - /url: https://www.ytuyildiz.store/urun/ytu-campus-heart-ikili-set
+          - generic [ref=e430]:
+            - generic [ref=e431]:
+              - link [ref=e433] [cursor=pointer]:
+                - /url: https://www.ytuyildiz.store/urun/yildiz-teknik-universitesi-kimya-model-1-hoodie
+                - img [ref=e434]
+              - generic [ref=e435]:
+                - link "" [ref=e436] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e437]: 
+                - link "" [ref=e438] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e439]: 
+              - button "17" [ref=e441] [cursor=pointer]:
+                - generic [ref=e442]:
+                  - img [ref=e443]
+                  - text: "17"
+            - generic [ref=e444]:
+              - generic [ref=e445]: 1.500,00TL
+              - heading "YTÜ Yıldız Store - Kimya Model 1 Hoodie Hoodie" [level=3] [ref=e446]:
+                - link "YTÜ Yıldız Store - Kimya Model 1 Hoodie Hoodie" [ref=e447] [cursor=pointer]:
+                  - /url: https://www.ytuyildiz.store/urun/yildiz-teknik-universitesi-kimya-model-1-hoodie
+          - generic [ref=e448]:
+            - generic [ref=e449]:
+              - link "YTÜ Yıldız Store - - Campus Heart" [ref=e456] [cursor=pointer]:
+                - /url: https://www.ytuyildiz.store/urun/ytu-campus-heart-4
+                - img "YTÜ Yıldız Store - - Campus Heart" [ref=e457]
+              - generic [ref=e458]:
+                - link "" [ref=e459] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e460]: 
+                - link "" [ref=e461] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e462]: 
+              - button "1" [ref=e464] [cursor=pointer]:
+                - generic [ref=e465]:
+                  - img [ref=e466]
+                  - text: "1"
+            - generic [ref=e467]:
+              - generic [ref=e468]: 1.500,00TL
+              - heading "YTÜ Yıldız Store - - Campus Heart Hoodie" [level=3] [ref=e469]:
+                - link "YTÜ Yıldız Store - - Campus Heart Hoodie" [ref=e470] [cursor=pointer]:
+                  - /url: https://www.ytuyildiz.store/urun/ytu-campus-heart-4
+          - generic [ref=e471]:
+            - generic [ref=e472]:
+              - link [ref=e474] [cursor=pointer]:
+                - /url: https://www.ytuyildiz.store/urun/yildiz-teknik-universitesi-beseri-bilimler-ve-sosyal-bilimler-model-1
+                - img [ref=e475]
+              - generic [ref=e476]:
+                - link "" [ref=e477] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e478]: 
+                - link "" [ref=e479] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e480]: 
+              - button "17" [ref=e482] [cursor=pointer]:
+                - generic [ref=e483]:
+                  - img [ref=e484]
+                  - text: "17"
+            - generic [ref=e485]:
+              - generic [ref=e486]: 1.500,00TL
+              - heading "YTÜ Yıldız Store - Beşeri Bilimler ve Sosyal Bilimler Model 1 HOODİE" [level=3] [ref=e487]:
+                - link "YTÜ Yıldız Store - Beşeri Bilimler ve Sosyal Bilimler Model 1 HOODİE" [ref=e488] [cursor=pointer]:
+                  - /url: https://www.ytuyildiz.store/urun/yildiz-teknik-universitesi-beseri-bilimler-ve-sosyal-bilimler-model-1
+          - generic [ref=e489]:
+            - generic [ref=e490]:
+              - link [ref=e492] [cursor=pointer]:
+                - /url: https://www.ytuyildiz.store/urun/yildiz-teknik-universitesi-okul-oncesi-ogretim-model-1
+                - img [ref=e493]
+              - generic [ref=e494]:
+                - link "" [ref=e495] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e496]: 
+                - link "" [ref=e497] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e498]: 
+              - button "17" [ref=e500] [cursor=pointer]:
+                - generic [ref=e501]:
+                  - img [ref=e502]
+                  - text: "17"
+            - generic [ref=e503]:
+              - generic [ref=e504]: 1.500,00TL
+              - heading "YTÜ Yıldız Store - Okul Öncesi Öğretim Model 1 HOODİE" [level=3] [ref=e505]:
+                - link "YTÜ Yıldız Store - Okul Öncesi Öğretim Model 1 HOODİE" [ref=e506] [cursor=pointer]:
+                  - /url: https://www.ytuyildiz.store/urun/yildiz-teknik-universitesi-okul-oncesi-ogretim-model-1
+          - generic [ref=e507]:
+            - generic [ref=e508]:
+              - link [ref=e510] [cursor=pointer]:
+                - /url: https://www.ytuyildiz.store/urun/yildiz-teknik-universitesi-kulturel-mirasin-korunmasi-ve-restorasyon-model-1
+                - img [ref=e511]
+              - generic [ref=e512]:
+                - link "" [ref=e513] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e514]: 
+                - link "" [ref=e515] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e516]: 
+              - button "17" [ref=e518] [cursor=pointer]:
+                - generic [ref=e519]:
+                  - img [ref=e520]
+                  - text: "17"
+            - generic [ref=e521]:
+              - generic [ref=e522]: 1.500,00TL
+              - heading "YTÜ Yıldız Store - Kültürel Mirasın Korunması ve Restorasyon Model 1 HOODİE" [level=3] [ref=e523]:
+                - link "YTÜ Yıldız Store - Kültürel Mirasın Korunması ve Restorasyon Model 1 HOODİE" [ref=e524] [cursor=pointer]:
+                  - /url: https://www.ytuyildiz.store/urun/yildiz-teknik-universitesi-kulturel-mirasin-korunmasi-ve-restorasyon-model-1
+          - generic [ref=e525]:
+            - generic [ref=e526]:
+              - link [ref=e528] [cursor=pointer]:
+                - /url: https://www.ytuyildiz.store/urun/yildiz-teknik-universitesi-siyaset-bilimi-ve-uluslararasi-iliskiler
+                - img [ref=e529]
+              - generic [ref=e530]:
+                - link "" [ref=e531] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e532]: 
+                - link "" [ref=e533] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e534]: 
+              - button "17" [ref=e536] [cursor=pointer]:
+                - generic [ref=e537]:
+                  - img [ref=e538]
+                  - text: "17"
+            - generic [ref=e539]:
+              - generic [ref=e540]: 1.500,00TL
+              - heading "YTÜ Yıldız Store - Siyaset Bilimi ve Uluslararası İlişkiler Model 1 HOODİE" [level=3] [ref=e541]:
+                - link "YTÜ Yıldız Store - Siyaset Bilimi ve Uluslararası İlişkiler Model 1 HOODİE" [ref=e542] [cursor=pointer]:
+                  - /url: https://www.ytuyildiz.store/urun/yildiz-teknik-universitesi-siyaset-bilimi-ve-uluslararasi-iliskiler
+          - generic [ref=e543]:
+            - generic [ref=e544]:
+              - link [ref=e546] [cursor=pointer]:
+                - /url: https://www.ytuyildiz.store/urun/yildiz-teknik-universitesi-ilkokul-matematik-ogretmenligi-model-1
+                - img [ref=e547]
+              - generic [ref=e548]:
+                - link "" [ref=e549] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e550]: 
+                - link "" [ref=e551] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e552]: 
+              - button "17" [ref=e554] [cursor=pointer]:
+                - generic [ref=e555]:
+                  - img [ref=e556]
+                  - text: "17"
+            - generic [ref=e557]:
+              - generic [ref=e558]: 1.500,00TL
+              - heading "YTÜ Yıldız Store - İlkokul Matematik Öğretmenliği Model 1 HOODİE" [level=3] [ref=e559]:
+                - link "YTÜ Yıldız Store - İlkokul Matematik Öğretmenliği Model 1 HOODİE" [ref=e560] [cursor=pointer]:
+                  - /url: https://www.ytuyildiz.store/urun/yildiz-teknik-universitesi-ilkokul-matematik-ogretmenligi-model-1
+          - generic [ref=e561]:
+            - generic [ref=e562]:
+              - link [ref=e564] [cursor=pointer]:
+                - /url: https://www.ytuyildiz.store/urun/yildiz-teknik-universitesi-sosyal-bilgiler-ogretmenligi-model-1
+                - img [ref=e565]
+              - generic [ref=e566]:
+                - link "" [ref=e567] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e568]: 
+                - link "" [ref=e569] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e570]: 
+              - button "17" [ref=e572] [cursor=pointer]:
+                - generic [ref=e573]:
+                  - img [ref=e574]
+                  - text: "17"
+            - generic [ref=e575]:
+              - generic [ref=e576]: 1.500,00TL
+              - heading "YTÜ Yıldız Store - Sosyal Bilgiler Öğretmenliği Model 1 HOODİE" [level=3] [ref=e577]:
+                - link "YTÜ Yıldız Store - Sosyal Bilgiler Öğretmenliği Model 1 HOODİE" [ref=e578] [cursor=pointer]:
+                  - /url: https://www.ytuyildiz.store/urun/yildiz-teknik-universitesi-sosyal-bilgiler-ogretmenligi-model-1
+          - generic [ref=e579]:
+            - generic [ref=e580]:
+              - generic [ref=e582]:
+                - generic [ref=e584]:
+                  - tabpanel [ref=e585]:
+                    - link "YTÜ Yıldız Store - Şapka Model 4" [ref=e587] [cursor=pointer]:
+                      - /url: https://www.ytuyildiz.store/urun/ytu-sapka-model-4
+                      - img "YTÜ Yıldız Store - Şapka Model 4" [ref=e588]
+                  - tabpanel [ref=e589]:
+                    - link [ref=e591] [cursor=pointer]:
+                      - /url: https://www.ytuyildiz.store/urun/ytu-sapka-model-4
+                      - img [ref=e592]
+                  - tabpanel [ref=e593]:
+                    - link [ref=e595] [cursor=pointer]:
+                      - /url: https://www.ytuyildiz.store/urun/ytu-sapka-model-4
+                      - img [ref=e596]
+                  - tabpanel [ref=e597]:
+                    - link [ref=e599] [cursor=pointer]:
+                      - /url: https://www.ytuyildiz.store/urun/ytu-sapka-model-4
+                      - img [ref=e600]
+                  - tabpanel [ref=e601]:
+                    - link [ref=e603] [cursor=pointer]:
+                      - /url: https://www.ytuyildiz.store/urun/ytu-sapka-model-4
+                      - img [ref=e604]
+                  - tabpanel [ref=e605]:
+                    - link [ref=e607] [cursor=pointer]:
+                      - /url: https://www.ytuyildiz.store/urun/ytu-sapka-model-4
+                      - img [ref=e608]
+                  - tabpanel [ref=e609]:
+                    - link [ref=e611] [cursor=pointer]:
+                      - /url: https://www.ytuyildiz.store/urun/ytu-sapka-model-4
+                      - img [ref=e612]
+                  - tabpanel [ref=e613]:
+                    - link [ref=e615] [cursor=pointer]:
+                      - /url: https://www.ytuyildiz.store/urun/ytu-sapka-model-4
+                      - img [ref=e616]
+                - tablist [ref=e617]:
+                  - tab "1 of 8" [selected] [ref=e618] [cursor=pointer]: "1"
+                  - tab "2 of 8" [ref=e619] [cursor=pointer]: "2"
+                  - tab "3 of 8" [ref=e620] [cursor=pointer]: "3"
+                  - tab "4 of 8" [ref=e621] [cursor=pointer]: "4"
+                  - tab "5 of 8" [ref=e622] [cursor=pointer]: "5"
+                  - tab "6 of 8" [ref=e623] [cursor=pointer]: "6"
+                  - tab "7 of 8" [ref=e624] [cursor=pointer]: "7"
+                  - tab "8 of 8" [ref=e625] [cursor=pointer]: "8"
+              - generic [ref=e626]:
+                - link "" [ref=e627] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e628]: 
+                - link "" [ref=e629] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e630]: 
+              - button "8" [ref=e632] [cursor=pointer]:
+                - generic [ref=e633]:
+                  - img [ref=e634]
+                  - text: "8"
+            - generic [ref=e635]:
+              - generic [ref=e636]: 600,00TL
+              - heading "YTÜ Yıldız Store - Şapka Model 4 şapka" [level=3] [ref=e637]:
+                - link "YTÜ Yıldız Store - Şapka Model 4 şapka" [ref=e638] [cursor=pointer]:
+                  - /url: https://www.ytuyildiz.store/urun/ytu-sapka-model-4
+        - generic [ref=e640]:
+          - generic [ref=e641]: 
+          - text: Daha fazla ürün için aşağı kaydırın
+    - link [ref=e643] [cursor=pointer]:
+      - /url: https://maps.app.goo.gl/oHn2797utgQabgP76
+      - img [ref=e644]
+    - generic [ref=e646]:
+      - generic [ref=e647]:
+        - generic [ref=e649]:
+          - heading "Kampüs Giyim" [level=4] [ref=e650]
+          - list [ref=e651]:
+            - listitem [ref=e652]:
+              - link "Hakkımızda" [ref=e653] [cursor=pointer]:
+                - /url: ""
+            - listitem [ref=e654]:
+              - link "Sıkça Sorulan Sorular" [ref=e655] [cursor=pointer]:
+                - /url: https://www.ytuyildiz.store/sikca-sorulan-sorular
+        - generic [ref=e657]:
+          - heading "Bize Ulaşın" [level=4] [ref=e658]
+          - list [ref=e659]:
+            - listitem [ref=e660]:
+              - link "☎️ 444 56 77" [ref=e661] [cursor=pointer]:
+                - /url: tel://444 56 77
+            - listitem [ref=e662]:
+              - link " ️ +90 543 352 67 87" [ref=e663] [cursor=pointer]:
+                - /url: https://api.whatsapp.com/send/?phone=905433526787
+                - generic [ref=e664]: 
+                - text: ️ +90 543 352 67 87
+            - listitem [ref=e665]:
+              - link "✉️ info@ytuyildiz.store" [ref=e666] [cursor=pointer]:
+                - /url: mailto://info@ytuyildiz.store
+        - generic [ref=e668]:
+          - heading "Hesabım" [level=4] [ref=e669]
+          - list [ref=e670]:
+            - listitem [ref=e671]:
+              - link "Oturum Aç" [ref=e672] [cursor=pointer]:
+                - /url: https://www.ytuyildiz.store/profil/giris
+            - listitem [ref=e673]:
+              - link "Sipariş Geçmişi" [ref=e674] [cursor=pointer]:
+                - /url: https://www.ytuyildiz.store/satin-alma-gecmisim
+            - listitem [ref=e675]:
+              - link "İstek Listem" [ref=e676] [cursor=pointer]:
+                - /url: https://www.ytuyildiz.store/favori-listem
+      - generic [ref=e677]:
+        - generic [ref=e678]:
+          - heading "Güvenli Alışveriş" [level=4] [ref=e680]
+          - generic [ref=e681]:
+            - img [ref=e682]
+            - img [ref=e683]
+            - img [ref=e684]
+            - img [ref=e685]
+        - generic [ref=e687]:
+          - heading "Sosyal Medya" [level=4] [ref=e688]
+          - generic [ref=e689]:
+            - link [ref=e691] [cursor=pointer]:
+              - /url: ""
+              - img [ref=e692]
+            - link [ref=e694] [cursor=pointer]:
+              - /url: ""
+              - img [ref=e695]
+            - link [ref=e697] [cursor=pointer]:
+              - /url: ""
+              - img [ref=e698]
+    - contentinfo [ref=e699]:
+      - generic [ref=e701]:
+        - generic [ref=e703]: © 2025 Yıldız Teknik Üniversitesi - Tüm Hakları Saklıdır
+        - generic [ref=e704]:
+          - generic [ref=e706]:
+            - link "Üyelik Sözleşmesi ve Site Kullanım Şartları" [ref=e707] [cursor=pointer]:
+              - /url: https://www.ytuyildiz.store/sartlar
+            - link "Gizlilik Politikası ve KVKK Aydınlatma Metni" [ref=e708] [cursor=pointer]:
+              - /url: https://www.ytuyildiz.store/gizlilik-politikasi
+          - generic:
+            - list
+    - text:    
+  - text:  

@@ -1,0 +1,7 @@
+[     477ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ https://www.googletagmanager.com/gtag/js?id=G-4WCLT5TY2F:0
+[     694ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ https://www.googletagmanager.com/gtm.js?id=GTM-PF57S8K:0
+[     859ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ https://log.cookieyes.com/api/v1/log:0
+[     860ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ https://tags.creativecdn.com/4NfrdcVtTiH2faZCPqQt.js:0
+[    2868ms] [ERROR] [Report Only] Refused to frame 'https://www.google.com/' because an ancestor violates the following Content Security Policy directive: "frame-ancestors 'self'".
+ @ :0
+[    2918ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ https://csp.withgoogle.com/csp/frame-ancestors/38fac9d5b82543fc4729580d18ff2d3d:0
