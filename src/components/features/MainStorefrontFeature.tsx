@@ -89,7 +89,7 @@ export const MainStorefrontFeature = () => {
   const [designScale, setDesignScale] = useState<number>(100);
   const [designRotation, setDesignRotation] = useState<number>(0);
   const [designNote, setDesignNote] = useState<string>("");
-  const [designPreviewUrl, setDesignPreviewUrl] = useState<string>("/images/logo2.png");
+  const [designPreviewUrl, setDesignPreviewUrl] = useState<string>("/AYBUStore/images/logo2.png");
   const [designPreviewLabel, setDesignPreviewLabel] = useState<string>("Henüz dosya yüklenmedi");
   const {
     authForm,
@@ -198,7 +198,7 @@ export const MainStorefrontFeature = () => {
   };
 
   const handleDesignReset = () => {
-    setDesignPreviewUrl("/images/logo2.png");
+    setDesignPreviewUrl("/AYBUStore/images/logo2.png");
     setDesignPreviewLabel("Henüz dosya yüklenmedi");
     setDesignScale(100);
     setDesignRotation(0);

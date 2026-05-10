@@ -36,11 +36,11 @@ export const mobileTabItems: NavItem[] = [
 ];
 
 export const heroSlides: HeroSlide[] = [
-  { id: "hero-1", imageUrl: "/images/banner.png", ariaLabel: "Banner 1" },
-  { id: "hero-2", imageUrl: "/images/aybu-kesfet-banner.png", ariaLabel: "Banner 2" },
-  { id: "hero-3", imageUrl: "/images/kampusun-yeni-uyesi.png", ariaLabel: "Banner 3" },
-  { id: "hero-4", imageUrl: "/images/takvim_banner.png", ariaLabel: "Banner 4" },
-  { id: "hero-5", imageUrl: "/images/baharda-kampüs-banner.png", ariaLabel: "Banner 5" },
+  { id: "hero-1", imageUrl: "/AYBUStore/images/banner.png", ariaLabel: "Banner 1" },
+  { id: "hero-2", imageUrl: "/AYBUStore/images/aybu-kesfet-banner.png", ariaLabel: "Banner 2" },
+  { id: "hero-3", imageUrl: "/AYBUStore/images/kampusun-yeni-uyesi.png", ariaLabel: "Banner 3" },
+  { id: "hero-4", imageUrl: "/AYBUStore/images/takvim_banner.png", ariaLabel: "Banner 4" },
+  { id: "hero-5", imageUrl: "/AYBUStore/images/baharda-kampüs-banner.png", ariaLabel: "Banner 5" },
 ];
 
 export const designLaunchContent: DesignLaunchContent = {
@@ -62,7 +62,7 @@ export const featuredProductsSection: ProductSection = {
       name: "AYBÜ Lacivert Sweatshirt",
       price: 1190,
       currency: "TRY",
-      imageUrl: "/images/blue_swearshirt.png",
+      imageUrl: "/AYBUStore/images/blue_swearshirt.png",
       imageAlt: "AYBÜ Lacivert Sweatshirt",
     },
     {
@@ -70,7 +70,7 @@ export const featuredProductsSection: ProductSection = {
       name: "AYBÜ Turkuaz Baskılı Sweatshirt",
       price: 1150,
       currency: "TRY",
-      imageUrl: "/images/aybu-turquoise-hoodie.png",
+      imageUrl: "/AYBUStore/images/aybu-turquoise-hoodie.png",
       imageAlt: "AYBÜ Turkuaz Baskılı Sweatshirt",
     },
     {
@@ -78,7 +78,7 @@ export const featuredProductsSection: ProductSection = {
       name: "AYBÜ Minimal Logolu Sweatshirt",
       price: 1090,
       currency: "TRY",
-      imageUrl: "/images/red_sweatshirt.png",
+      imageUrl: "/AYBUStore/images/red_sweatshirt.png",
       imageAlt: "AYBÜ Minimal Logolu Sweatshirt",
     },
     {
@@ -86,7 +86,7 @@ export const featuredProductsSection: ProductSection = {
       name: "AYBÜ Siyah Tişört",
       price: 690,
       currency: "TRY",
-      imageUrl: "/images/black_tshirt.png",
+      imageUrl: "/AYBUStore/images/black_tshirt.png",
       imageAlt: "AYBÜ Siyah Tişört",
     },
     {
@@ -94,7 +94,7 @@ export const featuredProductsSection: ProductSection = {
       name: "AYBÜ Cam Kupa",
       price: 280,
       currency: "TRY",
-      imageUrl: "/images/glass.png",
+      imageUrl: "/AYBUStore/images/glass.png",
       imageAlt: "AYBÜ Cam Kupa",
     },
     {
@@ -102,7 +102,7 @@ export const featuredProductsSection: ProductSection = {
       name: "AYBÜ Turkuaz Cam Bardak",
       price: 320,
       currency: "TRY",
-      imageUrl: "/images/glass2.png",
+      imageUrl: "/AYBUStore/images/glass2.png",
       imageAlt: "AYBÜ Turkuaz Cam Bardak",
     },
     {
@@ -126,7 +126,7 @@ export const featuredProductsSection: ProductSection = {
       name: "AYBÜ Defter (Çizgili)",
       price: 140,
       currency: "TRY",
-      imageUrl: "/images/aybu-defter.png",
+      imageUrl: "/AYBUStore/images/aybu-defter.png",
       imageAlt: "AYBÜ Defter",
     },
     {
@@ -142,7 +142,7 @@ export const featuredProductsSection: ProductSection = {
       name: "AYBÜ Anahtarlık (Metal)",
       price: 90,
       currency: "TRY",
-      imageUrl: "/images/aybu-anahtarlik.png",
+      imageUrl: "/AYBUStore/images/aybu-anahtarlik.png",
       imageAlt: "AYBÜ Anahtarlık (Metal)",
     },
     {
@@ -233,7 +233,7 @@ export const drawerCartItems: CartItem[] = [
     quantity: 1,
     unitPrice: 690,
     currency: "TRY",
-    imageUrl: "/images/black_tshirt.png",
+    imageUrl: "/AYBUStore/images/black_tshirt.png",
     imageAlt: "AYBÜ Siyah Tişört küçük görsel",
   },
 ];
@@ -241,13 +241,13 @@ export const drawerCartItems: CartItem[] = [
 export const loginHeroContent: AuthHeroContent = {
   brandLabel: "AYBÜ Store",
   title: "Hesabına Giriş Yap",
-  imageUrl: "/images/ürünler-banner.png",
+  imageUrl: "/AYBUStore/images/ürünler-banner.png",
 };
 
 export const registerHeroContent: AuthHeroContent = {
   brandLabel: "AYBÜ Store",
   title: "Yeni Hesap Oluştur",
-  imageUrl: "/images/ürünler-banner.png",
+  imageUrl: "/AYBUStore/images/ürünler-banner.png",
 };
 
 export const loginPageContent: LoginPageContent = {

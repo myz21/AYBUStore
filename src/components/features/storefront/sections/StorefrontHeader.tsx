@@ -46,7 +46,7 @@ export const StorefrontHeader = ({
           aria-label="Ana sayfaya dön"
         >
           <img
-            src="/images/logo2.png"
+            src="/AYBUStore/images/logo2.png"
             alt="AYBU Store logosu"
             className="h-12 w-auto object-contain"
           />
