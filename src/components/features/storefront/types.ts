@@ -63,7 +63,10 @@ export type UpdateAuthField = <K extends keyof AuthFormState>(
   value: AuthFormState[K],
 ) => void;
 
-export type HandleAuthSubmit = (mode: AuthMode) => (event: FormEvent<HTMLFormElement>) => void;
+export type HandleAuthSubmit = (
+  mode: AuthMode,
+  onSuccess: () => void,
+) => (event: FormEvent<HTMLFormElement>) => void;
 
 export interface StorefrontHeaderProps {
   isMenuOpen: boolean;
@@ -79,6 +82,7 @@ export interface StorefrontHeaderProps {
   openCartDrawer: () => void;
   isCartOpen: boolean;
   mainNavItems: NavItem[];
+  userEmail: string | null;
 }
 
 export interface StorefrontHomeProps {
@@ -113,6 +117,7 @@ export interface StorefrontAuthProps {
   authForm: AuthFormState;
   authTouched: AuthTouchedState;
   authSubmitStatus: AuthSubmitStatus;
+  authErrorMessage: string | null;
   updateAuthField: UpdateAuthField;
   handleAuthSubmit: HandleAuthSubmit;
   getAuthBenefits: GetAuthBenefits;

@@ -1,5 +1,7 @@
 {
   "projects": {
     "default": "aybustore-myildiz-2026-fc992"
-  }
+  },
+  "targets": {},
+  "etags": {}
 }

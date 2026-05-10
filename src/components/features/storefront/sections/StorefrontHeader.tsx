@@ -111,9 +111,32 @@ export const StorefrontHeader = ({
               </svg>
             </button>
           </div>
-          <Button variant="secondary" size="sm" onClick={() => navigateToView("register")}>
-            Üyelik
-          </Button>
+          {userEmail ? (
+            <div className="flex items-center gap-2 rounded-xl bg-amber-400/10 px-3 py-1.5 border border-amber-400/20">
+              <svg
+                viewBox="0 0 24 24"
+                className="h-4 w-4 fill-amber-400"
+                aria-hidden="true"
+              >
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" />
+              </svg>
+              <span className="text-xs font-medium text-amber-100 hidden sm:inline-block">
+                {userEmail}
+              </span>
+              <button
+                onClick={() => {
+                  import("../../../lib/firebase").then(({ auth }) => auth.signOut());
+                }}
+                className="ml-1 text-[10px] uppercase tracking-wider text-amber-400/60 hover:text-amber-400 transition-colors"
+              >
+                Çıkış
+              </button>
+            </div>
+          ) : (
+            <Button variant="secondary" size="sm" onClick={() => navigateToView("register")}>
+              Üyelik
+            </Button>
+          )}
           <Button
             size="sm"
             onClick={openCartDrawer}

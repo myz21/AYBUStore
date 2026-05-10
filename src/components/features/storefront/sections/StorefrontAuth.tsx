@@ -15,6 +15,7 @@ export const StorefrontAuth = ({
   authForm,
   authTouched,
   authSubmitStatus,
+  authErrorMessage,
   updateAuthField,
   handleAuthSubmit,
   getAuthBenefits,
@@ -38,6 +39,18 @@ export const StorefrontAuth = ({
         benefits={benefits}
       />
       <AuthCard title={content.panelTitle} description={content.panelDescription}>
+        {authErrorMessage && (
+          <div className="mb-4 rounded-xl bg-rose-500/10 p-3 border border-rose-500/20 animate-in fade-in slide-in-from-top-1 duration-300">
+            <div className="flex items-start gap-2.5">
+              <svg viewBox="0 0 24 24" className="h-4 w-4 fill-rose-500 shrink-0 mt-0.5">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+              </svg>
+              <div className="text-[13px] font-medium text-rose-600 leading-tight">
+                {authErrorMessage}
+              </div>
+            </div>
+          </div>
+        )}
         <form onSubmit={handleAuthSubmit(mode)} className="grid gap-2.5">
           {mode === "register" ? (
             <AuthField

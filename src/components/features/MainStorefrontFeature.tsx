@@ -25,6 +25,7 @@ import { StorefrontCartDrawer } from "./storefront/sections/StorefrontCartDrawer
 import { StorefrontDesignModal } from "./storefront/sections/StorefrontDesignModal";
 import { StorefrontChat } from "./storefront/sections/StorefrontChat";
 import { StorefrontFooter } from "./storefront/sections/StorefrontFooter";
+import { useAuth } from "../../contexts/AuthContext";
 import {
   chatSeedMessages,
   departmentFilters,
@@ -56,6 +57,7 @@ type ScrollTarget = "products" | "store";
 type AuthSubmitStatus = "idle" | "loading" | "success";
 
 export const MainStorefrontFeature = () => {
+  const { user } = useAuth();
   const { pageView, setPageView, isPageTransitioning, navigateToView } = usePageViewTransition("home");
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const { isCartOpen, setIsCartOpen, isCartRendered, openCartDrawer } = useCartDrawerAnimation();
@@ -95,6 +97,7 @@ export const MainStorefrontFeature = () => {
     authForm,
     authTouched,
     authSubmitStatus,
+    authErrorMessage,
     setAuthSubmitStatus,
     setAuthTouched,
     updateAuthField,
@@ -273,6 +276,7 @@ export const MainStorefrontFeature = () => {
       openCartDrawer={openCartDrawer}
       isCartOpen={isCartOpen}
       mainNavItems={mainNavItems}
+      userEmail={user?.email ?? null}
     />
   );
 
@@ -368,8 +372,9 @@ export const MainStorefrontFeature = () => {
       authForm={authForm}
       authTouched={authTouched}
       authSubmitStatus={authSubmitStatus}
+      authErrorMessage={authErrorMessage}
       updateAuthField={updateAuthField}
-      handleAuthSubmit={handleAuthSubmit}
+      handleAuthSubmit={(mode) => handleAuthSubmit(mode, () => navigateToView("home"))}
       getAuthBenefits={getAuthBenefits}
       getAuthErrors={getAuthErrors}
       navigateToView={navigateToView}
