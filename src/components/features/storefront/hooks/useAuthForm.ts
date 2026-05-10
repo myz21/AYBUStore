@@ -64,15 +64,16 @@ export const useAuthForm = (): UseAuthFormResult => {
 
     try {
       if (mode === "register") {
-        const userCredential = await createUserWithEmailAndPassword(auth, authForm.email, authForm.password);
+        await createUserWithEmailAndPassword(auth, authForm.email, authForm.password);
         if (authForm.fullName) {
-          await updateProfile(userCredential.user, { displayName: authForm.fullName });
+          await updateProfile(auth.currentUser!, { displayName: authForm.fullName });
         }
+        setAuthSubmitStatus("otp"); // Kayıt sonrası OTP ekranına geç
       } else {
         await signInWithEmailAndPassword(auth, authForm.email, authForm.password);
+        setAuthSubmitStatus("success");
+        setTimeout(onSuccess, 800);
       }
-      setAuthSubmitStatus("success");
-      setTimeout(onSuccess, 500);
     } catch (error: any) {
       console.error("Auth error:", error);
       setAuthSubmitStatus("idle");

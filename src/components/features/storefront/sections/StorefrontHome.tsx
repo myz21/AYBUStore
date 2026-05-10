@@ -18,26 +18,25 @@ export const StorefrontHome = ({
   getRevealClasses,
 }: StorefrontHomeProps) => {
   return (
-    <main className="mx-auto w-[min(1200px,100%)] px-4 py-6">
-      <nav className="mb-4 flex gap-2 overflow-x-auto lg:hidden">
+    <main className="mx-auto w-[min(1200px,100%)] px-0 sm:px-4 py-4 sm:py-6">
+      <nav className="mb-6 flex gap-3 overflow-x-auto lg:hidden px-4 no-scrollbar">
         {mobileTabItems.map((item) => (
-          <Button
+          <button
             key={item.id}
-            variant="secondary"
-            size="sm"
             onClick={() => navigateToView(item.id.includes("departments") ? "departments" : "home")}
+            className="whitespace-nowrap px-5 py-2.5 rounded-full bg-white border border-slate-200 text-[13px] font-semibold text-slate-700 shadow-sm transition-all active:scale-95"
           >
             {item.label}
-          </Button>
+          </button>
         ))}
       </nav>
 
       <section
         ref={setHomeSectionRef("hero")}
         data-home-section="hero"
-        className={`relative mx-auto w-full max-w-[1204px] overflow-hidden rounded-2xl bg-slate-200 transition-all duration-700 ease-out ${getRevealClasses("hero")}`}
+        className={`relative mx-0 sm:mx-auto w-full max-w-[1204px] overflow-hidden sm:rounded-2xl bg-slate-200 transition-all duration-700 ease-out ${getRevealClasses("hero")}`}
       >
-        <div className="relative h-[460px] w-full">
+        <div className="relative h-[280px] sm:h-[460px] w-full">
           {heroSlides.map((slide, index) => {
             const isActive = index === currentSlideIndex;
             return (
@@ -51,12 +50,13 @@ export const StorefrontHome = ({
               />
             );
           })}
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent" />
         </div>
-        <div className="absolute bottom-3 right-3 flex gap-2">
+        <div className="absolute bottom-4 right-4 flex gap-2">
           <Button
             size="sm"
             variant="secondary"
+            className="h-10 w-10 p-0 rounded-full bg-white/90 backdrop-blur-sm"
             onClick={() =>
               setCurrentSlideIndex((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)
             }
@@ -66,6 +66,7 @@ export const StorefrontHome = ({
           <Button
             size="sm"
             variant="secondary"
+            className="h-10 w-10 p-0 rounded-full bg-white/90 backdrop-blur-sm"
             onClick={() => setCurrentSlideIndex((prev) => (prev + 1) % heroSlides.length)}
           >
             ›
@@ -76,41 +77,49 @@ export const StorefrontHome = ({
       <section
         ref={setHomeSectionRef("design")}
         data-home-section="design"
-        className={`mt-4 rounded-2xl border border-slate-200 bg-white p-5 transition-all duration-700 ease-out ${getRevealClasses("design")}`}
+        className={`mt-4 mx-4 sm:mx-0 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 transition-all duration-700 ease-out ${getRevealClasses("design")}`}
       >
-        <p className="text-xs uppercase tracking-wide text-slate-500">{designLaunchContent.kicker}</p>
-        <h2 className="mt-1 text-xl font-semibold text-slate-800">{designLaunchContent.title}</h2>
-        <p className="mt-2 text-sm text-slate-600">{designLaunchContent.description}</p>
-        <div className="mt-4">
-          <Button onClick={() => setIsDesignOpen(true)}>{designLaunchContent.ctaLabel}</Button>
+        <div className="max-w-2xl">
+          <p className="text-[11px] sm:text-xs uppercase tracking-[0.2em] font-bold text-amber-600">{designLaunchContent.kicker}</p>
+          <h2 className="mt-2 text-2xl sm:text-3xl font-black text-slate-900 leading-tight">{designLaunchContent.title}</h2>
+          <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">{designLaunchContent.description}</p>
+          <div className="mt-6">
+            <Button size="lg" className="rounded-full px-8 shadow-xl shadow-amber-500/20" onClick={() => setIsDesignOpen(true)}>
+              {designLaunchContent.ctaLabel}
+            </Button>
+          </div>
         </div>
       </section>
 
       <section
         ref={setHomeSectionRef("products")}
         data-home-section="products"
-        className={`mt-6 transition-all duration-700 ease-out ${getRevealClasses("products")}`}
+        className={`mt-8 px-4 sm:px-0 transition-all duration-700 ease-out ${getRevealClasses("products")}`}
       >
-        <div className="mb-4 flex items-center justify-between gap-3">
-          <h2 className="text-xl font-semibold text-slate-800">{featuredProductsSection.title}</h2>
-          <Button variant="secondary" size="sm">
+        <div className="mb-6 flex items-center justify-between gap-3">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900">{featuredProductsSection.title}</h2>
+          <Button variant="secondary" size="sm" className="rounded-full">
             {featuredProductsSection.ctaLabel}
           </Button>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {filteredProducts.map((product) => (
-            <article key={product.id} className="rounded-2xl border border-slate-200 bg-white p-3 shadow-sm">
-              <div className="mb-3 flex h-40 items-center justify-center rounded-xl bg-slate-100">
+            <article key={product.id} className="group rounded-3xl border border-slate-100 bg-white p-4 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+              <div className="mb-4 flex h-52 items-center justify-center rounded-2xl bg-slate-50 overflow-hidden">
                 {product.imageUrl ? (
-                  <img src={product.imageUrl} alt={product.imageAlt ?? product.name} className="h-full w-full rounded-xl object-cover" />
+                  <img 
+                    src={product.imageUrl} 
+                    alt={product.imageAlt ?? product.name} 
+                    className="h-full w-full object-contain p-4 transition-transform duration-500 group-hover:scale-110" 
+                  />
                 ) : (
-                  <span className="text-5xl" role="img" aria-label={product.emojiLabel ?? product.name}>
+                  <span className="text-6xl" role="img" aria-label={product.emojiLabel ?? product.name}>
                     {product.emoji}
                   </span>
                 )}
               </div>
-              <h3 className="text-sm font-semibold text-slate-800">{product.name}</h3>
-              <p className="mt-1 text-sm text-slate-600">{formatTry(product.price)}</p>
+              <h3 className="text-[15px] font-bold text-slate-800 leading-snug">{product.name}</h3>
+              <p className="mt-2 text-sm font-medium text-slate-500">{formatTry(product.price)}</p>
             </article>
           ))}
         </div>

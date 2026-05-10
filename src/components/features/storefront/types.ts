@@ -27,7 +27,8 @@ export type PageView = "home" | "departments" | "login" | "register";
 export type HomeSectionKey = "hero" | "design" | "products" | "contact";
 export type ScrollTarget = "products" | "store";
 export type AuthMode = "login" | "register";
-export type AuthSubmitStatus = "idle" | "loading" | "success";
+export type AuthSubmitStatus = "idle" | "loading" | "success" | "otp";
+
 
 export interface AuthFormState {
   fullName: string;
