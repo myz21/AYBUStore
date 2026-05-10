@@ -45,7 +45,7 @@ AYBUStore/
 |-- images/                               # Static image assets used directly by client components
 |-- public/                               # Reserved public assets directory (currently empty)
 |-- _legacy/                              # Legacy static artifacts retained for reference/migration
-|-- index.html                            # Legacy entry artifact
+|   `-- index.html                        # Legacy entry artifact (moved from root)
 |-- package.json                          # NPM metadata, dependencies, and scripts
 |-- tsconfig.json                         # TypeScript compiler settings (strict, noEmit)
 |-- tailwind.config.ts                    # Tailwind content scanning and theme config
@@ -123,6 +123,7 @@ npm install
 ### 3) Start Development Server
 
 ```bash
+npm run dev
 ```
 
 Open `http://localhost:3000` in your browser.
