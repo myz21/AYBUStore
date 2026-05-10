@@ -66,7 +66,6 @@ export type UpdateAuthField = <K extends keyof AuthFormState>(
 
 export type HandleAuthSubmit = (
   mode: AuthMode,
-  onSuccess: () => void,
 ) => (event: FormEvent<HTMLFormElement>) => void;
 
 export interface StorefrontHeaderProps {
@@ -124,7 +123,7 @@ export interface StorefrontAuthProps {
   getAuthBenefits: GetAuthBenefits;
   getAuthErrors: GetAuthErrors;
   navigateToView: NavigateToView;
-  setAuthSubmitStatus: Dispatch<SetStateAction<AuthSubmitStatus>>;
+  setAuthSubmitStatus: (value: AuthSubmitStatus) => void;
 }
 
 export interface StorefrontFooterProps {

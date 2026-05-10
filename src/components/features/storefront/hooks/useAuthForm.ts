@@ -5,7 +5,7 @@ import {
   createUserWithEmailAndPassword, 
   updateProfile 
 } from "firebase/auth";
-import { auth } from "../../../lib/firebase";
+import { auth } from "../../../../lib/firebase";
 import type { AuthMode, AuthSubmitStatus } from "../types";
 import { getAuthErrors, isAuthSubmittable, type AuthFormState } from "../utils/auth";
 

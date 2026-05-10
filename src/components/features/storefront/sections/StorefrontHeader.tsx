@@ -16,6 +16,7 @@ export const StorefrontHeader = ({
   openCartDrawer,
   isCartOpen,
   mainNavItems,
+  userEmail,
 }: StorefrontHeaderProps) => {
   return (
     <header
@@ -125,7 +126,7 @@ export const StorefrontHeader = ({
               </span>
               <button
                 onClick={() => {
-                  import("../../../lib/firebase").then(({ auth }) => auth.signOut());
+                  import("../../../../lib/firebase").then(({ auth }) => auth.signOut());
                 }}
                 className="ml-1 text-[10px] uppercase tracking-wider text-amber-400/60 hover:text-amber-400 transition-colors"
               >

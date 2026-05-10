@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import { AuthProvider } from "@/src/contexts/AuthContext";
+import { AuthProvider } from "../src/contexts/AuthContext";
 
 export const metadata: Metadata = {
   title: "AYBU Store",
