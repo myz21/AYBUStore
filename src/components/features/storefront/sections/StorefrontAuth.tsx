@@ -21,6 +21,7 @@ export const StorefrontAuth = ({
   getAuthBenefits,
   getAuthErrors,
   navigateToView,
+  setAuthSubmitStatus,
 }: StorefrontAuthProps) => {
   const content = mode === "login" ? loginPageContent : registerPageContent;
   const hero = mode === "login" ? loginHeroContent : registerHeroContent;

@@ -378,6 +378,7 @@ export const MainStorefrontFeature = () => {
       getAuthBenefits={getAuthBenefits}
       getAuthErrors={getAuthErrors}
       navigateToView={navigateToView}
+      setAuthSubmitStatus={setAuthSubmitStatus}
     />
   );
 

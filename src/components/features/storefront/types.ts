@@ -124,6 +124,7 @@ export interface StorefrontAuthProps {
   getAuthBenefits: GetAuthBenefits;
   getAuthErrors: GetAuthErrors;
   navigateToView: NavigateToView;
+  setAuthSubmitStatus: Dispatch<SetStateAction<AuthSubmitStatus>>;
 }
 
 export interface StorefrontFooterProps {
