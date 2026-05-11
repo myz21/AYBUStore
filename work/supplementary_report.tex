@@ -1,0 +1,353 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+
+% Core packages
+\usepackage{amsmath,amssymb}
+\usepackage{tikz-cd}
+\usepackage{multicol}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+% Paragraphs
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.7\baselineskip}
+\setlist[itemize]{leftmargin=1.5em}
+\setlist[enumerate]{leftmargin=1.8em}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\newcommand{\scorebox}[1]{%
+  \hfill\fcolorbox{black}{gray!10}{\textbf{#1}}%
+}
+
+\newcommand{\scoredsection}[2]{\section{\texorpdfstring{#1~\scorebox{#2}}{#1}}}
+
+\newcommand{\guideline}[1]{%
+  {\color{blue!60!black}\textit{#1}}
+}
+
+\title{Supplementary Project Description Template\\[0.4em]\large CENG306 Term Project Proposal}
+\author{Team Name \\ Team Members}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section*{How to Use This Template}
+This document is the supplementary project description requested in the course brief. According to the uploaded project description, the report must be written in English and should support the official T\"UB\.{I}TAK 1001 application form.
+
+\textbf{Important note on scores:} the course uses two rubrics at the same time: an adapted T\"UB\.{I}TAK panel rubric (60 pts) and a CENG306 software engineering rubric (40 pts). Because of that, one section may contribute to more than one grading criterion. The score labels below therefore show the \textbf{related grading criteria and their maximum rubric weights}, not a strict one-to-one section total.
+
+\section*{Rubric Mapping Summary}
+\begin{longtable}{p{0.28\textwidth} p{0.48\textwidth} p{0.18\textwidth}}
+\toprule
+\textbf{Section} & \textbf{Main rubric dimensions supported} & \textbf{Related max score} \\
+\midrule
+3.1 Title \& Abstract & Scientific/Technological Merit; Quality of Writing & 15 + 10 \\
+3.2 Problem Definition \& Motivation & Scientific/Technological Merit; Expected Impact & 15 + 10 \\
+3.3 Literature Review & Scientific/Technological Merit; Quality of Writing & 15 + 10 \\
+3.4 Objectives \& Scope & Scientific/Technological Merit; Expected Impact; Overall SE Rigour & 15 + 10 + 4 \\
+3.5 Methodology \& Development Plan & Methodology/Feasibility; Process Model Selection; Project Management \& Planning & 15 + 6 + 6 \\
+3.6 Requirements Specification & Requirements Engineering \& SRS; Overall SE Rigour & 8 + 4 \\
+3.7 System Design \& Architecture & System Modeling \& UML; Architecture \& Design Patterns; Overall SE Rigour & 8 + 8 + 4 \\
+3.8 Team \& Resource Plan & Team Competency \& Resource Plan; Methodology/Feasibility & 10 + 15 \\
+3.9 Expected Outcomes \& Evaluation Plan & Expected Impact \& Outputs; Overall SE Rigour & 10 + 4 \\
+3.10 References & Quality of Writing \& Presentation & 10 \\
+\bottomrule
+\end{longtable}
+
+\newpage
+
+\scoredsection{Project Title \& Abstract}{Related rubric: 15 pts + 10 pts}
+\subsection*{Project Title}
+\guideline{Write a concise, descriptive, research-oriented project title.}
+
+\textbf{Proposed title:} [Write your title here]
+
+\subsection*{Abstract (200--300 words)}
+\guideline{Summarise the problem, the proposed software solution, the methodology, and the expected outcomes. Make the abstract readable for a reviewer who sees your project for the first time.}
+
+[Write the abstract here.]
+
+\scoredsection{Problem Definition \& Motivation}{Related rubric: 15 pts + 10 pts}
+\guideline{Explain the core problem, who is affected by it, why it matters, and why existing solutions are insufficient. Clearly state the scientific, industrial, or societal relevance.}
+
+\subsection*{Problem Statement}
+[Define the problem clearly and precisely.]
+
+\subsection*{Motivation and Significance}
+[Explain why this problem deserves a software engineering project and what value your solution can create.]
+
+\subsection*{Limitations of Existing Solutions}
+[Briefly discuss current approaches, tools, or products and why they do not fully solve the problem.]
+
+\scoredsection{Literature Review}{Related rubric: 15 pts + 10 pts}
+\guideline{Review at least 10 peer-reviewed sources. Identify the gap addressed by your project. Every source listed here must also appear in the EK-1 references form.}
+
+\subsection*{Review Strategy}
+[Explain search keywords, databases, inclusion criteria, and how the literature was selected.]
+
+\subsection*{Summary of Prior Work}
+\begin{enumerate}
+    \item [Source 1:] [Short summary + relevance]
+    \item [Source 2:] [Short summary + relevance]
+    \item [Source 3:] [Short summary + relevance]
+    \item [Source 4:] [Short summary + relevance]
+    \item [Source 5:] [Short summary + relevance]
+    \item [Source 6:] [Short summary + relevance]
+    \item [Source 7:] [Short summary + relevance]
+    \item [Source 8:] [Short summary + relevance]
+    \item [Source 9:] [Short summary + relevance]
+    \item [Source 10:] [Short summary + relevance]
+\end{enumerate}
+
+\subsection*{Research / Product Gap}
+[State the specific gap that your proposed project addresses.]
+
+\scoredsection{Objectives \& Scope}{Related rubric: 15 pts + 10 pts + 4 pts}
+\guideline{List 3--5 measurable objectives. Distinguish clearly between what the project will cover and what it will not cover.}
+
+\subsection*{Measurable Objectives}
+\begin{enumerate}
+    \item Objective 1: [Specific and measurable objective]
+    \item Objective 2: [Specific and measurable objective]
+    \item Objective 3: [Specific and measurable objective]
+    \item Objective 4: Optional
+    \item Objective 5: Optional
+\end{enumerate}
+
+\subsection*{In Scope}
+\begin{itemize}
+    \item [Feature / deliverable / analysis item]
+    \item [Feature / deliverable / analysis item]
+    \item [Feature / deliverable / analysis item]
+\end{itemize}
+
+\subsection*{Out of Scope}
+\begin{itemize}
+    \item [Explicitly excluded feature / deliverable]
+    \item [Explicitly excluded feature / deliverable]
+    \item [Explicitly excluded feature / deliverable]
+\end{itemize}
+
+\scoredsection{Methodology \& Development Plan}{Related rubric: 15 pts + 6 pts + 6 pts}
+\guideline{Describe the development lifecycle, justify the chosen process model, and include WBS, Gantt chart, effort/cost estimation, and a risk management table with at least 5 risks.}
+
+\subsection*{Selected Software Process Model}
+[State the process model, e.g., Scrum, Waterfall, Spiral, and justify why it fits your project.]
+
+\subsection*{Development Lifecycle Plan}
+[Describe the phases, iterations, milestones, and review points.]
+
+\subsection*{Work Breakdown Structure (WBS)}
+\begin{enumerate}
+    \item Planning
+    \item Requirements Engineering
+    \item Architecture and Design
+    \item Implementation
+    \item Testing and Validation
+    \item Documentation and Final Delivery
+\end{enumerate}
+
+\subsection*{Gantt Chart}
+\guideline{Insert your project timeline here as a figure or table.}
+
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{\centering Insert Gantt chart here}}
+\end{center}
+
+\subsection*{Effort and Cost Estimation}
+[Use COCOMO or Function Points. Show assumptions, estimated effort, team allocation, and cost.]
+
+\subsection*{Risk Management Table}
+\begin{longtable}{p{0.05\textwidth} p{0.27\textwidth} p{0.12\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule
+\textbf{ID} & \textbf{Risk} & \textbf{Probability} & \textbf{Impact} & \textbf{Mitigation} \\
+\midrule
+R1 & [Risk description] & [L/M/H] & [L/M/H] & [Mitigation strategy] \\
+R2 & [Risk description] & [L/M/H] & [L/M/H] & [Mitigation strategy] \\
+R3 & [Risk description] & [L/M/H] & [L/M/H] & [Mitigation strategy] \\
+R4 & [Risk description] & [L/M/H] & [L/M/H] & [Mitigation strategy] \\
+R5 & [Risk description] & [L/M/H] & [L/M/H] & [Mitigation strategy] \\
+\bottomrule
+\end{longtable}
+
+\scoredsection{Requirements Specification}{Related rubric: 8 pts + 4 pts}
+\guideline{Provide at least 10 functional requirements, at least 5 non-functional requirements with measurable acceptance criteria, at least 5 user stories, and a use case diagram with at least 6 use cases.}
+
+\subsection*{Requirements Elicitation Approach}
+[Explain how requirements were gathered: interviews, observation, questionnaires, benchmarking, etc.]
+
+\subsection*{Functional Requirements}
+\begin{enumerate}
+    \item FR-01: [Functional requirement]
+    \item FR-02: [Functional requirement]
+    \item FR-03: [Functional requirement]
+    \item FR-04: [Functional requirement]
+    \item FR-05: [Functional requirement]
+    \item FR-06: [Functional requirement]
+    \item FR-07: [Functional requirement]
+    \item FR-08: [Functional requirement]
+    \item FR-09: [Functional requirement]
+    \item FR-10: [Functional requirement]
+\end{enumerate}
+
+\subsection*{Non-Functional Requirements}
+\begin{enumerate}
+    \item NFR-01: [Requirement] --- Acceptance criterion: [Measurable condition]
+    \item NFR-02: [Requirement] --- Acceptance criterion: [Measurable condition]
+    \item NFR-03: [Requirement] --- Acceptance criterion: [Measurable condition]
+    \item NFR-04: [Requirement] --- Acceptance criterion: [Measurable condition]
+    \item NFR-05: [Requirement] --- Acceptance criterion: [Measurable condition]
+\end{enumerate}
+
+\subsection*{User Stories}
+\begin{itemize}
+    \item As a [role], I want [feature], so that [benefit].
+    \item As a [role], I want [feature], so that [benefit].
+    \item As a [role], I want [feature], so that [benefit].
+    \item As a [role], I want [feature], so that [benefit].
+    \item As a [role], I want [feature], so that [benefit].
+\end{itemize}
+
+\subsection*{Use Case Diagram}
+\guideline{Insert a use case diagram covering the main actors and at least 6 use cases.}
+
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{\centering Insert use case diagram here}}
+\end{center}
+
+\scoredsection{System Design \& Architecture}{Related rubric: 8 pts + 8 pts + 4 pts}
+\guideline{Present the architectural pattern, UML diagrams, design patterns, SOLID principles, and quality attribute trade-offs. Ensure consistency with requirements.}
+
+\subsection*{Architectural Pattern and Justification}
+[Describe the chosen architecture, e.g., layered, MVC, microservices, client-server, and justify the decision.]
+
+\subsection*{UML Class Diagram}
+\guideline{Provide a class diagram with at least 8 classes, including attributes and methods.}
+
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{\centering Insert UML class diagram here}}
+\end{center}
+
+\subsection*{UML Sequence Diagrams}
+\guideline{Provide sequence diagrams for at least 2 key scenarios.}
+
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{\centering Insert sequence diagram for Scenario 1 here}}
+\end{center}
+
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{\centering Insert sequence diagram for Scenario 2 here}}
+\end{center}
+
+\subsection*{Activity or State Diagram}
+\guideline{Provide at least 1 activity diagram or state diagram for a key process.}
+
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{\centering Insert activity/state diagram here}}
+\end{center}
+
+\subsection*{GoF Design Patterns}
+\begin{enumerate}
+    \item Pattern 1: [Name] --- Rationale: [Why it fits]
+    \item Pattern 2: [Name] --- Rationale: [Why it fits]
+    \item Pattern 3: [Name] --- Rationale: [Why it fits]
+\end{enumerate}
+
+\subsection*{SOLID Principles in the Proposed Design}
+[Explain how your design reflects SRP, OCP, LSP, ISP, and DIP where relevant.]
+
+\subsection*{Quality Attribute Trade-offs}
+[Discuss trade-offs such as performance vs. security, scalability vs. simplicity, maintainability vs. development speed.]
+
+\scoredsection{Team \& Resource Plan}{Related rubric: 10 pts + 15 pts}
+\guideline{List team members, roles, responsibilities, required tools/resources, and estimated total project cost.}
+
+\subsection*{Team Roles and Responsibilities}
+\begin{longtable}{p{0.24\textwidth} p{0.24\textwidth} p{0.42\textwidth}}
+\toprule
+\textbf{Name} & \textbf{Role} & \textbf{Responsibilities} \\
+\midrule
+Member 1 & Role & Responsibilities \\
+Member 2 & Role & Responsibilities \\
+Member 3 & Role & Responsibilities \\
+Member 4 & Role & Responsibilities \\
+Member 5 & Optional & Responsibilities \\
+\bottomrule
+\end{longtable}
+
+\subsection*{Resource Plan}
+\begin{itemize}
+    \item Hardware: [Laptops, server, devices, sensors, etc.]
+    \item Software: [IDE, frameworks, databases, project management tools, diagram tools]
+    \item Cloud / API Services: [Hosting, storage, third-party APIs]
+\end{itemize}
+
+\subsection*{Budget Estimate}
+[Estimate personnel and infrastructure costs; justify assumptions.]
+
+\scoredsection{Expected Outcomes \& Evaluation Plan}{Related rubric: 10 pts + 4 pts}
+\guideline{State the project outputs, define measurable success criteria, and provide an acceptance test plan with at least 5 test cases.}
+
+\subsection*{Expected Deliverables}
+\begin{itemize}
+    \item [Prototype / MVP]
+    \item [Documentation]
+    \item [Dataset / annotated corpus / trained model / dashboard / report]
+\end{itemize}
+
+\subsection*{Success Metrics}
+[Define how you will evaluate success, e.g., accuracy, response time, usability, defect rate, completion rate, or stakeholder satisfaction.]
+
+\subsection*{Acceptance Test Plan}
+\begin{longtable}{p{0.08\textwidth} p{0.3\textwidth} p{0.22\textwidth} p{0.28\textwidth}}
+\toprule
+\textbf{TC} & \textbf{Scenario} & \textbf{Expected Result} & \textbf{Related Req.} \\
+\midrule
+TC-01 & [Scenario] & [Expected result] & [FR/NFR ID] \\
+TC-02 & [Scenario] & [Expected result] & [FR/NFR ID] \\
+TC-03 & [Scenario] & [Expected result] & [FR/NFR ID] \\
+TC-04 & [Scenario] & [Expected result] & [FR/NFR ID] \\
+TC-05 & [Scenario] & [Expected result] & [FR/NFR ID] \\
+\bottomrule
+\end{longtable}
+
+\scoredsection{References}{Related rubric: 10 pts}
+\guideline{Use APA 7th edition consistently. Ensure every cited work also appears in the EK-1 form.}
+
+\begin{enumerate}
+    \item [Reference 1 in APA 7 format]
+    \item [Reference 2 in APA 7 format]
+    \item [Reference 3 in APA 7 format]
+    \item [Continue as needed]
+\end{enumerate}
+
+\section*{Final Checklist Before Submission}
+\begin{itemize}
+    \item The report is written in English.
+    \item All required sections from the course brief are included.
+    \item At least 10 peer-reviewed references are reviewed and copied to EK-1.
+    \item FRs, NFRs, user stories, and diagrams are mutually consistent.
+    \item WBS, Gantt chart, estimation, and risk table are present.
+    \item Acceptance test cases trace back to requirements.
+    \item Team roles, resources, and budget are clearly justified.
+    \item Language, formatting, and references are professionally edited.
+\end{itemize}
+
+\end{document}

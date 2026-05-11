@@ -4,8 +4,7 @@ node_modules/
 out/
 dist/
 coverage/
-work/
-
+.playwright-mcp/
 
 # Environment files
 .env

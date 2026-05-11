@@ -1,0 +1,223 @@
+\documentclass[10pt,a4paper]{article}
+
+% --- UNIVERSAL PREAMBLE BLOCK ---
+\usepackage[a4paper, top=3cm, bottom=2.5cm, left=2.2cm, right=2cm, headheight=35pt, headsep=12pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[scaled=0.95]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage{enumitem}
+\setlist[itemize]{label=-}
+\setlist[enumerate]{itemsep=0.15em,topsep=0.2em}
+
+% --- REQUIRED PACKAGES ---
+\usepackage{tabularx}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{ragged2e}
+\usepackage{array}
+
+% --- SETTINGS & COMMANDS ---
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+\renewcommand{\arraystretch}{1.3}
+
+% Tcolorbox setup for mimicking form boxes
+\tcbset{
+    colback=white,
+    colframe=black,
+    sharp corners,
+    boxrule=0.5pt,
+    boxsep=2pt,
+    left=6pt,
+    right=6pt,
+    top=6pt,
+    bottom=6pt
+}
+
+% Custom commands
+\newcommand{\sectionlabel}[1]{\vspace{1.2em}\noindent\textbf{\fontsize{10.5}{12}\selectfont #1}\par\vspace{0.4em}}
+\newcommand{\subhead}[1]{\vspace{0.8em}\noindent\textbf{\fontsize{10}{11}\selectfont #1}\par\vspace{0.3em}}
+\newcommand{\formline}{\vspace{1em}\noindent\rule{\textwidth}{0.5pt}\vspace{1em}}
+
+% Column types for tables
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{P}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+
+% --- HEADER & FOOTER SETTINGS ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\fontsize{9}{10}\selectfont\bfseries 2209/A UNIVERSITY STUDENTS RESEARCH PROJECTS SUPPORT PROGRAM\\RESEARCH PROPOSAL FORM}
+\fancyfoot[C]{\fontsize{9}{10}\selectfont \thepage~/~\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+
+\fancypagestyle{firstpage}{
+    \fancyhf{}
+    \fancyfoot[C]{\fontsize{9}{10}\selectfont \thepage~/~\pageref{LastPage}}
+    \renewcommand{\headrulewidth}{0pt}
+}
+
+\begin{document}
+\thispagestyle{firstpage}
+
+% --- COVER PAGE ---
+\vspace*{3cm}
+\begin{center}
+    \textbf{\Huge TÜBİTAK}\\[2.5cm]
+    {\Large\bfseries TÜBİTAK-2209-A UNIVERSITY STUDENTS RESEARCH PROJECTS SUPPORT PROGRAM}\\[1.5cm]
+    {\large\bfseries RESEARCH PROPOSAL FORM}\\[2.5cm]
+\end{center}
+\vfill
+\begin{flushright}
+    \textbf{2025 Year -- 2. Period Application}
+\end{flushright}
+
+\clearpage
+
+% --- PAGE 2 ONWARDS ---
+
+\sectionlabel{A. GENERAL INFORMATION}
+\begin{tcolorbox}
+\textbf{Applicant's Full Name:} Ömer Faruk Özüyağlı, Emre Demirbaş, Mehmet Ali Yılmaz \\[0.6em]
+\textbf{Title of the Research Proposal:} Schedify: Constraint-Based Automated Exam Scheduling System for University Departments \\[0.6em]
+\textbf{Advisor's Full Name:} Yusuf Evren Aykaç \\[0.6em]
+\textbf{Institution/Organization Where the Research Will Be Conducted:} Ankara Yıldırım Beyazıt University
+\end{tcolorbox}
+
+\sectionlabel{ABSTRACT}
+\begin{tcolorbox}
+Schedify is an innovative software solution designed to revolutionize university exam scheduling by addressing the inefficiencies and errors inherent in manual processes [1]. Its original value lies in its constraint-based scheduling engine, which optimizes schedules by integrating multi-dimensional constraints such as classroom capacities, instructor availability, student conflicts, institutional policies, and a novel exam difficulty parameter. [2][3]. This ensures fairer academic evaluations by preventing consecutive high-difficulty exams, a feature absent in existing systems [4][5]. The research hypothesizes that Schedify will significantly reduce scheduling time, minimize conflicts, and enhance resource utilization compared to traditional methods [6][7], contributing to both educational technology and operational research [8].
+
+The methodology employs a mixed-method approach, starting with a literature review to identify best practices in constraint satisfaction problems [9]. Schedify’s development uses Java with Spring Boot and OptaPlanner for the backend, React.js for the frontend, and PostgreSQL for data management [10][11]. Real-world university data will validate the system, with performance benchmarked against manual schedules using metrics like conflict reduction and stakeholder satisfaction [12][13]. Statistical analyses, including t-tests and ANOVA, will quantify improvements [14].
+
+Project management is structured around a four-month timeline with seven work packages, including algorithm development, testing, and dissemination. Risks, such as data collection delays or integration issues, are mitigated through strategies like resource reallocation and expert consultations. The project leverages university servers, cloud infrastructure, and collaboration tools to ensure successful execution.
+
+Schedify's widespread impact includes improved operational efficiency, reduced scheduling costs, and enhanced fairness in academic evaluations, with potential for commercial spin-offs. The project will train the team in advanced software development and inspire future research in automated scheduling. By making code and datasets publicly available, Schedify promotes transparency and reproducibility, aligning with academic and societal benefits.\\[1em]
+\textbf{Keywords:} automated scheduling, constraint satisfaction, exam fairness, resource optimization
+\end{tcolorbox}
+
+\sectionlabel{ORIGINAL VALUE}
+\subhead{Importance of the Subject, Original Value of the Research Proposal and Research Question/Hypothesis}
+Exam scheduling at universities is a highly complex, resource-intensive task traditionally executed manually, prone to human error, inefficiencies, and conflicts [1]. Existing scheduling methods often fail to optimally utilize resources and struggle to satisfy all constraints such as classroom capacities, instructor availability, and student conflicts simultaneously [2]. This proposal introduces "Schedify," an innovative software solution leveraging advanced constraint satisfaction algorithms to automatically generate optimized, conflict-free examination schedules [3].
+
+Schedify addresses significant gaps in current methods by incorporating multi-dimensional constraints, including student exam conflicts, instructor availabilities, classroom capacities, institutional scheduling policies, and a unique parameter: exam difficulty [3][4]. By assigning difficulty scores to exams, Schedify prevents students from having high-difficulty exams scheduled consecutively, thus supporting fairer academic evaluation conditions [5].
+
+This project aims to explore the hypothesis that a constraint-based automated scheduling system can significantly reduce manual scheduling time, minimize conflicts, and optimize resource allocation better than existing manual or semi-automated systems. The originality lies in its adaptive scheduling engine that dynamically accommodates diverse constraints and its innovative difficulty-based spacing, both of which are novel contributions to educational technology literature. This study is particularly valuable in addressing real-world logistical and academic fairness issues within university settings, thus having both practical and theoretical significance in educational technology and operational research fields.
+
+\subhead{Aims and Objectives}
+The primary aim of this project is to develop and evaluate "Schedify," a constraint-based automated scheduling system capable of efficiently producing optimal exam schedules that reduce conflicts and improve fairness and resource utilization. Specific objectives include:
+\begin{itemize}
+    \item To develop a comprehensive constraint-satisfaction scheduling algorithm tailored to university exam scheduling.
+    \item To validate the effectiveness of automated scheduling through real-world scenarios provided by participating university departments.
+    \item To compare the performance of automated scheduling with traditional manual scheduling practices, quantifying improvements in efficiency, fairness, and accuracy.
+    \item To enhance stakeholder satisfaction, particularly among students and faculty, through user-friendly interfaces, clear notifications, and adaptable scheduling features.
+\end{itemize}
+Through achieving these objectives, Schedify intends to significantly enhance operational efficiency, resource allocation, and fairness in university exam scheduling processes.
+
+\subhead{METHOD}
+This project will employ a mixed-method approach combining software development, quantitative evaluation, and comparative analysis to address the project aims effectively.
+
+Initially, a detailed literature review will be conducted to identify current gaps and best practices in exam scheduling and constraint satisfaction problems (CSPs) [9]. Following this, we will develop the Schedify software system utilizing Java with Spring Boot for backend functionality and React.js for frontend interfaces, supported by a PostgreSQL database. The scheduling algorithm at the core of Schedify will be built around OptaPlanner, an open-source constraint solver that integrates seamlessly with Java and Spring Boot [10]. OptaPlanner employs advanced optimization algorithms such as Tabu Search and Simulated Annealing [15], making it well-suited for complex scheduling tasks like exam timetabling.
+
+To evaluate the system's effectiveness, real-world data from participating university departments will be used to perform empirical testing. Data sets will include course registrations, student enrollments, instructor availabilities, and classroom specifications. The automated schedules generated by Schedify will be quantitatively assessed for efficiency (time and resource allocation), fairness (student conflict reduction and exam difficulty spacing), and overall conflict minimization [12].
+
+Comparative analysis will be conducted by benchmarking Schedify-generated schedules against traditional manually-produced schedules [13] currently used at participating universities. Metrics for comparison will include the number of scheduling conflicts, utilization rates of classrooms and instructor resources, and stakeholder satisfaction levels gathered through surveys and interviews.
+
+Finally, statistical methods, such as paired-sample t-tests and ANOVA, will be employed to measure the significance of improvements [14] provided by Schedify. Results from this methodological approach will clearly demonstrate the potential of automated constraint-based scheduling systems to revolutionize university exam scheduling processes.
+
+\clearpage
+
+\sectionlabel{PROJECT MANAGEMENT}
+\subhead{Work-Time Schedule}
+\begin{center}\textbf{WORK-TIME SCHEDULE}\end{center}
+\begin{tabularx}{\textwidth}{|c|P{0.25\textwidth}|Y|P{0.12\textwidth}|Y|}
+\hline
+\textbf{IP No} & \textbf{Name and Objectives of Work Packages} & \textbf{By whom(s) it will be carried out} & \textbf{Time Interval (Month)} & \textbf{Success Criteria and Contribution to the Success of the Project} \\ \hline
+1 & Literature Review and Requirement Analysis & Ömer Faruk Özüyağlı, Emre Demirbaş, Mehmet Ali Yılmaz & Month 0-1 & Comprehensive literature review and clearly defined project requirements \\ \hline
+2 & System Architecture and Design & Emre Demirbaş & Month 1-2 & Completed system architecture and design documents \\ \hline
+3 & Backend Development and Integration with OptaPlanner & Mehmet Ali Yılmaz, Emre Demirbaş & Months 2-3 & Functional backend integrated successfully with OptaPlanner \\ \hline
+4 & Frontend Development and User Interface Design & Emre Demirbaş, Ömer Faruk Özüyağlı & Months 2-3 & User-friendly and responsive frontend interfaces \\ \hline
+5 & Empirical Testing and Evaluation & Ömer Faruk Özüyağlı & Month 2-3 & Empirical tests successfully conducted and documented \\ \hline
+6 & Comparative Analysis and Statistical Evaluation & Mehmet Ali Yılmaz & Month 3-4 & Statistical analysis completed and significant improvements documented \\ \hline
+7 & Final Reporting and Dissemination & Ömer Faruk Özüyağlı, Emre Demirbaş, Mehmet Ali Yılmaz & Month 3-4 & Comprehensive report finalized and results disseminated \\ \hline
+\end{tabularx}
+
+\vspace{1.5em}
+\subhead{Risk Management}
+\begin{center}\textbf{RISK MANAGEMENT TABLE*}\end{center}
+\begin{tabularx}{\textwidth}{|c|Y|Y|}
+\hline
+\textbf{IP No} & \textbf{Most Significant Risks} & \textbf{Risk Management (Plan B)} \\ \hline
+1 & Delays in literature review or data collection & Allocate additional resources and extend deadlines as needed. \\ \hline
+2 & System design complexities & Hold frequent design reviews and seek expert consultation to identify and resolve issues promptly. \\ \hline
+3 & Integration difficulties with OptaPlanner & Early prototyping and fallback to alternative CSP solvers if needed. \\ \hline
+4 & Frontend-backend integration problems & Regular integration meetings and rapid iterative development to catch integration issues early. \\ \hline
+5 & Insufficient quality or quantity of data for testing & Engage multiple departments early to secure comprehensive datasets; consider synthetic data creation as a fallback. \\ \hline
+6 & Inconclusive statistical results & Expand dataset scope or adjust evaluation criteria and metrics to clearly demonstrate system advantages. \\ \hline
+7 & Reporting and dissemination delays & Allocate dedicated time and additional team resources to ensure timely completion and submission of final reports. \\ \hline
+\end{tabularx}\\[0.5em]
+\small{(*) The rows in the table can be expanded and reproduced as necessary.}
+
+\vspace{1.5em}
+\subhead{3.3. Research Opportunities}
+\begin{center}\textbf{TABLE OF RESEARCH OPPORTUNITIES (*)}\end{center}
+\begin{tabularx}{\textwidth}{|Y|Y|}
+\hline
+\textbf{Type and Model of Infrastructure/Equipment in the Organization (Laboratory, Vehicle, Machinery-Equipment, etc.)} & \textbf{Intended Use in the Project} \\ \hline
+University Servers & Software development, system testing, and user interface evaluation \\ \hline
+Cloud Computing Infrastructure (AWS, Azure, GCP) & Hosting the Schedify system and managing scalable deployments \\ \hline
+PostgreSQL Database Servers & Efficient management and storage of scheduling data \\ \hline
+Java Development Environment with Spring Boot Framework & Backend system development and integration \\ \hline
+React.js Development Environment & Frontend user interface development \\ \hline
+Collaboration Tools (GitHub, Jira, Microsoft Teams) & Effective project management and team collaboration \\ \hline
+\end{tabularx}\\[0.5em]
+\small{(*) The rows in the table can be expanded and reproduced as necessary.}
+
+\clearpage
+\sectionlabel{WIDESPREAD IMPACT}
+\begin{center}\textbf{TABLE OF EXPECTED WIDESPREAD IMPACT OF THE RESEARCH PROPOSAL}\end{center}
+\begin{tabularx}{\textwidth}{|P{0.4\textwidth}|Y|}
+\hline
+\textbf{Common Impact Types} & \textbf{Expected Outputs, Results and Impacts of the Proposed Research} \\ \hline
+Scientific/Academic(Article, Paper, Book Chapter, Book) & There are no scientific and academic output expectations related to this project. \\ \hline
+Economic/Commercial/Social(Product, Prototype, Patent, Utility Model, Production Permit, Variety Registration, Spin-off/Start-up Company,Audio/VisualArchive, Inventory/Database/DocumentationProduction, Copyrighted Work, Media Coverage, Scientific Event such as Fair, Project Market, Workshop, Training, etc., Institution/Organization that will use the Project Results, etc. other common effects) & Potential spin-off opportunities, improved operational efficiency in universities, significant reduction in scheduling costs, enhanced fairness in academic evaluations. \\ \hline
+Training Researchers and Creating New Project(s)(Master's/PhD Thesis, National/International New Project) & Project team will be trained throughout the project by gaining knowledge through hands-on experience in this field. The research conducted in this area is expected to lead to new projects. \\ \hline
+\end{tabularx}
+
+\sectionlabel{BUDGET REQUEST SCHEDULE}
+\begin{tabularx}{\textwidth}{|P{0.3\textwidth}|c|Y|}
+\hline
+\textbf{Budget Type} & \textbf{Requested Budget Amount (TL)} & \textbf{Request Justification} \\ \hline
+Consumables & 0 & There is no consumable need for this project. \\ \hline
+Machinery/Equi pment (Fixtures) & 0 & There is no machinery/equipment need for this project. \\ \hline
+Service Procurement & 6000 & For cloud service usage (AWS or similar) during development and deployment and potential third-party tools or minor consultation fees. \\ \hline
+Transportation & 3000 & For travel related to academic events, user testing, and data collection. \\ \hline
+\textbf{TOTAL} & \textbf{9000} &  \\ \hline
+\end{tabularx}
+
+\sectionlabel{ANY OTHER ISSUES YOU WOULD LIKE TO MENTION}
+To ensure transparency, reproducibility, and contribution to academic knowledge, all key components of the Schedify project, including code, datasets (with appropriate anonymization), and documentation, will be made publicly available on a GitHub repository under an open-source license. Additionally, stakeholders will be regularly updated on project milestones through periodic presentations and summary briefs. Ethical considerations, especially in the handling of student and instructor data, will be strictly observed, and the system will comply with university data protection regulations.
+
+\sectionlabel{APPENDICES ANNEX-1: RESOURCES}
+\formline
+\begin{enumerate}[leftmargin=1.4em]
+\item Dasari, C. A., Kumar, S. M., Arpitalaxmi, \& Thushara, M. G. (2024). Optimizing university time table schedules for smart space utilization. 2024 5th IEEE GCAT. https://doi.org/10.1109/GCAT62922.2024.10923876
+\item Babaei, H., Karimpour, J., \& Hadidi, A. (2015). A survey of approaches for university course timetabling problems. Computers \& Industrial Engineering, 86, 43–59.
+\item Genc, B., \& O’Sullivan, B. (2020). A two-phase constraint programming model for examination timetabling. In CPAIOR 2020 (LNCS 12333). Springer.
+\item Jáhn-Erdős, S., \& Kővári, B. (2024). Exploring fair scheduling aspects -- through final exam scheduling. Pollack Periodica, 19(2), 151–163.
+\item Muklason, A., Parkes, A. J., Özcan, E., McCollum, B., \& McMullan, P. (2019). Fairness in examination timetabling: Student preferences and extended formulations. Applied Soft Computing, 55, 302–318.
+\item Lim, Y. Y., \& Mammi, H. K. (2021). Timetable scheduling via genetic algorithm (tsuGA). Int. J. of Interactive Computing, 11(2), 67–72.
+\item Diallo, F. P., \& Tudose, C. (2024). Optimizing the scheduling of teaching activities in a faculty. Applied Sciences, 14(20), 9554.
+\item Oude Vrielink, R. A., Jansen, E. A., Hans, E. W., \& van Hillegersberg, J. (2019). Practices in timetabling in higher education institutions: A systematic review. Annals of Operations Research, 275(1), 145–160.
+\item Creswell, J. W., \& Creswell, J. D. (2018). Research design: Qualitative, quantitative, and mixed methods approaches (5th ed.). Sage.
+\item Walls, C. (2022). Spring in Action (6th ed.). Manning Publications.
+\item Lim, Y. Y., \& Mammi, H. K. (2021). Timetable scheduling via genetic algorithm (tsuGA). Int. J. of Interactive Computing, 11(2), 67–72.
+\item Elen, A. (2022). A complete solution to exam scheduling problem: A case study. Journal of Scientific Reports-A, 49, 12–34.
+\item Diallo, F. P., \& Tudose, C. (2024). Optimizing the scheduling of teaching activities in a faculty. Applied Sciences, 14(20), 9554.
+\item Field, A. P. (2018). Discovering statistics using IBM SPSS statistics (5th ed.). Sage.
+\item Siew, E. S. K., et al. (2024). A survey of solution methodologies for exam timetabling problems. IEEE Access, 12.
+\end{enumerate}
+\end{document}
