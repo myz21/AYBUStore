@@ -1,0 +1,220 @@
+\documentclass[11pt]{report}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{svg}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\svgpath{{diagrams/}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.7\baselineskip}
+\setlist[itemize]{noitemsep, topsep=2pt}
+\setlist[enumerate]{noitemsep, topsep=2pt}
+
+\title{Software Requirements Specification\\[0.5em]\large Schedify: Constraint-Based Automated Exam Scheduling System}
+\author{Team 18\\Emre Demirbaş -- 21050111069\\Ömer Faruk Özüyağlı -- 21050111047\\Mehmet Ali Yılmaz -- 21050111057}
+\date{28 April 2025}
+
+\newcommand{\diagramfigure}[3]{%
+\begin{figure}[H]
+\centering
+\includesvg[width=#3\textwidth,height=0.82\textheight,keepaspectratio,inkscapelatex=false]{#1}
+\caption{#2}
+\end{figure}
+}
+
+\newcommand{\usecase}[8]{%
+\subsubsection*{#1}
+\textbf{Primary Actor:} #2\\
+\textbf{Description:} #3\\
+\textbf{Precondition:} #4\\
+\textbf{Trigger:} #5\\
+\textbf{Typical Course of Events:}
+\begin{enumerate}
+#6
+\end{enumerate}
+\textbf{Alternate Courses:} #7\\
+\textbf{Implementation Constraints:} #8
+}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\listoffigures
+
+\chapter{Introduction}
+
+\section{Purpose}
+This Software Requirements Specification (SRS) formally defines all functional and non-functional requirements for \textbf{Schedify}, a constraint-based automated exam scheduling system. The document serves as a contractual reference for university stakeholders such as registrars, department coordinators, IT staff, faculty, and students, and it also supports academic evaluation of the system's completeness and quality. By the end of this SRS, the behavioural expectations, performance criteria, usability goals, and external interfaces of Schedify are specified in a clear and unambiguous way.
+
+\section{Scope}
+Schedify is a web-based application that generates conflict-free, resource-optimized exam timetables for multi-department universities.
+
+Core capabilities in scope are as follows:
+\begin{enumerate}
+\item Import academic data such as courses, enrolments, instructors, and classroom capacities from existing university systems.
+\item Model and manage scheduling constraints, including student exam collisions, instructor availability, room capacity and equipment needs, institutional policies, and exam-difficulty spacing.
+\item Execute a constraint satisfaction scheduling engine to automatically produce an initial exam schedule.
+\item Allow authorized staff to review, manually adjust, and re-optimize schedules through a responsive web interface.
+\item Publish finalized timetables and notify stakeholders through dashboards, e-mail, and institutional portals.
+\item Provide reporting and export facilities in formats such as PDF, CSV, and API outputs.
+\end{enumerate}
+
+Out-of-scope items include course registration, grade entry, and classroom booking for non-exam events.
+
+\textbf{Target environment}
+\begin{itemize}
+\item Back-end: Java 17 with Spring Boot and PostgreSQL
+\item Front-end: React.js on modern browsers such as Chrome, Firefox, and Edge
+\item Deployment: Docker and Kubernetes on cloud infrastructure such as AWS, GCP, or Azure
+\end{itemize}
+
+\section{References}
+\begin{enumerate}
+\item Object Management Group (OMG), \emph{Unified Modeling Language (UML) Specification}, Version 2.5.1, December 2017.
+\item Russell, Stuart J., and Peter Norvig, \emph{Artificial Intelligence: A Modern Approach}, 4th Edition, Pearson, 2020.
+\item Gamma, Erich, et al., \emph{Design Patterns: Elements of Reusable Object-Oriented Software}, Addison-Wesley, 1994.
+\item Richardson, Leonard, \emph{RESTful Web APIs: Services for a Changing World}, O'Reilly Media, 2013.
+\item Docker Inc., \emph{Docker Documentation}.
+\item PostgreSQL Global Development Group, \emph{PostgreSQL 15 Documentation}.
+\item World Wide Web Consortium (W3C), \emph{Web Content Accessibility Guidelines (WCAG) 2.1}, June 2018.
+\end{enumerate}
+
+\section{Definitions and Acronyms}
+\begin{longtable}{p{0.24\textwidth}p{0.7\textwidth}}
+\toprule
+\textbf{Term / Acronym} & \textbf{Meaning} \\
+\midrule
+SRS & Software Requirements Specification \\
+CSP & Constraint Satisfaction Problem, the mathematical model used by the scheduling engine \\
+Difficulty Score & Integer from 1 to 10 that indicates course or exam hardness and prevents consecutive difficult exams for the same student \\
+UI / UX & User Interface / User Experience \\
+API & Application Programming Interface \\
+REST & Representational State Transfer, the style used for Schedify web services \\
+DB & Database, PostgreSQL in this project \\
+UML & Unified Modeling Language \\
+JWT & JSON Web Token used for stateless authentication \\
+CI/CD & Continuous Integration / Continuous Deployment \\
+CRUD & Create, Read, Update, Delete operations \\
+Stakeholder & Any person or group with a vested interest in Schedify, such as students, faculty, and admin staff \\
+\bottomrule
+\end{longtable}
+
+\chapter{Overall Description}
+
+\section{Functional Requirements}
+The Schedify system shall provide the following core functionalities to automate and optimize university exam scheduling:
+\begin{itemize}
+\item \textbf{User and Access Management:} secure user access and permissions through role-based interactions for administrators, department coordinators, instructors, and students.
+\item \textbf{Data Handling:} storage and maintenance of course, student, instructor, and classroom data with accurate input and update operations.
+\item \textbf{Constraint Definition:} definition and persistence of scheduling constraints such as time slots and instructor availability.
+\item \textbf{Automated Schedule Generation:} automatic production of optimized schedules that avoid conflicts and use resources efficiently.
+\item \textbf{Schedule Interaction and Adjustment:} role-specific schedule views and manual adjustment capabilities for administrators with constraint validation.
+\item \textbf{Reporting and Integration:} report generation and export support for integration with external university systems.
+\end{itemize}
+
+These requirements form the foundation of Schedify's capabilities and support the needs of university stakeholders while streamlining the exam scheduling process.
+
+\subsection{Use Case Diagram}
+\diagramfigure{01_use_case_diagram}{Use case diagram}{0.95}
+
+\subsection{System Features}
+\begin{enumerate}
+\item \textbf{User Management:} Implements secure user authentication and role-based access control (RBAC) so that only authorized actions are allowed.
+\item \textbf{Data Management:} Supports CRUD operations for courses, students, instructors, and classrooms, including validation and bulk imports from external sources.
+\item \textbf{Constraint Management:} Allows definition of constraints such as exam time slots and instructor availability, stored in a relational database for efficient use.
+\item \textbf{Automated Scheduling:} Employs a CSP solver to create optimal exam schedules that satisfy constraints and avoid conflicts.
+\item \textbf{Schedule Management:} Provides responsive schedule viewing and administrator-driven manual edits with real-time validation.
+\item \textbf{Reporting and Export:} Generates customizable reports and exports schedules in formats such as PDF and iCal for integration.
+\end{enumerate}
+
+\subsection{Use Case Descriptions}
+
+\usecase{Use Case 1: User Authentication (Login) \#UC1}{All Users}{Allows users to log into the system using their credentials.}{The user has a registered account in the system.}{The user navigates to the login page and submits credentials.}{\item User enters username and password.\item System validates credentials.\item System grants access and redirects the user to a role-specific dashboard.}{If credentials are invalid, the system displays an error and prompts the user to retry.}{Use secure authentication, encrypted passwords, and session management.}
+
+\usecase{Use Case 2: Manage User Accounts \#UC2}{Administrator}{Allows administrators to create, update, or delete user accounts.}{Administrator is logged in with sufficient permissions.}{Administrator selects \textquotedblleft Manage Users\textquotedblright{} from the admin interface.}{\item Administrator chooses to add, edit, or delete a user.\item System saves changes to the user database.}{If a duplicate username is entered, the system prompts for a unique username.}{Enforce unique usernames and role-based permissions.}
+
+\usecase{Use Case 3: Manage Course Data \#UC3}{Department Coordinator}{Allows management of course data, including adding, updating, or deleting courses.}{Department Coordinator is logged in with appropriate permissions.}{User selects \textquotedblleft Manage Courses\textquotedblright{} from the interface.}{\item User adds, edits, or deletes course details.\item System saves changes.}{If a course with enrolled students is deleted, the system warns the user.}{Validate unique course IDs and support bulk uploads.}
+
+\usecase{Use Case 4: Manage Student Data \#UC4}{Department Coordinator}{Allows management of student data and course enrolments.}{Department Coordinator is logged in with appropriate permissions.}{User selects \textquotedblleft Manage Students\textquotedblright{} from the interface.}{\item User adds, edits, or deletes student details and enrolments.\item System saves changes.}{If a student is removed from a course, the system ensures scheduling consistency.}{Link student data to course data accurately.}
+
+\usecase{Use Case 5: Manage Instructor Data \#UC5}{Department Coordinator}{Allows management of instructor data, including department and availability.}{Department Coordinator is logged in with appropriate permissions.}{User selects \textquotedblleft Manage Instructors\textquotedblright{} from the interface.}{\item User adds, edits, or deletes instructor details.\item System saves changes.}{None significant.}{Allow linking instructors to courses they teach or proctor.}
+
+\usecase{Use Case 6: Manage Classroom Data \#UC6}{Administrator}{Allows management of classroom data, including location and capacity.}{Administrator is logged in.}{Administrator selects \textquotedblleft Manage Classrooms\textquotedblright{} from the interface.}{\item Administrator adds, edits, or deletes classroom details.\item System saves changes.}{None significant.}{Validate capacity as a positive integer.}
+
+\usecase{Use Case 7: Define Exam Time Slots \#UC7}{Administrator}{Allows definition of available time slots for exams.}{Administrator is logged in.}{Administrator selects \textquotedblleft Set Time Slots\textquotedblright{} from the interface.}{\item Administrator specifies available dates and times.\item System validates and saves time slots.}{None significant.}{Support a calendar-based interface for ease of use.}
+
+\usecase{Use Case 8: Set Instructor Availability \#UC8}{Instructor}{Allows instructors to specify their availability for proctoring exams.}{Instructor is logged in.}{Instructor selects \textquotedblleft Set Availability\textquotedblright{} from the dashboard.}{\item Instructor selects available dates and times.\item System saves availability.}{None significant.}{Provide a user-friendly interface such as a drag-and-drop calendar.}
+
+\usecase{Use Case 9: Generate Exam Schedule \#UC9}{Administrator}{Automatically generates a conflict-free exam schedule based on constraints.}{All required data, including courses, students, instructors, classrooms, time slots, and availability, is entered.}{Administrator clicks \textquotedblleft Generate Schedule\textquotedblright{} in the admin interface.}{\item System validates data and constraints.\item System runs the scheduling algorithm.\item System saves and displays the schedule.}{If data is incomplete, the system prompts for missing information. If no solution is found, the system suggests relaxing constraints.}{Use an efficient CSP solver and provide progress feedback.}
+
+\usecase{Use Case 10: View Exam Schedule \#UC10}{All Users}{Allows users to view their relevant exam schedules.}{User is logged in and a schedule has been generated.}{User navigates to \textquotedblleft My Schedule\textquotedblright{} or an equivalent page.}{\item System retrieves and displays the user's schedule.\item User can filter or sort the view.}{If no schedule exists, the system informs the user.}{Ensure responsive design for multiple devices.}
+
+\usecase{Use Case 11: Manually Adjust Schedule \#UC11}{Administrator}{Allows administrators to modify the schedule while respecting constraints.}{A schedule has been generated.}{Administrator selects \textquotedblleft Edit Schedule\textquotedblright{} from the interface.}{\item Administrator adjusts exam details such as time or classroom.\item System validates changes against constraints.\item System saves valid changes.}{If changes violate constraints, the system warns the administrator.}{Provide real-time constraint validation and undo functionality.}
+
+\usecase{Use Case 12: Generate Schedule Reports \#UC12}{Department Coordinator}{Allows generation of detailed reports from the exam schedule.}{A schedule has been generated.}{User selects \textquotedblleft Generate Report\textquotedblright{} and chooses a report type.}{\item User selects a report type.\item System compiles and presents the report.}{None significant.}{Support multiple formats such as PDF and Excel and allow customization.}
+
+\usecase{Use Case 13: Import Data \#UC13}{Administrator}{Allows import of data such as student enrolments and course details from external systems.}{Administrator is logged in and external data is available in a compatible format.}{Administrator selects \textquotedblleft Import Data\textquotedblright{} and uploads a file or connects to an API.}{\item Administrator uploads a file or specifies an API endpoint.\item System validates and processes the data.\item System integrates the data into the database.}{If the data format is invalid, the system reports errors.}{Support common formats such as CSV and XML and provide error logging.}
+
+\usecase{Use Case 14: Export Schedule \#UC14}{Administrator}{Allows export of the generated schedule to external systems or file formats.}{A schedule has been generated.}{Administrator selects \textquotedblleft Export Schedule\textquotedblright{} and chooses a format.}{\item Administrator selects an export format.\item System generates and provides the exported schedule.}{None significant.}{Ensure compatibility with university systems and calendar applications.}
+
+\section{Non-Functional Requirements}
+\begin{longtable}{p{0.23\textwidth}p{0.71\textwidth}}
+\toprule
+\textbf{Category} & \textbf{Requirement} \\
+\midrule
+Usability & The system shall provide an intuitive interface with role-specific dashboards and clear navigation so users can complete tasks efficiently. \\
+Reliability & The system shall maintain data integrity and recover from errors without data loss. \\
+Performance & The system shall generate exam schedules within a reasonable time frame, for example under 10 minutes for a large university, and handle concurrent user requests efficiently. \\
+Scalability & The system shall support universities of varying sizes, from small institutions to large multi-department campuses, by scaling resources as needed. \\
+Security & The system shall implement role-based access control and secure authentication to protect sensitive data and ensure that only authorized actions are performed. \\
+Maintainability & The system shall use modular components and clear documentation to facilitate updates and maintenance. \\
+Compatibility & The system shall be compatible with modern web browsers and integrate with existing university systems via standard data formats such as CSV and XML. \\
+Accessibility & The system shall comply with accessibility standards such as WCAG to remain usable for all stakeholders, including users with disabilities. \\
+\bottomrule
+\end{longtable}
+
+\chapter{System Models}
+
+\section{Activity Diagrams}
+\diagramfigure{02_activity_diagram_workflow}{Activity diagram for the scheduling workflow}{0.95}
+
+\section{System Sequence Diagrams}
+\diagramfigure{03_sequence_auth}{Sequence diagram for user authentication}{0.95}
+\diagramfigure{04_sequence_manage_users}{Sequence diagram for managing user accounts}{0.95}
+\diagramfigure{05_sequence_manage_courses}{Sequence diagram for managing course data}{0.95}
+\diagramfigure{06_sequence_manage_students}{Sequence diagram for managing student data}{0.95}
+\diagramfigure{07_sequence_manage_instructors}{Sequence diagram for managing instructor data}{0.95}
+\diagramfigure{08_sequence_manage_classrooms}{Sequence diagram for managing classroom data}{0.95}
+\diagramfigure{09_sequence_define_slots}{Sequence diagram for defining exam time slots}{0.95}
+\diagramfigure{10_sequence_instructor_availability}{Sequence diagram for setting instructor availability}{0.95}
+\diagramfigure{11_sequence_generate_schedule}{Sequence diagram for generating the exam schedule}{0.95}
+\diagramfigure{12_sequence_view_schedule}{Sequence diagram for viewing the exam schedule}{0.95}
+\diagramfigure{13_sequence_manual_adjust}{Sequence diagram for manually adjusting the schedule}{0.95}
+\diagramfigure{14_sequence_generate_reports}{Sequence diagram for generating schedule reports}{0.95}
+\diagramfigure{15_sequence_import_data}{Sequence diagram for importing data}{0.95}
+\diagramfigure{16_sequence_export_data}{Sequence diagram for exporting data}{0.95}
+
+\section{User Interface Mock-up Screens}
+The original PDF report includes a set of user interface mock-up screens such as the login page, admin dashboard, student dashboard, schedule management, reporting, and notification center. Those mock-up image assets were not included among the uploaded project files, so this LaTeX version preserves the section structure and can embed them later once the screen images are added to the workspace.
+
+\section{Analysis Object Model}
+\diagramfigure{17_class_diagram_analysis}{Analysis object model / class diagram}{0.95}
+
+\section{Component Diagram}
+\diagramfigure{18_component_diagram}{Component diagram}{0.95}
+
+\section{Deployment Diagram}
+\diagramfigure{19_deployment_diagram}{Deployment diagram}{0.95}
+
+\section{State Diagram}
+\diagramfigure{20_state_diagram_lifecycle}{State diagram lifecycle}{0.8}
+
+\end{document}
