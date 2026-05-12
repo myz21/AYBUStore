@@ -2,13 +2,12 @@
 
 % --- UNIVERSAL PREAMBLE BLOCK ---
 \usepackage[a4paper, top=3cm, bottom=2.5cm, left=2.2cm, right=2cm, headheight=35pt, headsep=12pt]{geometry}
-\usepackage{fontspec}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
 
-\usepackage[english, bidi=basic, provide=*]{babel}
-\babelprovide[import, onchar=ids fonts]{english}
-
-% Set default/Latin font to Sans Serif in the main (rm) slot
-\babelfont{rm}{Noto Sans}
+% PDFLaTeX-compatible font setup
 
 \usepackage{enumitem}
 \setlist[itemize]{label=-}
@@ -198,20 +197,20 @@ Reliability and performance will be monitored via continuous APM-based server lo
 \begin{tabularx}{\textwidth}{|P{0.4\textwidth}|Y|}
 \hline
 \textbf{Common Impact Types} & \textbf{Expected Outputs, Results and Impacts of the Proposed Research} \\ \hline
-Scientific/Academic (Article, Paper, Book Chapter, Book) & [Bilimsel/Akademik Çıktı Beklentileri] \\ \hline
-Economic/Commercial/Social (Product, Prototype, Patent, Utility Model, Production Permit, Variety Registration, Spin-off/Start-up Company, Audio/Visual Archive, Inventory/Database/Documentation Production, Copyrighted Work, Media Coverage, Scientific Event such as Fair, Project Market, Workshop, Training, etc., Institution/Organization that will use the Project Results, etc. other common effects) & [Ekonomik/Ticari/Sosyal Beklentiler] \\ \hline
-Training Researchers and Creating New Project(s) (Master's/PhD Thesis, National/International New Project) & [Araştırmacı Yetiştirme ve Yeni Proje Oluşturma Beklentileri] \\ \hline
+\textbf{Scientific/Academic} (Article, Paper, Book Chapter, Book) & The project will produce a structured academic case study on the design of a \textbf{hyper-local closed-loop digital commerce ecosystem} for a multi-campus university. In line with the original value of the project, AYBUStore addresses the gap between general e-commerce systems and the specific accessibility needs of distributed university campuses. Expected outputs include a final technical research report, system architecture documentation, pilot evaluation results and a student conference paper/article draft. The pilot data will provide measurable evidence on cross-campus access improvement, Time to Interactive performance and support-process efficiency. \\ \hline
+\textbf{Economic/Commercial/Social} (Product, Prototype, Patent, Utility Model, Production Permit, Variety Registration, Spin-off/Start-up Company, Audio/Visual Archive, Inventory/Database/Documentation Production, Copyrighted Work, Media Coverage, Scientific Event such as Fair, Project Market, Workshop, Training, etc., Institution/Organization that will use the Project Results, etc. other common effects) & The main output will be the \textbf{AYBUStore prototype/reference implementation}, including OTP-based authentication, product catalogue, cart/order flow, simulated checkout, stock management, admin/CMS panel, campus-aware tracking and rule-based support modules. The project will also produce database/inventory structures for users, products, categories, orders, support tickets and tracking data, together with SRS, UML diagrams, test cases and user/admin documentation. Socially, the system is expected to reduce access inequality caused by the current single-location store model and increase peripheral-campus utilization by at least 30\%. It may reduce time and travel costs for students and improve stock/order visibility for university administrators. \\ \hline
+\textbf{Training Researchers and Creating New Project(s)} (Master's/PhD Thesis, National/International New Project) & The project will train undergraduate researchers in requirements engineering, Agile/Scrum planning, software architecture, cloud-based backend design, secure OTP authentication, database modelling, testing and performance evaluation. It will also provide experience in hypothesis-based research through pilot data, log-based measurement and statistical comparison. The outputs can support future extensions or new projects on smart campus services, AI-assisted support systems, campus-aware order tracking, demand analysis and digital transformation in higher education. \\ \hline
 \end{tabularx}
 
 \sectionlabel{BUDGET REQUEST SCHEDULE}
 \begin{tabularx}{\textwidth}{|P{0.3\textwidth}|c|Y|}
 \hline
 \textbf{Budget Type} & \textbf{Requested Budget Amount (TL)} & \textbf{Request Justification} \\ \hline
-Consumables & [Miktar] & [Gerekçe / Açıklama] \\ \hline
-Machinery/Equipment (Fixtures) & [Miktar] & [Gerekçe / Açıklama] \\ \hline
-Service Procurement & [Miktar] & [Gerekçe / Açıklama] \\ \hline
-Transportation & [Miktar] & [Gerekçe / Açıklama] \\ \hline
-\textbf{TOTAL} & \textbf{[Toplam]} &  \\ \hline
+Consumables & 0 TL & No consumable material is required because AYBUStore is a software-based academic prototype. All documents, diagrams, datasets, test cases, and reports will be produced digitally. \\ \hline
+Machinery/Equipment (Fixtures) & 0 TL & No additional hardware purchase is required. Team members will use their existing personal computers, standard mobile/browser emulators, and existing internet access for development, testing, and documentation. \\ \hline
+Service Procurement & 0 TL & The project will rely on free-tier or academic-accessible services such as Firebase, GitHub, Visual Studio Code, Draw.io/PlantUML, and Figma Free Plan. Payment operations are simulated; therefore, no paid live payment, hosting, or external service procurement is requested at this stage. \\ \hline
+Transportation & 0 TL & No transportation budget is requested. Development, testing, meetings, documentation, and coordination activities can be conducted online or within the university environment. \\ \hline
+\textbf{TOTAL} & \textbf{0 TL} & The project report estimates the notional labour value as 25,800 USD and includes a small possible cloud-overage buffer; however, these are not requested as project budget items. The project will be carried out by undergraduate students using existing resources and free-tier tools. \\ \hline
 \end{tabularx}
 
 \sectionlabel{ANY OTHER ISSUES YOU WOULD LIKE TO MENTION}
