@@ -11,11 +11,27 @@
 \usepackage{tabularx}
 \usepackage{enumitem}
 \usepackage{hyperref}
-\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{float}
 
 \definecolor{aybu_blue}{RGB}{31, 73, 125}
 \hypersetup{colorlinks=true, linkcolor=aybu_blue, urlcolor=blue}
 \graphicspath{{./diagrams_aybustore/}}
+
+% --- Colour palette used by the new tables and the Gantt chart (sections 3.4 / 3.5)
+\definecolor{aybuHeader}{RGB}{46, 117, 182}
+\definecolor{aybuAlt}{RGB}{242, 242, 242}
+\definecolor{aybuBlock}{RGB}{221, 235, 247}
+\definecolor{ganttActive}{RGB}{46, 117, 182}
+\definecolor{ganttBuffer}{RGB}{189, 215, 238}
+\definecolor{ganttSprint}{RGB}{255, 242, 204}
+\definecolor{ganttMile}{RGB}{244, 176, 132}
+\definecolor{riskMed}{RGB}{255, 235, 156}
+\definecolor{riskHigh}{RGB}{248, 203, 173}
+
+% --- Helper macros for the Gantt chart cells
+\providecommand{\GA}{\cellcolor{ganttActive}}
+\providecommand{\GB}{\cellcolor{ganttBuffer}}
 
 % Prevent headers from being separated from text
 \widowpenalty=10000
@@ -61,40 +77,551 @@ The common gap is clear: prior work treats service quality, campus digitalizatio
 \textit{Full bibliographic details for all reviewed studies are provided in the References section.}
 
 \newpage
+% ============================================================
+% SECTION 4: OBJECTIVES & SCOPE
+% ============================================================
 \section{Objectives \& Scope}
-\subsection{SMART Objectives}
-\begin{enumerate}
-    \item Achieve a 1.2s TTI on the main storefront within the AYBU network.
-    \item Enable secure OTP-based authentication for 100\% of registered users.
-    \item Increase merchandise visibility by 30\% via the AI Recommendation Engine.
-    \item Implement a logistics tracking system covering all 4 AYBU campuses.
-\end{enumerate}
-\subsection{Scope}
-\textbf{In-Scope:} Frontend (Next.js), Backend (Firebase), AI Assistant (Intent Analysis), OTP Verification, Campus-specific Logistics Routing, and Admin CMS. \\
-\textbf{Out-of-Scope:} Third-party payment gateway integration (simulated), external faculty grade systems, and off-campus delivery.
+\label{sec:objectives-scope}
 
-\section{Methodology \& Development Plan}
-We adopt the \textbf{Agile/Scrum} model, aligned with the 5-phase iterative process.
-\subsection{Work Breakdown Structure (WBS)}
-The project is divided into four major work packages: Infrastructure setup, Core module development (Auth/Cart), Intelligent Layer integration (AI Assistant), and the Logistics \& Notification pipeline. Each package is executed with "Shift-left validation" to ensure zero technical debt.
+\subsection{Project Objectives}
+AYBUStore is a university-oriented e-commerce platform that delivers a
+unified marketplace for university-branded merchandise, academic
+supplies, and AYBU-specific products to students, staff, and the
+general public. The five measurable objectives below define the
+success criteria of the project and will be used to evaluate the final
+deliverable upon completion of the 14--15 week development cycle.
 
-\subsection{Project Timeline \& Effort Estimation}
-The project timeline spans 14 weeks, starting from requirements elicitation to final transition. Based on a comprehensive audit of the 2,690 lines of code developed, the effort is estimated at 6.8 Person-Months, with a project schedule of approximately 5.2 months for a fully production-ready release.
-
-\subsection{Risk Management Table}
-\begin{table}[h!]
+\renewcommand{\arraystretch}{1.25}
+\begin{table}[H]
 \centering
-\begin{tabularx}{\textwidth}{l|l|c|c|X}
-\toprule
-\textbf{ID} & \textbf{Risk} & \textbf{Prob.} & \textbf{Imp.} & \textbf{Mitigation} \\ \midrule
-R1 & AI Hallucination & High & Med & Context-aware constraints. \\
-R2 & Multi-campus Latency & Med & High & Edge caching \& TTI optimization. \\
-R3 & Auth Bypass & Low & Crit & 6-digit OTP + Firebase Rules. \\
-R4 & Scale Issues & Med & Med & Serverless auto-scaling. \\
-R5 & Data Leakage & Low & Crit & Encryption at rest (Firestore). \\ \bottomrule
-\end{tabularx}
+\small
+\begin{tabular}{|p{0.06\textwidth}|p{0.22\textwidth}|p{0.40\textwidth}|p{0.18\textwidth}|}
+\hline
+\rowcolor{aybuHeader}
+\textcolor{white}{\textbf{ID}} &
+\textcolor{white}{\textbf{Objective}} &
+\textcolor{white}{\textbf{Description}} &
+\textcolor{white}{\textbf{Success Metric}} \\ \hline
+
+OBJ-1 & Deliver an intuitive, responsive UI across web and mobile &
+Provide a consistent, user-friendly interface on both React~Native
+mobile clients and the responsive web client, enabling users to
+complete core flows (browse, search, add-to-cart, checkout) with
+minimal training. &
+$\geq 85\%$ task completion rate in usability tests; System Usability
+Scale (SUS) score $\geq 75$. \\ \hline
+
+OBJ-2 & Provide secure authentication and payment &
+Implement JWT-based authentication via Firebase~Auth and a
+PCI-compliant payment flow through Stripe/iyzico integration,
+ensuring no sensitive payment data is stored on AYBUStore servers. &
+Zero critical OWASP Top-10 vulnerabilities at release; 100\% of card
+data handled via tokenization. \\ \hline
+
+OBJ-3 & Achieve high performance and scalability &
+Serve catalogue, search, and checkout requests with low latency under
+realistic load, leveraging Firebase Firestore indexing, image CDN
+delivery, and stateless cloud functions. &
+$\leq 2$\,s average page load on 4G; system supports $\geq 500$
+concurrent users without degradation. \\ \hline
+
+OBJ-4 & Support university-specific features &
+Enable AYBU-specific identity verification (student/staff number on
+registration), student discounts on selected categories, and
+university-branded product catalogues with departmental tagging. &
+$\geq 3$ AYBU-specific feature modules delivered (verified accounts,
+student discount, department filter). \\ \hline
+
+OBJ-5 & Provide comprehensive administrative tooling &
+Offer a web-based admin panel for full CRUD operations on products,
+categories, inventory, orders, and users, plus moderation tools for
+the rating \& review subsystem. &
+100\% of MoSCoW ``Must-have'' admin use cases implemented and verified
+by acceptance tests. \\ \hline
+\end{tabular}
+\caption{AYBUStore measurable project objectives.}
+\label{tab:objectives}
 \end{table}
 
+\subsection{In-Scope Capabilities}
+The following capabilities are explicitly within the scope of the
+AYBUStore project and will be delivered as part of the final
+documentation set:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{User account management} --- registration, login,
+    profile management, password recovery, and role-based access
+    control for three user roles: Customer (Student/Public),
+    Seller/Vendor (limited), and Administrator.
+    \item \textbf{Product catalogue management} --- hierarchical
+    categorization, product listing with images, multi-attribute
+    filtering (price, category, department, rating), and keyword-based
+    search with pagination.
+    \item \textbf{Shopping cart and checkout} --- persistent cart
+    bound to the user account, address book management, order
+    summary, and integrated Stripe/iyzico payment gateway.
+    \item \textbf{Stock and inventory management} ---
+    administrator-facing inventory tracking, low-stock alerts, bulk
+    import via CSV, and automatic stock deduction on confirmed orders.
+    \item \textbf{Rating and review system} --- verified-purchase
+    reviews, 1--5 star ratings, moderation queue for inappropriate
+    content, and aggregated product scoring.
+    \item \textbf{Order management} --- order history per user, status
+    transitions (Pending $\rightarrow$ Confirmed $\rightarrow$ Shipped
+    $\rightarrow$ Delivered $\rightarrow$ Cancelled/Refunded), and
+    order detail views for both customers and administrators.
+    \item \textbf{University-specific features} --- AYBU student/staff
+    identity verification flag, student-discount eligibility, and
+    AYBU-branded product collections.
+    \item \textbf{Cross-platform delivery} --- a React~Native mobile
+    application (iOS \& Android) and a responsive web client, both
+    consuming a shared Firebase backend (Firestore, Auth, Cloud
+    Functions, Storage).
+    \item \textbf{Documentation} --- complete SRS, design document,
+    test plan, and user manual; no working prototype or live demo is
+    required per project agreement.
+\end{itemize}
+
+\subsection{Out-of-Scope Items}
+To keep the project achievable within the 14--15 week timeframe and
+the 5-person team, the items below are explicitly excluded from this
+iteration of AYBUStore. They may be considered for future phases.
+\begin{itemize}[leftmargin=*]
+    \item Physical logistics and last-mile delivery management (e.g.,
+    courier integration, route optimization, GPS-based shipment
+    tracking).
+    \item Multi-vendor marketplace functionality with independent
+    seller storefronts, seller-side analytics dashboards, and
+    commission/settlement engines.
+    \item Native desktop applications (macOS, Windows, Linux) --- only
+    the responsive web client and React~Native mobile applications are
+    delivered.
+    \item Integration with AYBU's internal SIS/ERP systems for live
+    student-status verification --- student/staff identity is captured
+    via self-declared numbers with basic format validation only.
+    \item Advanced AI/ML features such as personalized recommendation
+    engines, demand forecasting, or visual similarity search.
+    \item Loyalty programs, gift card issuance, and discount-code
+    generation engines beyond a single static student-discount rule.
+    \item Live chat, ticket-based customer support, or
+    returns-and-refund automation workflows.
+    \item Multi-currency and multi-language support --- the system is
+    delivered in Turkish and English with TRY as the single supported
+    currency.
+    \item Physical point-of-sale (POS) integration with on-campus
+    stores.
+\end{itemize}
+
+% ============================================================
+% SECTION 5: METHODOLOGY & DEVELOPMENT PLAN
+% ============================================================
+\section{Methodology \& Development Plan}
+\label{sec:methodology}
+
+\subsection{Software Development Lifecycle}
+The AYBUStore project follows the \textbf{Agile / Scrum} software
+development lifecycle. The team consists of five developers working
+over a 14--15 week academic semester, with weekly checkpoints,
+evolving requirements (especially in the UI/UX and payment-integration
+areas), and a deliverable-driven academic calendar --- conditions that
+align strongly with iterative, incremental delivery.
+
+\subsubsection*{Justification of Process Model Choice}
+Three candidate models were considered: \emph{Waterfall},
+\emph{Spiral}, and \emph{Agile/Scrum}. Each was evaluated against the
+project's defining characteristics.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{|p{0.18\textwidth}|p{0.38\textwidth}|p{0.34\textwidth}|}
+\hline
+\rowcolor{aybuHeader}
+\textcolor{white}{\textbf{Model}} &
+\textcolor{white}{\textbf{Strengths for this project}} &
+\textcolor{white}{\textbf{Weaknesses for this project}} \\ \hline
+
+Waterfall & Clear documentation; well-suited to fully understood
+requirements; easy progress tracking. & UI/UX requirements are
+expected to evolve through stakeholder feedback; payment-gateway
+integration carries discovery risk that Waterfall handles poorly. \\ \hline
+
+Spiral & Strong emphasis on risk analysis at each cycle; useful for
+high-risk financial systems. & Overhead of full risk-driven cycles is
+excessive for a 14-week academic project; cost of repeated full-scale
+risk analysis outweighs benefit. \\ \hline
+
+\textbf{Agile / Scrum} \emph{(selected)} & Two-week sprints align with
+academic checkpoints; iterative delivery accommodates UI/UX changes;
+daily stand-ups suit a 5-person collocated team; backlog supports
+MoSCoW prioritization of must-have vs. nice-to-have features. &
+Requires self-discipline in ceremony attendance; documentation must
+be produced alongside iterations rather than upfront --- mitigated by
+treating SRS, design, and test plan as evolving artefacts updated
+each sprint. \\ \hline
+\end{tabular}
+\caption{Comparison of candidate process models for AYBUStore.}
+\label{tab:process-models}
+\end{table}
+
+The team will run \textbf{seven 2-week sprints}. Each sprint begins
+with sprint planning (selecting items from the product backlog), is
+followed by daily 15-minute stand-ups, and ends with a sprint review
+(demo to the team's academic advisor) and a sprint retrospective.
+Roles are assigned as follows: one \emph{Product Owner} (manages
+backlog and stakeholder communication), one \emph{Scrum Master}
+(facilitates ceremonies and removes blockers), and three
+\emph{Developers}. All five members contribute to coding tasks
+regardless of role.
+
+\subsection{Work Breakdown Structure (WBS)}
+\label{subsec:wbs}
+The work to be performed has been decomposed into five top-level work
+packages, each containing several deliverable-oriented activities.
+The numbering follows the standard hierarchical WBS convention.
+
+\renewcommand{\arraystretch}{1.2}
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{|p{0.07\textwidth}|p{0.27\textwidth}|p{0.55\textwidth}|}
+\hline
+\rowcolor{aybuHeader}
+\textcolor{white}{\textbf{WBS ID}} &
+\textcolor{white}{\textbf{Work Package}} &
+\textcolor{white}{\textbf{Description / Deliverables}} \\ \hline
+
+\rowcolor{aybuBlock}
+\textbf{1.0} & \textbf{Project Initiation \& Planning} &
+Vision and scope definition; team-role assignment; technology stack
+confirmation; communication plan. \\ \hline
+1.1 & Stakeholder \& vision workshop & Half-day workshop with academic
+advisor; output: project vision statement. \\ \hline
+1.2 & Tooling and repository setup & GitHub repository, Firebase
+project, Jira/Trello board, CI workflow skeleton. \\ \hline
+
+\rowcolor{aybuBlock}
+\textbf{2.0} & \textbf{Requirements Engineering} & Full SRS document
+including functional and non-functional requirements, use cases, UML
+diagrams. \\ \hline
+2.1 & Functional requirements \& use cases & Catalogue, cart/checkout,
+accounts, inventory, reviews use cases. \\ \hline
+2.2 & Non-functional requirements & Performance, security, usability,
+accessibility, maintainability targets. \\ \hline
+2.3 & UML modelling & Use case, activity, sequence, and analysis
+object model diagrams. \\ \hline
+
+\rowcolor{aybuBlock}
+\textbf{3.0} & \textbf{System Design} & Architectural and detailed
+design artefacts. \\ \hline
+3.1 & System architecture & Client--server architecture with
+React~Native + Firebase; module decomposition. \\ \hline
+3.2 & Data model design & Firestore collection schema for users,
+products, categories, orders, reviews. \\ \hline
+3.3 & UI/UX design & Wireframes, high-fidelity mock-ups (Figma),
+design system, accessibility check. \\ \hline
+3.4 & API \& integration design & Cloud Function endpoints,
+Stripe/iyzico integration contract. \\ \hline
+
+\rowcolor{aybuBlock}
+\textbf{4.0} & \textbf{Implementation (Sprints)} & Iterative
+development across 7 two-week sprints (documentation-only deliverable
+means coding produces reference implementations for design
+validation). \\ \hline
+4.1 & Authentication module & Sign-up, login, password reset, AYBU
+identity flag (Sprint~1--2). \\ \hline
+4.2 & Catalogue \& search module & Product list, detail page,
+filtering, keyword search (Sprint~2--3). \\ \hline
+4.3 & Cart \& checkout module & Cart persistence, address book,
+payment via Stripe/iyzico (Sprint~3--4). \\ \hline
+4.4 & Admin \& inventory module & Product/inventory CRUD, low-stock
+alerts, order management (Sprint~4--5). \\ \hline
+4.5 & Review \& rating module & Verified-purchase reviews, moderation
+queue (Sprint~5--6). \\ \hline
+
+\rowcolor{aybuBlock}
+\textbf{5.0} & \textbf{Verification, Validation \& Closure} & Quality
+assurance and final delivery. \\ \hline
+5.1 & Unit \& integration testing & Jest unit tests for business
+logic; integration tests for payment flow. \\ \hline
+5.2 & System \& acceptance testing & End-to-end test scenarios derived
+from use cases; UAT with advisor. \\ \hline
+5.3 & Final documentation \& defence & Final SRS, design document,
+test report, user manual; project defence presentation. \\ \hline
+\end{tabular}
+\caption{Hierarchical Work Breakdown Structure for AYBUStore.}
+\label{tab:wbs}
+\end{table}
+
+\subsection{Gantt Chart}
+\label{subsec:gantt}
+The project is scheduled over 15 weeks, organized as one preparation
+week followed by seven 2-week Scrum sprints. The Gantt chart below
+tracks each WBS work package against the project timeline; filled
+cells indicate active work, light cells indicate review/buffer
+activity, and the bottom row marks milestone deliverables.
+
+\renewcommand{\arraystretch}{1.15}
+\begin{table}[H]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{|p{2.8cm}|*{15}{c|}}
+\hline
+\rowcolor{aybuHeader}
+\textcolor{white}{\textbf{Activity / Week}} &
+\textcolor{white}{\textbf{W1}} & \textcolor{white}{\textbf{W2}} &
+\textcolor{white}{\textbf{W3}} & \textcolor{white}{\textbf{W4}} &
+\textcolor{white}{\textbf{W5}} & \textcolor{white}{\textbf{W6}} &
+\textcolor{white}{\textbf{W7}} & \textcolor{white}{\textbf{W8}} &
+\textcolor{white}{\textbf{W9}} & \textcolor{white}{\textbf{W10}} &
+\textcolor{white}{\textbf{W11}} & \textcolor{white}{\textbf{W12}} &
+\textcolor{white}{\textbf{W13}} & \textcolor{white}{\textbf{W14}} &
+\textcolor{white}{\textbf{W15}} \\ \hline
+
+\rowcolor{ganttSprint}
+\textbf{Sprint structure} & Prep & \multicolumn{2}{c|}{Sprint 1} &
+\multicolumn{2}{c|}{Sprint 2} & \multicolumn{2}{c|}{Sprint 3} &
+\multicolumn{2}{c|}{Sprint 4} & \multicolumn{2}{c|}{Sprint 5} &
+\multicolumn{2}{c|}{Sprint 6} & \multicolumn{2}{c|}{Sprint 7} \\ \hline
+
+1.0 Initiation \& Planning & \GA & \GA & & & & & & & & & & & & & \\ \hline
+2.0 Requirements Eng. & \GA & \GA & \GA & \GB & \GB & & & & & & & & & & \\ \hline
+3.0 System Design & & \GA & \GA & \GA & \GA & \GB & \GB & & & & & & & & \\ \hline
+4.1 Authentication module & & \GA & \GA & \GA & \GA & & & & & & & & & & \\ \hline
+4.2 Catalogue \& search & & & & \GA & \GA & \GA & \GA & & & & & & & & \\ \hline
+4.3 Cart \& checkout & & & & & & \GA & \GA & \GA & \GA & & & & & & \\ \hline
+4.4 Admin \& inventory & & & & & & & & \GA & \GA & \GA & \GA & & & & \\ \hline
+4.5 Reviews \& ratings & & & & & & & & & & \GA & \GA & \GA & \GA & & \\ \hline
+5.1 Unit \& integration test & & & & \GB & \GB & \GB & \GB & \GB & \GB & \GB & \GA & \GA & \GA & & \\ \hline
+5.2 System \& acceptance test & & & & & & & & & & & & & \GA & \GA & \\ \hline
+5.3 Final docs \& defence & & & & & & & & & & & & & & \GA & \GA \\ \hline
+
+\rowcolor{ganttMile}
+\textbf{Milestones} & & & SRS & & & & Design & & & & MVP & & Test & & Final \\ \hline
+\end{tabular}
+\caption{15-week Gantt chart for AYBUStore. Dark blue = active work,
+light blue = review/buffer, orange = milestone deliverable.}
+\label{tab:gantt}
+\end{table}
+
+\noindent
+\textbf{Key milestones:} SRS baseline (end of W3), design document
+baseline (end of W7), feature-complete MVP for documentation
+(end of W11), full test report (end of W13), and final delivery with
+defence (end of W15).
+
+\subsection{Effort and Cost Estimation}
+\label{subsec:effort-cost}
+Effort and cost have been estimated using the \textbf{COCOMO}
+(Constructive Cost Model) Basic model, which derives effort from
+estimated source-lines-of-code (KLOC). COCOMO was preferred over
+Function Point Analysis because the team has higher confidence in
+code-size estimation than in transaction-counting for a
+Firebase-backed BaaS architecture.
+
+\subsubsection*{Size Estimation}
+Lines of code have been estimated module by module based on
+comparable open-source React~Native~+~Firebase commerce projects.
+The estimate excludes auto-generated configuration files and
+third-party library code.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{|p{0.30\textwidth}|p{0.45\textwidth}|p{0.16\textwidth}|}
+\hline
+\rowcolor{aybuHeader}
+\textcolor{white}{\textbf{Module}} &
+\textcolor{white}{\textbf{Notes}} &
+\textcolor{white}{\textbf{Estimated LOC}} \\ \hline
+
+Authentication \& user profile & Firebase Auth wiring, registration
+form, AYBU verification flag, profile page. & 1{,}200 \\ \hline
+Catalogue \& search & Product list, detail screen, filters, keyword
+search, pagination. & 2{,}400 \\ \hline
+Cart \& checkout & Cart state, address book, Stripe/iyzico
+integration, order confirmation. & 2{,}000 \\ \hline
+Admin \& inventory panel & Web admin UI, CRUD for products /
+categories, inventory dashboard, order management. & 2{,}200 \\ \hline
+Reviews \& ratings & Review submission, moderation queue, aggregated
+rating display. & 900 \\ \hline
+Cloud Functions (backend logic) & Payment webhooks, stock deduction,
+order state machine, notifications. & 1{,}300 \\ \hline
+\textbf{Total} & \textbf{Sum across all modules.} &
+\textbf{10{,}000 LOC} \\ \hline
+\end{tabular}
+\caption{Module-by-module LOC estimate for AYBUStore.}
+\label{tab:kloc}
+\end{table}
+
+\subsubsection*{COCOMO Basic Calculation}
+AYBUStore is classified as an \emph{Organic} project: a small,
+experienced team (5 developers, all senior undergraduates) developing
+a relatively well-understood application (CRUD-centric e-commerce) in
+a familiar environment. The Basic COCOMO coefficients for an Organic
+project are $a = 2.4$, $b = 1.05$ for effort and $c = 2.5$, $d = 0.38$
+for schedule.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{|p{0.30\textwidth}|p{0.45\textwidth}|p{0.16\textwidth}|}
+\hline
+\rowcolor{aybuHeader}
+\textcolor{white}{\textbf{Metric}} &
+\textcolor{white}{\textbf{Formula}} &
+\textcolor{white}{\textbf{Result}} \\ \hline
+
+Estimated size & From the module-by-module estimate above. & 10 KLOC \\ \hline
+Effort (person-months) & $E = 2.4 \times (10)^{1.05} = 2.4 \times 11.22$ & $\approx$ 26.9 PM \\ \hline
+Development time (months) & $T = 2.5 \times (26.9)^{0.38} = 2.5 \times 3.42$ & $\approx$ 8.6 months \\ \hline
+Required team size & $N = E / T = 26.9 / 8.6$ & $\approx$ 3.1 people \\ \hline
+Productivity & $P = $ KLOC$ / E = 10{,}000 / 26.9$ & $\approx$ 372 LOC/PM \\ \hline
+\end{tabular}
+\caption{Basic COCOMO calculation for AYBUStore (Organic mode).}
+\label{tab:cocomo}
+\end{table}
+
+\noindent
+\textbf{Interpretation.} Basic COCOMO predicts approximately 27
+person-months and an 8.6-month nominal calendar with a 3-person team.
+The AYBUStore team has 5 developers and a calendar of 3.5 months
+($\approx$ 15 weeks), giving a compressed schedule of roughly
+$2.4\times$ the nominal pace. This is handled by (i) parallelizing
+module development across the larger team, (ii) limiting the
+documentation-only deliverable to design-validating reference code
+rather than a production-grade build, and (iii) reserving aggressive
+scope-cutting via MoSCoW prioritization as a contingency. Available
+effort is 5~devs $\times$ 3.5~months $\approx 17.5$ PM; together with
+planned overtime and the documentation-only relaxation of polish/QA
+depth, this is judged sufficient.
+
+\subsubsection*{Cost Estimation}
+For an academic project no labour cost is paid out; nevertheless a
+notional cost is computed to indicate the project's commercial value,
+using a junior-developer rate of \$1{,}500 per person-month --- a
+representative regional figure for Turkey for an entry-level
+full-stack developer.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{|p{0.36\textwidth}|p{0.40\textwidth}|p{0.16\textwidth}|}
+\hline
+\rowcolor{aybuHeader}
+\textcolor{white}{\textbf{Cost component}} &
+\textcolor{white}{\textbf{Calculation}} &
+\textcolor{white}{\textbf{Amount}} \\ \hline
+
+Notional labour & $26.9$~PM $\times$ \$1{,}500 & $\approx$ \$40{,}350 \\ \hline
+Infrastructure (Firebase Spark/Blaze, dev only) & Mostly free-tier;
+minor overages during testing. & $\approx$ \$100 \\ \hline
+Payment gateway (Stripe/iyzico) & Test mode only; no transaction fees
+during development. & \$0 \\ \hline
+Tooling (Figma, GitHub, IDE) & Free or academic-license tiers. & \$0 \\ \hline
+\textbf{Total estimated project cost} & \textbf{Sum of all components.} & \boldmath{$\approx$ \$40{,}450} \\ \hline
+\end{tabular}
+\caption{Notional cost estimate for AYBUStore.}
+\label{tab:cost}
+\end{table}
+
+\subsection{Risk Management}
+\label{subsec:risk}
+The register below records the principal risks identified at project
+inception. Each risk is rated on \emph{probability} (Low / Medium /
+High), \emph{impact} (Low / Medium / High), and assigned an
+\emph{exposure} level computed as Probability $\times$ Impact (where
+Low = 1, Medium = 2, High = 3, so exposure values of 1--2 are Low,
+3--4 are Medium, and 6--9 are High). The risk register will be
+reviewed at the start of every sprint as part of sprint planning.
+
+\renewcommand{\arraystretch}{1.2}
+\begin{table}[H]
+\centering
+\footnotesize
+\begin{tabular}{|p{0.04\textwidth}|p{0.22\textwidth}|p{0.05\textwidth}|p{0.05\textwidth}|p{0.06\textwidth}|p{0.28\textwidth}|p{0.05\textwidth}|}
+\hline
+\rowcolor{aybuHeader}
+\textcolor{white}{\textbf{ID}} &
+\textcolor{white}{\textbf{Risk Description}} &
+\textcolor{white}{\textbf{Prob.}} &
+\textcolor{white}{\textbf{Imp.}} &
+\textcolor{white}{\textbf{Expos.}} &
+\textcolor{white}{\textbf{Mitigation Strategy}} &
+\textcolor{white}{\textbf{Owner}} \\ \hline
+
+R1 & Payment-gateway integration delays --- Stripe/iyzico sandbox
+onboarding, webhook handling, and 3D-Secure testing prove more complex
+than estimated. & High & High &
+\cellcolor{riskHigh}\textbf{High} & Begin payment integration spike in
+Sprint~1; use Stripe's standard test cards; implement a feature flag
+so checkout can ship without 3DS in the worst case; allocate buffer
+in Sprints~3--4. & PO \\ \hline
+
+R2 & Scope creep --- stakeholders request additional features
+(loyalty, multi-vendor, advanced search) mid-project. & High & Med &
+\cellcolor{riskMed}\textbf{Med} & Maintain a strict MoSCoW-prioritized
+backlog; require any new request to displace an existing backlog item
+of equal effort; product owner is the single point of acceptance. &
+PO \\ \hline
+
+R3 & Team-member unavailability --- illness, exam load, or course
+conflicts reduce effective capacity below the planned 5 developers. &
+Med & High & \cellcolor{riskHigh}\textbf{High} & Cross-pair on critical
+modules so no module has a single owner; maintain up-to-date task
+documentation; reserve 15\% buffer in every sprint; reassign tasks
+during stand-ups when needed. & SM \\ \hline
+
+R4 & Security and data-protection breaches --- leaked credentials,
+exposed PII, or insecure direct object references in admin endpoints.
+& Med & High & \cellcolor{riskHigh}\textbf{High} & Enforce Firebase
+Security Rules with deny-by-default; mandatory code review for all
+auth and admin code paths; secrets stored only in environment
+variables; OWASP ASVS Level~1 checklist run before final delivery. &
+Dev \\ \hline
+
+R5 & Performance bottlenecks under load --- slow Firestore queries,
+unindexed search, or unoptimized images cause UX targets to be missed.
+& Med & Med & \cellcolor{riskMed}\textbf{Med} & Define indexed query
+patterns at design time; introduce pagination on all list views;
+lazy-load images with a CDN; run a load test in Sprint~6 to validate
+the 500-concurrent-user target. & Dev \\ \hline
+
+R6 & Inadequate testing coverage --- limited time for QA in the final
+sprint produces undetected defects. & Med & Med &
+\cellcolor{riskMed}\textbf{Med} & Adopt test-as-you-build: every PR
+includes unit tests; integration tests for payment and order flow
+written by W8; final sprint reserved for system and acceptance testing
+only. & Dev \\ \hline
+
+R7 & Third-party service outages --- Firebase or Stripe sandbox
+downtime blocks development or testing. & Low & High &
+\cellcolor{riskMed}\textbf{Med} & Maintain local Firebase emulator
+suite for offline development; use Stripe CLI for webhook simulation;
+subscribe to service status notifications. & Dev \\ \hline
+
+R8 & Documentation drift --- code evolves through sprints but the SRS
+/ design document is not kept current, jeopardizing the final
+documentation-only deliverable. & Med & High &
+\cellcolor{riskHigh}\textbf{High} & Treat documentation updates as a
+Definition-of-Done criterion for every story; assign a rotating
+``doc owner'' per sprint; reserve W14--W15 entirely for final document
+polish. & PO \\ \hline
+\end{tabular}
+\caption{AYBUStore risk register
+(PO = Product Owner, SM = Scrum Master, Dev = Developer team).}
+\label{tab:risks}
+\end{table}
+
+\noindent
+Risks will be re-rated at every sprint retrospective. Any risk that
+materializes will be moved into an issues register, and any risk
+whose exposure rises to High will trigger an out-of-band review with
+the academic advisor.
+
+% ============================================================
+% SECTION 6: REQUIREMENTS SPECIFICATION (SRS)
+% ============================================================
 \section{Requirements Specification (SRS)}
 \subsection{Use Case Diagram}
 \begin{center}
