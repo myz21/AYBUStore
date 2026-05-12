@@ -128,8 +128,8 @@ The landing page features AYBU institutional branding and a responsive category 
 ::right::
 
 <div class="flex flex-col gap-2 items-center justify-center h-full">
-  <img src="https://myz21.github.io/aybustore/images/hero_landing.png" class="rounded shadow border border-gray-200 w-full" />
-  <img src="https://myz21.github.io/aybustore/images/category_bar.png" class="rounded shadow border border-gray-200 w-full" />
+  <img src="https://myz21.github.io/AYBUStore/images/hero_landing.png" class="rounded shadow border border-gray-200 w-full" />
+  <img src="https://myz21.github.io/AYBUStore/images/category_bar.png" class="rounded shadow border border-gray-200 w-full" />
 </div>
 
 ---
@@ -148,7 +148,7 @@ A multi-vendor capable product grid designed for academic and daily needs.
 ::right::
 
 <div class="flex items-center justify-center h-full">
-  <img src="https://myz21.github.io/aybustore/images/product_grid.png" class="rounded shadow border border-gray-200" />
+  <img src="https://myz21.github.io/AYBUStore/images/product_grid.png" class="rounded shadow border border-gray-200" />
 </div>
 
 ---
@@ -167,7 +167,7 @@ Ensuring a closed-loop system limited to SIS-verified students.
 ::right::
 
 <div class="flex items-center justify-center h-full">
-  <img src="https://myz21.github.io/aybustore/images/auth_page.png" class="rounded shadow border border-gray-200" />
+  <img src="https://myz21.github.io/AYBUStore/images/auth_page.png" class="rounded shadow border border-gray-200" />
 </div>
 
 ---
