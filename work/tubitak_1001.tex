@@ -155,7 +155,59 @@ where $U_{\mathrm{active,\,peripheral}}$ denotes active peripheral-campus users 
 Reliability and performance will be monitored via continuous APM-based server logging (e.g., Prometheus/Grafana), and data integrity will be verified through PostgreSQL transaction/WAL logs and automated ACID compliance tests.
 
 \subhead{METHOD}
-[Araştırmada kullanılacak yöntem, veri toplama teknikleri, kullanılacak araçlar ve analiz yöntemleri bu bölümde detaylandırılacaktır...]
+This project follows a \textbf{mixed-method, design-and-evaluate} research design for a 3-month pilot: (i) iterative software development and deployment, (ii) log-based quantitative evaluation, and (iii) limited qualitative validation from user/support feedback. The method is selected because AYBUStore addresses both a \textit{technical performance problem} and a \textit{service equity problem}; therefore, only software implementation without statistical validation would be insufficient.
+
+\textbf{Methodology selection and rationale:}
+\begin{itemize}
+    \item \textbf{Agile/Scrum-based iterative development} is used to reduce delivery risk and support incremental validation of campus-specific requirements. This preference is aligned with higher-education digital transformation studies emphasizing process redesign and iterative institutional adaptation (Brdesee \& Alsaggaf, 2022; Alenezi \& Akour, 2023).
+    \item \textbf{Performance-centered web engineering} (SSR-oriented optimization, measurable TTI tracking) is preferred because rendering strategy has a direct effect on interaction readiness and perceived quality (Netravali et al., 2018; Jahromi et al., 2020).
+    \item \textbf{Rule-based support automation} is selected for operational predictability, fast first-level response, and suitability in education contexts (Güldal \& Dinçer, 2025; Dinh \& Tran, 2023).
+    \item \textbf{Hyper-local logistics design} is adopted to match campus-constrained distribution behavior and last-mile realities (Urquhart et al., 2022; Suryawanshi et al., 2021; Liu et al., 2021; Melkonyan et al., 2020).
+\end{itemize}
+
+\textbf{Preliminary work (completed before pilot):}
+\begin{itemize}
+    \item Problem framing and scope definition for four-campus access inequality.
+    \item Baseline extraction from current process assumptions and available historical indicators (access, TTI, support response/resolution times).
+    \item Architecture design, KPI definition, and pilot instrumentation plan (TTI, order flow times, ticket metrics, uptime/data-integrity logs).
+\end{itemize}
+
+\textbf{Research variables and measurement model:}
+\begin{itemize}
+    \item \textbf{Independent variable:} service model type (baseline physical/static model vs. AYBUStore digital model).
+    \item \textbf{Dependent variables:} (a) cross-campus utilization rate, (b) Time to Interactive (TTI), (c) first support response time, (d) issue-resolution time, (e) uptime and transaction-level data loss.
+    \item \textbf{Control factors:} pilot period (3 months), user group (SIS-verified students), and stratified campus sampling structure.
+\end{itemize}
+
+\textbf{Sampling and data collection:} At least $n \geq 300$ active students will be selected via stratified sampling across campuses. Data will be collected through system logs and monitoring tools (TTI telemetry, application/server logs, ticket lifecycle records, PostgreSQL transaction/WAL logs, and APM traces).
+
+\textbf{Statistical analysis:}
+\begin{itemize}
+    \item Descriptive statistics: mean, median, standard deviation, and percentage change from baseline.
+    \item Hypothesis testing: Independent Samples t-test; Mann-Whitney U test when normality/homoscedasticity assumptions are not satisfied.
+    \item Significance criterion: $p < 0.05$.
+\end{itemize}
+
+\textbf{Method flow schema:}
+\begin{center}
+\fbox{
+\parbox{0.95\textwidth}{
+\centering
+Preliminary diagnosis and baseline definition
+$\rightarrow$
+Iterative development (Sprint cycles)
+$\rightarrow$
+Pilot deployment on AYBU context
+$\rightarrow$
+Log-based data collection
+$\rightarrow$
+Statistical testing
+$\rightarrow$
+Interpretation against H1--H3 and objective thresholds
+}}
+\end{center}
+
+This methodology is expected to provide both engineering validity (working system under campus constraints) and scientific validity (statistically testable evidence of improvement).
 
 \clearpage
 
@@ -399,7 +451,7 @@ VS Code, Postman, Browser DevTools & Team environment & Coding, debugging, API t
 \clearpage
 \sectionlabel{4. IMPACT}
 
-If the project is carried out successfully, AYBUStore is expected to produce scientific, technical, educational and social outputs by transforming a single-location university store model into a measurable, campus-wide digital commerce ecosystem. The project will contribute to equal access to university-related products and services across distributed campuses, improve operational visibility for administrative units, and provide a reusable software engineering case for smart campus digital transformation.
+If implemented successfully, AYBUStore will convert the current single-location store model into a measurable campus-wide digital commerce ecosystem. The project is expected to generate scientific, technical, educational, and social outputs by improving cross-campus access equity, strengthening operational visibility for administrative units, and providing a reusable smart-campus software engineering case.
 
 \subhead{4.1. Expected Outputs}
 
@@ -410,13 +462,13 @@ If the project is carried out successfully, AYBUStore is expected to produce sci
 \hline
 \textbf{Output type} & \textbf{Expected Output(s)} & \textbf{Expected Time Interval} \\ \hline
 \textbf{Scientific/Academic Outputs}\newline {\small (National/International Article, Book, Book chapter, Proceeding etc.)}
-& The project will produce a structured academic case study on the design of a \textbf{hyper-local closed-loop digital commerce ecosystem} for a multi-campus university. Expected outputs include a final technical research report, system architecture documentation, pilot evaluation results and a student conference paper or article draft. The pilot data will provide measurable evidence on cross-campus access improvement, Time to Interactive performance and support-process efficiency.
+& The project will produce an academic case study on a \textbf{hyper-local closed-loop digital commerce ecosystem} for multi-campus universities. Main outputs are the final technical report, architecture documentation, pilot evaluation results, and a student conference paper/article draft. Pilot data will provide measurable evidence on access improvement, TTI performance, and support-process efficiency.
 & \textbf{0--12 months:} final technical report, system design documentation and pilot evaluation outputs.\par \textbf{12--18 months:} student conference paper or article draft. \\ \hline
 \textbf{Economical/}\newline\textbf{Commercial/}\newline\textbf{Social Outputs}\newline {\small (Prototype, Product, Patent, Utility Model, Production License, Inventory/Database/Documentation Production, Spin-off/Start-up Company etc.)}
-& The main output will be the \textbf{AYBUStore prototype/reference implementation}, including OTP-based authentication, product catalogue, cart/order flow, simulated checkout, stock management, admin/CMS panel, campus-aware tracking and rule-based support modules. The project will also produce database/inventory structures for users, products, categories, orders, support tickets and tracking data, together with SRS, UML diagrams, test cases and user/admin documentation. The expected social output is a digital service model that reduces access inequality caused by the current single-location store structure.
+& The core output is the \textbf{AYBUStore prototype/reference implementation} including OTP authentication, catalogue, cart/order flow, simulated checkout, stock management, admin/CMS, campus-aware tracking, and rule-based support modules. Additional outputs are database/inventory schemas (users, products, categories, orders, support tickets, tracking), SRS/UML artefacts, test cases, and user/admin documentation. Socially, the project proposes a digital model that reduces access inequality caused by the current single-location structure.
 & \textbf{0--12 months:} prototype/reference implementation, database model, SRS, UML diagrams, test cases and user/admin documentation.\par \textbf{Post-project:} possible institutional adaptation by university units or extension into a broader smart-campus service model. \\ \hline
 \textbf{Outputs Regarding to}\newline\textbf{Training Researcher and}\newline\textbf{Creating New Project(s)}\newline {\small (Graduate thesis, National/International new project)}
-& The project will train undergraduate researchers in requirements engineering, Agile/Scrum planning, software architecture, cloud-based backend design, secure OTP authentication, database modelling, testing and performance evaluation. It will also provide experience in hypothesis-based research through pilot data, log-based measurement and statistical comparison. The outputs can support future extensions or new projects on smart campus services, AI-assisted support systems, campus-aware order tracking, demand analysis and digital transformation in higher education.
+& The project will train undergraduate researchers in requirements engineering, Agile/Scrum planning, software architecture, cloud-based backend design, secure OTP, database modelling, testing, and performance evaluation. It also provides hypothesis-based research experience through pilot data, log-based measurement, and statistical comparison. These outputs can support follow-up projects on smart-campus services, AI-assisted support, campus-aware tracking, demand analysis, and higher-education digital transformation.
 & \textbf{0--12 months:} undergraduate researcher training and reusable project artefacts.\par \textbf{12--18 months / post-project:} possible new student projects, graduation projects or institutional digital transformation initiatives. \\ \hline
 \end{longtable}
 \normalsize
@@ -427,21 +479,21 @@ If the project is carried out successfully, AYBUStore is expected to produce sci
 
 \textbf{Expected Application Areas:}
 
-The primary application area of AYBUStore is \textbf{university-centered digital commerce and smart campus service delivery}. The project is designed for Ankara Yıldırım Beyazıt University's distributed campus structure, especially Esenboğa, Etlik, Bilkent and Çubuk campuses. The system can be used as a digital platform for campus-focused product discovery, order management, inventory visibility, support handling and campus-aware order tracking.
+The primary application area of AYBUStore is \textbf{university-centered digital commerce and smart-campus service delivery}. It is designed for AYBU's distributed structure (Esenboğa, Etlik, Bilkent, Çubuk) and can operate as a platform for campus-focused product discovery, order management, inventory visibility, support handling, and campus-aware tracking.
 
-The potential end users of the project outputs are students, especially those located on peripheral campuses; university administrative units and campus store operators; university IT units; and software engineering students or researchers. Students will benefit from easier access to university-branded products, academic supplies and campus-related merchandise. Administrative and store units will benefit from better product, stock, order and support-process visibility. IT units may use the architecture and documentation as a reference for future smart-campus services. Researchers and students may use the project as a case study for requirements engineering, cloud-based architecture, secure authentication, usability evaluation and performance measurement.
+Potential end users are students (especially peripheral campuses), administrative units and store operators, IT units, and software engineering students/researchers. Students gain easier access to campus-related products; administrative units gain stronger product/stock/order/support visibility; IT units gain a reusable architecture reference; and researchers gain a practical case for requirements engineering, cloud architecture, secure authentication, usability, and performance evaluation.
 
-In the short term, the project outputs are expected to be applied within the AYBU campus ecosystem as a prototype/reference implementation. In the medium and long term, the same model may be adapted by other universities that operate across multiple campuses and face similar problems related to service accessibility, inventory management and student-centered digital transformation.
+In the short term, outputs are expected to be used in AYBU as a prototype/reference implementation. In the medium/long term, the same model can be adapted by other multi-campus universities facing similar accessibility, inventory, and student-centered digital transformation challenges.
 
 \textbf{Socio-economic/Cultural Contribution:}
 
-AYBUStore is expected to contribute to \textbf{social equity and service accessibility} within the university by reducing the access gap between students located on different campuses. In the current model, students who are physically distant from the main store location may face additional time, transportation and opportunity costs. By digitizing product discovery, order placement, tracking and support processes, the project supports more equal participation in campus life.
+AYBUStore is expected to contribute to \textbf{social equity and service accessibility} by reducing the access gap between campuses. In the current model, distance from the main store creates additional time, transportation, and opportunity costs. By digitizing discovery, ordering, tracking, and support processes, the project supports more equal participation in campus life.
 
-From a socio-economic perspective, the project may reduce unnecessary physical travel for routine product access and improve operational efficiency through digital stock tracking, order monitoring and administrative control. This can help university units make more informed decisions about product availability, campus-based demand and service continuity.
+From a socio-economic perspective, the project may reduce unnecessary travel for routine product access and improve efficiency through digital stock tracking, order monitoring, and administrative control. This supports data-driven decisions on product availability, campus demand, and service continuity.
 
-From an educational perspective, the project contributes to the development of qualified undergraduate researchers in software engineering. The team will gain practical experience in project management, requirements analysis, system design, secure authentication, cloud services, testing, risk management and technical documentation.
+From an educational perspective, the project contributes to training qualified undergraduate researchers in project management, requirements analysis, system design, secure authentication, cloud services, testing, risk management, and technical documentation.
 
-The project is also aligned with broader digital transformation and smart campus goals. It supports student-centered service design, improvement of education-related service quality, inclusive access to institutional services and the use of scalable digital infrastructure in higher education.
+The project also aligns with broader digital transformation and smart-campus goals by supporting student-centered service design, improved education-related service quality, inclusive institutional access, and scalable digital infrastructure in higher education.
 
 \subhead{4.3. Dissemination of Project Results and Activity Plan to be Implemented within the Scope of Science Communication}
 
@@ -449,10 +501,10 @@ The project is also aligned with broader digital transformation and smart campus
 \begin{longtable}{|P{0.24\textwidth}|P{0.69\textwidth}|}
 \hline
 \textbf{Field} & \textbf{Content} \\ \hline
-\textbf{Target Group} & The target groups are AYBU students, academic and administrative staff, university IT units, campus store administrators, software engineering students, researchers working on digital transformation in higher education, and other universities interested in smart-campus service models. Students will benefit from improved access to campus-related products and services. Administrative and IT units will benefit from the system architecture, database model, documentation and operational workflow. Software engineering students and researchers will benefit from the project as a real-world case study. \\ \hline
-\textbf{Goals and Expected Gains} & The main goal is to increase awareness of how a campus-specific digital commerce system can improve cross-campus accessibility, operational efficiency and student experience. Expected gains include better understanding of service inequality in multi-campus universities, increased institutional awareness of smart campus solutions, and creation of reusable technical knowledge for future student projects or institutional digital transformation initiatives. Dissemination activities will also support feedback collection from potential users and stakeholders. \\ \hline
-\textbf{Tools to be Used} & The project results will be shared through a final project presentation, technical report, prototype demonstration, UML diagrams, system architecture documentation, screenshots, short demo video and project poster/infographic. If institutional permission is obtained, selected outputs may also be shared through department seminars, student project exhibitions, university digital platforms or a controlled GitHub/code archive. These tools are selected because they are suitable for both technical and non-technical target groups. \\ \hline
-\textbf{Timing} & Dissemination will begin during the final project presentation period within \textbf{0--12 months}. The technical report, prototype demonstration, documentation and evaluation results will be shared at the end of the development cycle. Feedback-oriented meetings or demonstrations with relevant university stakeholders may be conducted after the prototype/reference implementation is completed. Academic dissemination such as a student conference paper or article draft may be prepared within \textbf{12--18 months}. \\ \hline
+\textbf{Target Group} & Target groups are AYBU students, academic/administrative staff, IT units, campus store administrators, software engineering students, researchers, and other universities interested in smart-campus service models. Students benefit from improved access; institutional units benefit from architecture, database, documentation, and operational workflow outputs; researchers benefit from a real-world case study. \\ \hline
+\textbf{Goals and Expected Gains} & The main goal is to increase awareness of how campus-specific digital commerce improves cross-campus accessibility, operational efficiency, and student experience. Expected gains are stronger understanding of multi-campus service inequality, increased institutional awareness of smart-campus solutions, and reusable technical knowledge for future student projects and institutional digital transformation. Dissemination also supports stakeholder feedback collection. \\ \hline
+\textbf{Tools to be Used} & Outputs will be shared through final presentation, technical report, prototype demonstration, UML and architecture documentation, screenshots, short demo video, and project poster/infographic. Subject to institutional approval, selected outputs may also be shared via department seminars, student project exhibitions, university digital channels, or a controlled GitHub/code archive. \\ \hline
+\textbf{Timing} & Dissemination starts within \textbf{0--12 months} during final presentation and project closure. Technical report, prototype demo, documentation, and evaluation outputs are shared at development completion. Additional stakeholder demonstrations may follow prototype completion. Academic dissemination (conference paper/article draft) is targeted for \textbf{12--18 months}. \\ \hline
 \end{longtable}
 \normalsize
 
