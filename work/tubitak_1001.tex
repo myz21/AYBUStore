@@ -15,6 +15,7 @@
 
 % --- REQUIRED PACKAGES ---
 \usepackage{tabularx}
+\usepackage{longtable}
 \usepackage{tcolorbox}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
@@ -191,27 +192,66 @@ Reliability and performance will be monitored via continuous APM-based server lo
 \end{tabularx}\\[0.5em]
 \small{(*) The rows in the table can be expanded and reproduced as necessary.}
 
-\clearpage
-\sectionlabel{WIDESPREAD IMPACT}
-\begin{center}\textbf{TABLE OF EXPECTED WIDESPREAD IMPACT OF THE RESEARCH PROPOSAL}\end{center}
-\begin{tabularx}{\textwidth}{|P{0.4\textwidth}|Y|}
-\hline
-\textbf{Common Impact Types} & \textbf{Expected Outputs, Results and Impacts of the Proposed Research} \\ \hline
-\textbf{Scientific/Academic} (Article, Paper, Book Chapter, Book) & The project will produce a structured academic case study on the design of a \textbf{hyper-local closed-loop digital commerce ecosystem} for a multi-campus university. In line with the original value of the project, AYBUStore addresses the gap between general e-commerce systems and the specific accessibility needs of distributed university campuses. Expected outputs include a final technical research report, system architecture documentation, pilot evaluation results and a student conference paper/article draft. The pilot data will provide measurable evidence on cross-campus access improvement, Time to Interactive performance and support-process efficiency. \\ \hline
-\textbf{Economic/Commercial/Social} (Product, Prototype, Patent, Utility Model, Production Permit, Variety Registration, Spin-off/Start-up Company, Audio/Visual Archive, Inventory/Database/Documentation Production, Copyrighted Work, Media Coverage, Scientific Event such as Fair, Project Market, Workshop, Training, etc., Institution/Organization that will use the Project Results, etc. other common effects) & The main output will be the \textbf{AYBUStore prototype/reference implementation}, including OTP-based authentication, product catalogue, cart/order flow, simulated checkout, stock management, admin/CMS panel, campus-aware tracking and rule-based support modules. The project will also produce database/inventory structures for users, products, categories, orders, support tickets and tracking data, together with SRS, UML diagrams, test cases and user/admin documentation. Socially, the system is expected to reduce access inequality caused by the current single-location store model and increase peripheral-campus utilization by at least 30\%. It may reduce time and travel costs for students and improve stock/order visibility for university administrators. \\ \hline
-\textbf{Training Researchers and Creating New Project(s)} (Master's/PhD Thesis, National/International New Project) & The project will train undergraduate researchers in requirements engineering, Agile/Scrum planning, software architecture, cloud-based backend design, secure OTP authentication, database modelling, testing and performance evaluation. It will also provide experience in hypothesis-based research through pilot data, log-based measurement and statistical comparison. The outputs can support future extensions or new projects on smart campus services, AI-assisted support systems, campus-aware order tracking, demand analysis and digital transformation in higher education. \\ \hline
-\end{tabularx}
 
-\sectionlabel{BUDGET REQUEST SCHEDULE}
-\begin{tabularx}{\textwidth}{|P{0.3\textwidth}|c|Y|}
+\clearpage
+\sectionlabel{4. IMPACT}
+
+If the project is carried out successfully, AYBUStore is expected to produce scientific, technical, educational and social outputs by transforming a single-location university store model into a measurable, campus-wide digital commerce ecosystem. The project will contribute to equal access to university-related products and services across distributed campuses, improve operational visibility for administrative units, and provide a reusable software engineering case for smart campus digital transformation.
+
+\subhead{4.1. Expected Outputs}
+
+\small
+\setlength\LTleft{0pt}
+\setlength\LTright{0pt}
+\begin{longtable}{|P{0.27\textwidth}|P{0.46\textwidth}|P{0.20\textwidth}|}
 \hline
-\textbf{Budget Type} & \textbf{Requested Budget Amount (TL)} & \textbf{Request Justification} \\ \hline
-Consumables & 0 TL & No consumable material is required because AYBUStore is a software-based academic prototype. All documents, diagrams, datasets, test cases, and reports will be produced digitally. \\ \hline
-Machinery/Equipment (Fixtures) & 0 TL & No additional hardware purchase is required. Team members will use their existing personal computers, standard mobile/browser emulators, and existing internet access for development, testing, and documentation. \\ \hline
-Service Procurement & 0 TL & The project will rely on free-tier or academic-accessible services such as Firebase, GitHub, Visual Studio Code, Draw.io/PlantUML, and Figma Free Plan. Payment operations are simulated; therefore, no paid live payment, hosting, or external service procurement is requested at this stage. \\ \hline
-Transportation & 0 TL & No transportation budget is requested. Development, testing, meetings, documentation, and coordination activities can be conducted online or within the university environment. \\ \hline
-\textbf{TOTAL} & \textbf{0 TL} & The project report estimates the notional labour value as 25,800 USD and includes a small possible cloud-overage buffer; however, these are not requested as project budget items. The project will be carried out by undergraduate students using existing resources and free-tier tools. \\ \hline
-\end{tabularx}
+\textbf{Output type} & \textbf{Expected Output(s)} & \textbf{Expected Time Interval} \\ \hline
+\textbf{Scientific/Academic Outputs}\newline {\small (National/International Article, Book, Book chapter, Proceeding etc.)}
+& The project will produce a structured academic case study on the design of a \textbf{hyper-local closed-loop digital commerce ecosystem} for a multi-campus university. Expected outputs include a final technical research report, system architecture documentation, pilot evaluation results and a student conference paper or article draft. The pilot data will provide measurable evidence on cross-campus access improvement, Time to Interactive performance and support-process efficiency.
+& \textbf{0--12 months:} final technical report, system design documentation and pilot evaluation outputs.\par \textbf{12--18 months:} student conference paper or article draft. \\ \hline
+\textbf{Economical/}\newline\textbf{Commercial/}\newline\textbf{Social Outputs}\newline {\small (Prototype, Product, Patent, Utility Model, Production License, Inventory/Database/Documentation Production, Spin-off/Start-up Company etc.)}
+& The main output will be the \textbf{AYBUStore prototype/reference implementation}, including OTP-based authentication, product catalogue, cart/order flow, simulated checkout, stock management, admin/CMS panel, campus-aware tracking and rule-based support modules. The project will also produce database/inventory structures for users, products, categories, orders, support tickets and tracking data, together with SRS, UML diagrams, test cases and user/admin documentation. The expected social output is a digital service model that reduces access inequality caused by the current single-location store structure.
+& \textbf{0--12 months:} prototype/reference implementation, database model, SRS, UML diagrams, test cases and user/admin documentation.\par \textbf{Post-project:} possible institutional adaptation by university units or extension into a broader smart-campus service model. \\ \hline
+\textbf{Outputs Regarding to}\newline\textbf{Training Researcher and}\newline\textbf{Creating New Project(s)}\newline {\small (Graduate thesis, National/International new project)}
+& The project will train undergraduate researchers in requirements engineering, Agile/Scrum planning, software architecture, cloud-based backend design, secure OTP authentication, database modelling, testing and performance evaluation. It will also provide experience in hypothesis-based research through pilot data, log-based measurement and statistical comparison. The outputs can support future extensions or new projects on smart campus services, AI-assisted support systems, campus-aware order tracking, demand analysis and digital transformation in higher education.
+& \textbf{0--12 months:} undergraduate researcher training and reusable project artefacts.\par \textbf{12--18 months / post-project:} possible new student projects, graduation projects or institutional digital transformation initiatives. \\ \hline
+\end{longtable}
+\normalsize
+
+{\small (*) Time intervals are specified as 0--12 months, 12--18 months and post-project where applicable.}
+
+\subhead{4.2. Expected Impacts}
+
+\textbf{Expected Application Areas:}
+
+The primary application area of AYBUStore is \textbf{university-centered digital commerce and smart campus service delivery}. The project is designed for Ankara Yıldırım Beyazıt University's distributed campus structure, especially Esenboğa, Etlik, Bilkent and Çubuk campuses. The system can be used as a digital platform for campus-focused product discovery, order management, inventory visibility, support handling and campus-aware order tracking.
+
+The potential end users of the project outputs are students, especially those located on peripheral campuses; university administrative units and campus store operators; university IT units; and software engineering students or researchers. Students will benefit from easier access to university-branded products, academic supplies and campus-related merchandise. Administrative and store units will benefit from better product, stock, order and support-process visibility. IT units may use the architecture and documentation as a reference for future smart-campus services. Researchers and students may use the project as a case study for requirements engineering, cloud-based architecture, secure authentication, usability evaluation and performance measurement.
+
+In the short term, the project outputs are expected to be applied within the AYBU campus ecosystem as a prototype/reference implementation. In the medium and long term, the same model may be adapted by other universities that operate across multiple campuses and face similar problems related to service accessibility, inventory management and student-centered digital transformation.
+
+\textbf{Socio-economic/Cultural Contribution:}
+
+AYBUStore is expected to contribute to \textbf{social equity and service accessibility} within the university by reducing the access gap between students located on different campuses. In the current model, students who are physically distant from the main store location may face additional time, transportation and opportunity costs. By digitizing product discovery, order placement, tracking and support processes, the project supports more equal participation in campus life.
+
+From a socio-economic perspective, the project may reduce unnecessary physical travel for routine product access and improve operational efficiency through digital stock tracking, order monitoring and administrative control. This can help university units make more informed decisions about product availability, campus-based demand and service continuity.
+
+From an educational perspective, the project contributes to the development of qualified undergraduate researchers in software engineering. The team will gain practical experience in project management, requirements analysis, system design, secure authentication, cloud services, testing, risk management and technical documentation.
+
+The project is also aligned with broader digital transformation and smart campus goals. It supports student-centered service design, improvement of education-related service quality, inclusive access to institutional services and the use of scalable digital infrastructure in higher education.
+
+\subhead{4.3. Dissemination of Project Results and Activity Plan to be Implemented within the Scope of Science Communication}
+
+\small
+\begin{longtable}{|P{0.24\textwidth}|P{0.69\textwidth}|}
+\hline
+\textbf{Field} & \textbf{Content} \\ \hline
+\textbf{Target Group} & The target groups are AYBU students, academic and administrative staff, university IT units, campus store administrators, software engineering students, researchers working on digital transformation in higher education, and other universities interested in smart-campus service models. Students will benefit from improved access to campus-related products and services. Administrative and IT units will benefit from the system architecture, database model, documentation and operational workflow. Software engineering students and researchers will benefit from the project as a real-world case study. \\ \hline
+\textbf{Goals and Expected Gains} & The main goal is to increase awareness of how a campus-specific digital commerce system can improve cross-campus accessibility, operational efficiency and student experience. Expected gains include better understanding of service inequality in multi-campus universities, increased institutional awareness of smart campus solutions, and creation of reusable technical knowledge for future student projects or institutional digital transformation initiatives. Dissemination activities will also support feedback collection from potential users and stakeholders. \\ \hline
+\textbf{Tools to be Used} & The project results will be shared through a final project presentation, technical report, prototype demonstration, UML diagrams, system architecture documentation, screenshots, short demo video and project poster/infographic. If institutional permission is obtained, selected outputs may also be shared through department seminars, student project exhibitions, university digital platforms or a controlled GitHub/code archive. These tools are selected because they are suitable for both technical and non-technical target groups. \\ \hline
+\textbf{Timing} & Dissemination will begin during the final project presentation period within \textbf{0--12 months}. The technical report, prototype demonstration, documentation and evaluation results will be shared at the end of the development cycle. Feedback-oriented meetings or demonstrations with relevant university stakeholders may be conducted after the prototype/reference implementation is completed. Academic dissemination such as a student conference paper or article draft may be prepared within \textbf{12--18 months}. \\ \hline
+\end{longtable}
+\normalsize
 
 \sectionlabel{ANY OTHER ISSUES YOU WOULD LIKE TO MENTION}
 [Buraya projeyle ilgili eklemek istediğiniz diğer detaylar, etik kurallar, izin belgeleri veya destek alınan farklı hususlar eklenecektir...]
