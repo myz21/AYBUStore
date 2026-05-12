@@ -110,13 +110,46 @@ From a scientific perspective, the project targets a gap not sufficiently addres
 
 The original contribution is fourfold. Conceptually, the project introduces a ``Hyper-Local Closed-Loop Digital Ecosystem'' for intra-university commerce. Methodologically, it replaces the traditional physical supply process with an inclusive and digitized service delivery model suitable for distributed campuses. Technically, it combines a modern front-end, scalable back-end, and embedded automated support modules in an end-to-end architecture. Practically, it enables equal, rapid, and location-independent access for students across all campuses on a 24/7 basis, thereby strengthening service equity and institutional integration.
 
-\subhead{Aims and Objectives}
-[Projenin temel amacı ve bu amaca ulaşmak için belirlenen spesifik hedefler buraya maddeler halinde veya düz metin olarak eklenecektir...]
+\textbf{1.2. Research Question and/or Hypothesis}
+
+Within a multi-campus university structure, a single-point physical market model produces unequal access, time loss, and operational inefficiency in meeting students' routine needs. This project investigates whether a hyper-local, closed-loop digital commerce model can eliminate these limitations.
+
+The study addresses the following questions:
+\begin{enumerate}
+    \item How can a university-specific hyper-local digital supply model be designed to provide continuous and equitable cross-campus access?
+    \item To what extent can a component-based, scalable architecture improve system responsiveness (TTI) relative to current static portal structures?
+    \item How effectively can integrated support modules improve support speed and operational resolution performance?
+\end{enumerate}
+
+The hypotheses are:
 \begin{itemize}
-    \item {[Hedef 1]}
-    \item {[Hedef 2]}
-    \item {[Hedef 3]}
+    \item \textbf{H1 (Inclusivity and Access):} AYBUStore will increase cross-campus service access by at least 30\% and reduce spatial inequality compared with the current physical model.
+    \item \textbf{H2 (Technical Performance):} The proposed modern architecture will improve Time to Interactive (TTI) by at least 40\% versus the baseline static web portal and reduce average TTI below 1.5 seconds.
+    \item \textbf{H3 (Operational Efficiency):} Integrated rule-based support modules (asynchronous chatbots, automated ticket routing, dynamic notifications) will reduce initial support response time by 60\% and average issue resolution time by at least 45\% relative to manual processes.
 \end{itemize}
+
+Hypotheses will be tested through a 3-month pilot after system completion. Log-based indicators (TTI, order process time, ticket response and resolution times) from at least 300 active students ($n \geq 300$), selected via stratified sampling, will be compared with historical baseline data from the existing system. Statistical significance will be evaluated using Independent Samples t-test (or Mann-Whitney U when distributional assumptions are not met), with significance threshold set at $p < 0.05$.
+
+\subhead{Aims and Objectives}
+\textbf{1.3. Aim and Objectives of the Project}
+
+The main aim of this project is to develop AYBUStore as a hyper-local, closed-loop digital commerce ecosystem that removes physical access constraints in a multi-campus university setting and provides equitable, location-independent, and continuous service access.
+
+To achieve this aim, the project defines the following measurable objectives for the 3-month pilot period:
+\begin{itemize}
+    \item \textbf{Objective 1 (Access and Inclusivity):} Increase peripheral-campus utilization by at least 30\% relative to the baseline (current estimated active access: 25\% of total students) and reach at least 300 active verified student users across campuses.
+    \item \textbf{Objective 2 (Technical Performance):} Reduce average Time to Interactive (TTI) from the baseline of approximately 3.5 seconds to below 1.5 seconds (minimum 40\% improvement).
+    \item \textbf{Objective 3 (Operational Efficiency):} Reduce first support response time from 12 hours by 60\% and average issue-resolution time from 48 hours by at least 45\% through integrated rule-based support modules.
+    \item \textbf{Objective 4 (Reliability and Scalability):} Maintain 99.9\% uptime and 0\% transaction-level data loss during the pilot while sustaining peak load conditions of 500 requests/second and 1,000 concurrent active sessions.
+\end{itemize}
+
+Measurement is defined as follows: an active user is a unique SIS-verified student performing at least one in-system action within a 30-day window; utilization rate is calculated as
+\[
+\textit{Utilization Rate (\%)} = \left(\frac{U_{\mathrm{active,\,peripheral}}}{U_{\mathrm{total,\,peripheral}}}\right) \times 100
+\]
+where $U_{\mathrm{active,\,peripheral}}$ denotes active peripheral-campus users and $U_{\mathrm{total,\,peripheral}}$ denotes total peripheral-campus students.
+
+Reliability and performance will be monitored via continuous APM-based server logging (e.g., Prometheus/Grafana), and data integrity will be verified through PostgreSQL transaction/WAL logs and automated ACID compliance tests.
 
 \subhead{METHOD}
 [Araştırmada kullanılacak yöntem, veri toplama teknikleri, kullanılacak araçlar ve analiz yöntemleri bu bölümde detaylandırılacaktır...]
