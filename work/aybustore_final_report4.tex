@@ -35,14 +35,30 @@
 AYBUStore is a university-centered, hyper-local closed-loop digital commerce project designed to eliminate unequal access created by Ankara Yıldırım Beyazıt University's multi-campus structure (Esenboğa, Etlik, Bilkent, and Çubuk). The platform transforms a single-point physical service model into a continuous and location-independent digital ecosystem for intra-university use, integrating a modern front-end, scalable back-end, and rule-based automated support modules in one end-to-end architecture. Within a 3-month pilot, the project targets measurable outcomes aligned with institutional needs: at least a 30\% increase in cross-campus accessibility, at least 40\% improvement in Time to Interactive (TTI) from a baseline of approximately 3.5 seconds to below 1.5 seconds, and significant operational gains through a 60\% reduction in first support response time and at least 45\% reduction in average issue-resolution time. Evaluation is designed on log-based performance indicators collected from at least 300 active SIS-verified students, with comparative statistical testing against baseline system data.
 
 \section{Problem Definition \& Motivation}
-The AYBU community lacks a centralized, real-time digital channel for branded apparel and faculty-specific resources. Students at distant campuses like Çubuk or Esenboğa face high search and transportation costs to access physical stores in Etlik. 
+AYBU currently operates with a single-point physical market model, while students are distributed across four campuses. This creates unequal access to routine needs, avoidable travel/time costs, and fragmented service continuity for students outside the main store location.
 
-During our initial requirements gathering phase, we held a technical briefing with the \textbf{AYBU IT Department}. Their team highlighted the necessity of a system that integrates seamlessly with existing university authentication while maintaining a separate, high-performance operational layer for commerce. Consequently, AYBUStore is developed specifically to meet these institutional standards, ensuring that campus-specific logistics and department-targeted item filtering are handled with enterprise-grade reliability.
+The impact is both practical and academic: service inequality reduces day-to-day student welfare, manual and location-bound workflows limit institutional operational efficiency, and the university context remains underrepresented in existing e-commerce research. Current alternatives (physical-only supply and static portal-style access) are insufficient because they do not provide continuous cross-campus availability, measurable responsiveness targets (TTI), or integrated support automation for fast issue handling. AYBUStore is motivated by this gap and proposes a campus-specific digital commerce layer designed for equitable access and verifiable performance.
 
-\section{Preliminary Analysis \& State of the Art}
-Our preliminary analysis reveals a significant gap in the digital transformation of distributed university environments. Academic research in micro-logistics and smart campus ecosystems suggests that the "last-mile" problem is the primary bottleneck for student satisfaction. By reviewing existing models used in major global universities, we identified that AI-driven intent analysis is the most effective method for reducing user navigation fatigue in complex merchandise catalogs. 
+\section{Literature Review}
+We reviewed 12 peer-reviewed studies and analyzed each one against AYBUStore's target context.
+\begin{itemize}
+    \item \textbf{Gong \& Yi (2018)} validates service quality as a driver of satisfaction and loyalty, but it is not specific to campus logistics or distributed access conditions.
+    \item \textbf{Alsheyadi \& Albalushi (2020)} examines student service quality and collaboration effects, yet does not model digital supply flows for physical student needs.
+    \item \textbf{Brdesee \& Alsaggaf (2022)} improves university e-services through decision and process redesign, but the scope is advising/registration rather than campus commerce operations.
+    \item \textbf{Alenezi \& Akour (2023)} provides a digital transformation blueprint for higher education, but remains strategic and does not define an end-to-end operational architecture with measurable commerce KPIs.
+    \item \textbf{Urquhart et al. (2022)} identifies last-mile capacity constraints in online grocery systems, but in a national retail setting rather than a closed university ecosystem.
+    \item \textbf{Suryawanshi et al. (2021)} presents resilient hyperlocal grocery planning under uncertainty, yet does not address campus equity or student-centered service continuity.
+    \item \textbf{Liu et al. (2021)} optimizes sustainable urban e-grocery distribution networks, but focuses on routing and cost objectives instead of institutional access fairness.
+    \item \textbf{Melkonyan et al. (2020)} compares sustainable last-mile strategies in local food networks, but does not integrate authentication-bound user communities and support workflows.
+    \item \textbf{Netravali et al. (2018)} introduces robust TTI measurement (Ready Index), but does not connect performance metrics to equitable service delivery outcomes.
+    \item \textbf{Jahromi et al. (2020)} extends web QoE evaluation beyond first-page load, but not in university marketplace environments with operational constraints.
+    \item \textbf{Güldal \& Dinçer (2025)} shows that rule-based chatbots are acceptable in higher education, yet does not embed them into issue-resolution pipelines for commerce processes.
+    \item \textbf{Dinh \& Tran (2023)} demonstrates a hybrid university-information chatbot, but not transaction-aware support automation linked to order and ticket lifecycles.
+\end{itemize}
 
-The integration of AYBUStore is planned as a strategic extension to the university's digital portal, leveraging robust authentication while introducing modern logistics modules. Unlike generic marketplaces, our solution focuses on "Bounded Contexts" specifically defined for AYBU's faculty structures.
+The common gap is clear: prior work treats service quality, campus digitalization, hyperlocal logistics, web performance, and chatbot support as separate tracks. AYBUStore fills this gap by combining them in a single closed-loop intra-university model with measurable pilot targets: at least 30\% cross-campus access improvement, TTI reduction from approximately 3.5s to below 1.5s, and faster support operations through rule-based automation.
+
+\textit{Full bibliographic details for all reviewed studies are provided in the References section.}
 
 \newpage
 \section{Objectives \& Scope}
@@ -139,16 +155,18 @@ Our results demonstrate that hyper-local e-commerce, when augmented with AI-driv
 \newpage
 \section{References}
 \begin{enumerate}[label={[\arabic*]}]
-    \item Chen, L., et al. (2021). Last-mile delivery optimization in university environments. \textit{Journal of Smart Logistics}.
-    \item Wang, Y., \& Zhang, H. (2022). AI-driven chatbots in niche e-commerce. \textit{Retail Technology Review}.
-    \item Smith, J., et al. (2020). Serverless architectures for campus applications. \textit{IEEE Cloud Computing}.
-    \item Garcia, M. (2023). Domain-Driven Design in educational software. \textit{Software Engineering Journal}.
-    \item Li, X., et al. (2022). TTI benchmarks in campus WiFi conditions. \textit{Network Performance Quarterly}.
-    \item Brown, A. (2021). OTP security effectiveness in preventing credential stuffing. \textit{Cybersecurity Journal}.
-    \item Miller, S. (2022). Shift-Left testing in student projects. \textit{Academic SE Review}.
-    \item Zhao, Q. (2023). COCOMO II accuracy for small-scale projects. \textit{Project Management Science}.
-    \item Patel, R. (2020). SOLID principles in modern JS frameworks. \textit{Frontend Dev Journal}.
-    \item Kim, D., \& Lee, S. (2024). Hyper-local logistics for distributed university departments. \textit{Campus Innovation Quarterly}.
+    \item Gong, T., \& Yi, Y. (2018). The effect of service quality on customer satisfaction, loyalty, and happiness in five Asian countries. \textit{Psychology \& Marketing}, 35(6), 427--442. \url{https://doi.org/10.1002/mar.21096}
+    \item Alsheyadi, A. K., \& Albalushi, J. (2020). Service quality of student services and student satisfaction: The mediating effect of cross-functional collaboration. \textit{The TQM Journal}. \url{https://doi.org/10.1108/TQM-10-2019-0234}
+    \item Brdesee, H., \& Alsaggaf, W. (2022). Decision-making strategy for digital transformation: A two-year analytical study and follow-up concerning innovative improvements in university e-services. \textit{Journal of Theoretical and Applied Electronic Commerce Research}, 17(1), 138--164. \url{https://doi.org/10.3390/jtaer17010008}
+    \item Alenezi, M., \& Akour, M. (2023). Digital transformation blueprint in higher education: A case study of PSU. \textit{Sustainability}, 15(10), 8204. \url{https://doi.org/10.3390/su15108204}
+    \item Urquhart, R., Newing, A., Hood, N., \& Heppenstall, A. (2022). Last-mile capacity constraints in online grocery fulfilment in Great Britain. \textit{Journal of Theoretical and Applied Electronic Commerce Research}, 17(2), 636--651. \url{https://doi.org/10.3390/jtaer17020033}
+    \item Suryawanshi, P., Dutta, P., L, V., \& G, D. (2021). Sustainable and resilience planning for the supply chain of online hyperlocal grocery services. \textit{Sustainable Production and Consumption}, 28, 496--518. \url{https://doi.org/10.1016/j.spc.2021.05.001}
+    \item Liu, D., Deng, Z., Zhang, W., Wang, Y., \& Kaisar, E. I. (2021). Design of sustainable urban electronic grocery distribution network. \textit{Alexandria Engineering Journal}, 60(1), 145--157. \url{https://doi.org/10.1016/j.aej.2020.06.051}
+    \item Melkonyan, A., Gruchmann, T., Lohmar, F., Bleischwitz, R., \& Spinler, S. (2020). Sustainability assessment of last-mile logistics and distribution strategies: The case of local food networks. \textit{International Journal of Production Economics}, 228, 107746. \url{https://doi.org/10.1016/j.ijpe.2020.107746}
+    \item Netravali, R., Nathan, V., Mickens, J., \& Balakrishnan, H. (2018). Vesper: Measuring time-to-interactivity for web pages. In \textit{15th USENIX Symposium on Networked Systems Design and Implementation (NSDI 18)} (pp. 217--231). \url{https://www.usenix.org/conference/nsdi18/presentation/netravali-vesper}
+    \item Jahromi, H. Z., Delaney, D. T., \& Hines, A. (2020). Beyond first impressions: Estimating quality of experience for interactive web applications. \textit{IEEE Access}, 8, 47741--47755. \url{https://doi.org/10.1109/ACCESS.2020.2979385}
+    \item Güldal, H., \& Dinçer, E. O. (2025). Can rule-based educational chatbots be an acceptable alternative for students in higher education? \textit{Education and Information Technologies}, 30, 3979--4012. \url{https://doi.org/10.1007/s10639-024-12977-5}
+    \item Dinh, H., \& Tran, T. K. (2023). EduChat: An AI-based chatbot for university-related information using a hybrid approach. \textit{Applied Sciences}, 13(22), 12446. \url{https://doi.org/10.3390/app132212446}
 \end{enumerate}
 
 \end{document}
