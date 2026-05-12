@@ -811,6 +811,174 @@ small infrastructure buffer are included, the total estimated project cost
 becomes approximately 25{,}900 USD.
 
 
+% ============================================================
+% SECTION 9: EXPECTED OUTCOMES & EVALUATION PLAN
+% ============================================================
+\section{Expected Outcomes \& Evaluation Plan}
+\label{sec:expected-outcomes-evaluation}
+
+The AYBUStore project is expected to produce a reference-level
+prototype and a complete software engineering documentation package
+for a campus-focused digital commerce ecosystem. The evaluation plan
+is designed to verify whether the system supports the main user,
+administrator, and operational workflows defined in the project scope.
+It also checks whether the project meets its measurable targets related
+to cross-campus access, OTP-based security, platform responsiveness,
+support efficiency, and operational reliability.
+
+\subsection{Expected Artefacts}
+
+The following artefacts are expected to be produced at the end of the
+project:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{AYBUStore reference prototype:} A campus-focused
+    digital storefront demonstrating product search, cart operations,
+    simulated checkout, order creation, and order tracking flows.
+
+    \item \textbf{OTP-based authentication module:} A secure
+    registration and login flow for protected user and order-related
+    actions.
+
+    \item \textbf{Product catalogue and search module:} A module for
+    listing AYBU-specific products, searching products by keywords, and
+    displaying product details.
+
+    \item \textbf{Cart and simulated checkout module:} A structure that
+    allows users to add products to the cart and complete the order flow
+    without live third-party payment processing.
+
+    \item \textbf{Campus-aware order tracking module:} A tracking
+    structure that displays order status information for Esenboga,
+    Etlik, Bilkent, and Cubuk campuses.
+
+    \item \textbf{Rule-based AI support layer:} A simple support and
+    product-discovery layer for first-level user assistance based on
+    predefined rules and intent patterns.
+
+    \item \textbf{Admin/CMS and inventory module:} An administrator
+    panel for managing products, stock information, orders, and
+    operational data.
+
+    \item \textbf{Software engineering documentation:} SRS, UML
+    diagrams, architectural design, WBS, Gantt chart, risk management
+    table, test plan, final report, and presentation slides.
+\end{itemize}
+
+\subsection{Success Measurement}
+
+The project will be considered successful if the following conditions
+are satisfied:
+
+\begin{itemize}[leftmargin=*]
+    \item Users can complete the main workflow: authentication, product
+    search, cart operation, simulated checkout, and order tracking.
+
+    \item OTP-based authentication works correctly and prevents
+    unauthorized access to protected user and order data.
+
+    \item The system supports AYBU's four-campus structure and displays
+    campus-related order status information correctly.
+
+    \item The pilot evaluation reaches at least 300 active
+    SIS-verified users and shows at least 30\% improvement in
+    cross-campus access utilization compared with the baseline.
+
+    \item The main storefront achieves a Time to Interactive value
+    below 1.5 seconds or shows at least 40\% improvement compared with
+    the baseline value of approximately 3.5 seconds.
+
+    \item The support process achieves at least 60\% reduction in first
+    response time and at least 45\% reduction in average issue-resolution
+    time compared with the baseline.
+
+    \item Order, stock, tracking, and notification operations remain
+    reliable, with 99.9\% service uptime during the pilot window and
+    0\% transaction-level data loss.
+
+    \item The final documentation remains internally consistent:
+    objectives, scope, requirements, UML diagrams, development plan,
+    risks, and test cases must align with each other.
+\end{itemize}
+
+\subsection{Acceptance Test Plan}
+
+The acceptance test plan verifies whether AYBUStore satisfies its main
+functional, performance, and operational requirements. The following
+five test cases focus on the most important project objectives.
+
+\renewcommand{\arraystretch}{1.25}
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|p{0.10\textwidth}|p{0.22\textwidth}|X|X|}
+\hline
+\rowcolor{aybuHeader}
+\textcolor{white}{\textbf{Test ID}} &
+\textcolor{white}{\textbf{Test Scenario}} &
+\textcolor{white}{\textbf{Test Description}} &
+\textcolor{white}{\textbf{Expected Success Criteria}} \\
+\hline
+
+AT-01 &
+OTP Authentication &
+A registered user enters a valid OTP code during login or registration. &
+The user is authenticated successfully and can access protected
+features such as cart, profile, and order tracking. \\
+\hline
+
+AT-02 &
+AI-Assisted Product Search &
+A user searches for a product using a phrase such as ``hoodie'' or
+``white sweat'', or enters a simple first-level support request. &
+The system correctly interprets the user intent and returns relevant
+product results or an appropriate rule-based support response. \\
+\hline
+
+AT-03 &
+Cart, Simulated Checkout, and Stock Update &
+A user adds a product to the cart, completes the simulated checkout
+flow, and creates an order. &
+The order is created successfully, appears in the user's order history,
+and the related product stock information is updated correctly. \\
+\hline
+
+AT-04 &
+Campus-Aware Order Tracking &
+A user opens the tracking page for an existing order. &
+The system displays the correct order status and related campus
+information for Esenboga, Etlik, Bilkent, or Cubuk. \\
+\hline
+
+AT-05 &
+TTI and Pilot Performance Measurement &
+The main storefront is tested under standard pilot network conditions. &
+The average Time to Interactive value is below 1.5 seconds or shows at
+least 40\% improvement compared with the baseline value of
+approximately 3.5 seconds. \\
+\hline
+
+\end{tabularx}
+\caption{Acceptance test plan for AYBUStore.}
+\label{tab:acceptance-tests-39}
+\end{table}
+
+\subsection{Evaluation Summary}
+
+The evaluation of AYBUStore will combine functional testing,
+acceptance testing, performance measurement, operational KPI tracking,
+and documentation consistency checks. Functional testing will verify
+authentication, product search, cart operations, simulated checkout,
+stock updates, campus-aware tracking, and administrator workflows.
+Performance evaluation will focus on the Time to Interactive target,
+while operational evaluation will focus on cross-campus access
+improvement and support-response efficiency. The project will be
+accepted as successful if the core workflows pass the defined
+acceptance tests, the measurable pilot targets are satisfied, and the
+final documentation remains consistent with the project objectives,
+scope, architecture, and development plan.
+
+
 \section{Conclusion}
 The AYBUStore project represents a successful fusion of modern software engineering methodologies and institutional needs. By collaborating with the \textbf{AYBU IT Department}, we have ensured that the platform is not merely a standalone application, but a robust, secure, and scalable extension of the university's digital brand.
 
