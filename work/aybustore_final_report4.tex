@@ -637,22 +637,180 @@ the academic advisor.
 \subsection{GoF Design Patterns \& SOLID}
 The architecture implements the \textbf{Singleton} pattern for the Firebase service instance to prevent connection leaks. The \textbf{Strategy} pattern is utilized for campus-specific logistics routing, while the \textbf{Observer} pattern ensures that the shopping cart state remains synchronized across all UI components. Our adherence to \textbf{SOLID} principles, particularly the Dependency Inversion Principle, allows the frontend to remain decoupled from the specific backend implementation.
 
-\section{Expected Outcomes \& Evaluation}
-\subsection{Acceptance Test Plan}
-\begin{table}[h!]
-\centering
-\begin{tabularx}{\textwidth}{l|X|X}
-\toprule
-\textbf{Case ID} & \textbf{Test Description} & \textbf{Expected Success Criteria} \\ \midrule
-TC-01 & 6-Digit OTP Validation & User enters correct OTP, gets 200 OK. \\
-TC-02 & AI Product Search & Query "white sweat" returns exact matching ID. \\
-TC-03 & Responsive Viewport & Load on iPhone 13; no horizontal overflow. \\
-TC-04 & Stock Deduction & Buy 1 item; DB stock count decreases by 1. \\
-TC-05 & TTI Benchmark & Main page interactive in < 1.2s on standard 4G. \\ \bottomrule
-\end{tabularx}
-\end{table}
+
 
 \newpage
+
+
+% ============================================================
+% SECTION 8: TEAM & RESOURCE PLAN
+% ============================================================
+\section{Team \& Resource Plan}
+\label{sec:team-resource-plan}
+
+AYBUStore will be developed by a five-member student team during the
+14--15 week academic project period. The project combines a campus-focused
+digital storefront, secure OTP authentication, Firebase-based backend
+services, product catalogue management, cart and simulated checkout flows,
+admin/CMS operations, campus-aware order tracking, rule-based support
+assistance, testing, and documentation. Therefore, team responsibilities
+are distributed according to the main software engineering activities and
+system modules. This role distribution supports the Agile/Scrum process
+defined in the methodology section and ensures that each major component
+has a clear owner.
+
+\subsection{Team Members, Roles, and Responsibilities}
+
+\renewcommand{\arraystretch}{1.25}
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|p{0.20\textwidth}|p{0.24\textwidth}|X|}
+\hline
+\rowcolor{aybuHeader}
+\textcolor{white}{\textbf{Team Member}} &
+\textcolor{white}{\textbf{Role}} &
+\textcolor{white}{\textbf{Responsibilities}} \\ \hline
+
+Muhammed Yıldız &
+Project Manager / Product Owner &
+Coordinates the overall project schedule, manages the product backlog,
+communicates with stakeholders, monitors sprint progress, and checks the
+consistency between requirements, design, implementation plan, and
+evaluation criteria. \\ \hline
+
+Utkan Dindaroğlu &
+Frontend Developer / UI-UX Designer &
+Designs and develops the responsive web client and mobile-oriented user
+interface. Responsible for catalogue browsing, product detail pages, cart
+views, simulated checkout screens, and usability improvements across web
+and mobile views. \\ \hline
+
+Ahmet Selim Yılmaz &
+Backend Developer / Database Engineer &
+Manages Firebase-based backend services and Firestore database structure.
+Responsible for user accounts, product catalogue data, categories, carts,
+orders, inventory records, support tickets, and related data management. \\ \hline
+
+Seyfullah Gülyazı &
+Evaluation and Resource Planning Responsible / QA Support &
+Prepares the Team and Resource Plan, Expected Outcomes, and Evaluation
+Plan sections. Supports acceptance test planning, success criteria
+definition, cost estimation consistency, and final documentation quality
+control. \\ \hline
+
+Süleyman Fatih Sert &
+Tracking, Support, and Admin Module Developer &
+Contributes to OTP/authentication flows, admin/CMS operations, inventory
+management, order status operations, campus-aware tracking, rule-based
+support logic, and testing of critical customer and administrator workflows. \\ \hline
+
+\end{tabularx}
+\caption{Team members, roles, and responsibilities for AYBUStore.}
+\label{tab:team-roles}
+\end{table}
+
+\subsection{Hardware Resources}
+
+No special-purpose hardware is required for AYBUStore. The personal laptops
+of the team members are sufficient for development, testing, documentation,
+and presentation preparation. A stable internet connection is required for
+GitHub collaboration, Firebase access, cloud deployment, online meetings,
+and shared documentation work. Mobile devices or browser-based emulators
+will be used to check the responsive behaviour of the application, while
+standard browsers such as Chrome, Edge, and Firefox will be used for
+cross-browser testing. Since all required hardware resources are already
+available to the team, no additional hardware cost is expected during the
+academic prototype and documentation stage.
+
+\subsection{Software Resources}
+
+The project will use commonly available software engineering and web
+development tools. Visual Studio Code will be used as the main development
+environment, while Git and GitHub will be used for version control and
+collaborative development. A responsive web client structure will support
+cross-platform access, and Firebase services will be used for authentication,
+backend logic, and database management. Firestore will store user accounts,
+product catalogue data, categories, cart records, orders, inventory
+information, support tickets, and tracking-related data. Draw.io, Lucidchart,
+or PlantUML will be used for UML diagrams, while Figma may be used for UI/UX
+mockups. Postman, Firebase Console, and browser developer tools will support
+testing and debugging. Microsoft Word, Google Docs, PowerPoint, or Google
+Slides will be used for documentation and final presentation preparation.
+
+\subsection{Cloud and API Resources}
+
+AYBUStore is planned as a low-cost cloud-supported academic project. Firebase
+Authentication will be used for secure OTP-based user authentication, and
+Firebase Firestore will be used as the main cloud database. Firebase Cloud
+Functions may be used for backend operations such as stock deduction, order
+state updates, campus-routing logic, notification-related logic, and support
+workflow operations. Firebase Storage may be used for product images, while
+Firebase Hosting or a similar hosting service may be used if a web prototype
+is deployed.
+
+Payment operations are treated as simulated in the current project phase, so
+no live third-party payment transaction cost is expected. Firebase Security
+Rules will be used to protect user, product, order, support, and administrator
+data. Live integration with AYBU internal SIS/ERP systems, off-campus delivery
+operations, GPS-based physical logistics tracking, and advanced predictive
+AI/ML features such as deep personalization or demand forecasting are outside
+the current project scope. Only rule-based automated support and simple
+product-search assistance are considered within the prototype-level support
+logic.
+
+\subsection{Estimated Project Cost}
+
+Since AYBUStore is an academic course project, no actual salary will be paid
+to the team members. However, a notional project cost is estimated to show the
+commercial value of the required effort and infrastructure. This estimation
+is kept consistent with the COCOMO-based effort and cost estimation used in
+the Methodology and Development Plan section.
+
+According to the COCOMO-based estimation, the project requires approximately
+17.2 person-months of effort. If a junior developer cost of \$1{,}500 per
+person-month is assumed, the notional labour cost is calculated as follows:
+
+\[
+17.2 \text{ person-months} \times 1500 \text{ USD/person-month}
+= 25{,}800 \text{ USD}
+\]
+
+Most development tools and cloud services will be used through free-tier or
+academic-accessible plans. Therefore, only a small infrastructure buffer is
+included for possible Firebase or hosting overages during testing.
+
+\renewcommand{\arraystretch}{1.25}
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{0.88\textwidth}{|X|r|}
+\hline
+\rowcolor{aybuHeader}
+\textcolor{white}{\textbf{Resource / Cost Item}} &
+\textcolor{white}{\textbf{Estimated Cost}} \\ \hline
+
+Personal computers and internet access & 0 USD \\ \hline
+GitHub, Visual Studio Code, Draw.io / PlantUML & 0 USD \\ \hline
+Figma Free Plan or academic-accessible design tools & 0 USD \\ \hline
+Firebase Free Tier / minor development overages & 100 USD \\ \hline
+Firebase Hosting or similar hosting service & 0 USD \\ \hline
+Simulated payment flow / test-mode tooling & 0 USD \\ \hline
+Notional labour cost & 25{,}800 USD \\ \hline
+\textbf{Total estimated project cost} & \textbf{25{,}900 USD} \\ \hline
+
+\end{tabularx}
+\caption{Estimated team and infrastructure cost for AYBUStore.}
+\label{tab:team-resource-cost}
+\end{table}
+
+The actual out-of-pocket cost is expected to remain very low because the
+project mainly uses free-tier tools, academic-accessible services, and
+simulated/test-mode integrations. When the notional labour effort and the
+small infrastructure buffer are included, the total estimated project cost
+becomes approximately 25{,}900 USD.
+
+
 \section{Conclusion}
 The AYBUStore project represents a successful fusion of modern software engineering methodologies and institutional needs. By collaborating with the \textbf{AYBU IT Department}, we have ensured that the platform is not merely a standalone application, but a robust, secure, and scalable extension of the university's digital brand.
 
