@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.1)  12 MAY 2026 20:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.1)  12 MAY 2026 21:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -435,8 +435,20 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 17.
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 30
+(/usr/share/texlive/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
+Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PD
+F (HO)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+))
+Package hyperref Info: Option `colorlinks' set `true' on input line 18.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 31
 .
 
 (/usr/share/texmf/tex/latex/lm/t1lmr.fd
@@ -451,24 +463,24 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 )
 \openout1 = `aybustore_final_report4.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -534,7 +546,7 @@ Package caption Info: longtable package is loaded.
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 30.
+Package hyperref Info: Link coloring ON on input line 31.
 
 (/home/naktudndrgl/Desktop/AybuStore/AYBUStore/work/aybustore_final_report4.out
 )
@@ -544,48 +556,48 @@ Package hyperref Info: Link coloring ON on input line 30.
 \openout3 = `aybustore_final_report4.out'.
 
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
-3.
+4.
  (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
-3.
+4.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-33.
+34.
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-33.
+34.
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 33.
+(Font)              <12> on input line 34.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 33.
+(Font)              <8> on input line 34.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 33.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 33.
+(Font)              <6> on input line 34.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 34.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 33.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 34.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 4
-5.
+6.
 
 (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -593,52 +605,40 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/
 dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}]
-Overfull \hbox (6.8199pt too wide) in paragraph at lines 56--57
+Overfull \hbox (6.8199pt too wide) in paragraph at lines 57--58
 []\T1/lmr/bx/n/10.95 Dinh & Tran (2023) \T1/lmr/m/n/10.95 demon-strates a hy-br
 id university-information chat-bot, but not transaction-
  []
 
-[2]
-<./diagrams_aybustore/use_case_diagram.pdf, id=99, 1358.67598pt x 817.77144pt>
+[2] [3]
+<./diagrams_aybustore/use_case_diagram.pdf, id=108, 1358.67598pt x 817.77144pt>
+
 File: ./diagrams_aybustore/use_case_diagram.pdf Graphic file (type pdf)
 <use ./diagrams_aybustore/use_case_diagram.pdf>
 Package pdftex.def Info: ./diagrams_aybustore/use_case_diagram.pdf  used on inp
-ut line 101.
-(pdftex.def)             Requested size: 385.50183pt x 232.03159pt.
+ut line 104.
+(pdftex.def)             Requested size: 656.51073pt x 395.14624pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 102.
+(caption)                particular \caption on input line 105.
 See the caption package documentation for explanation.
 
-[3]
+[4
+
+
+ </home/naktudndrgl/Desktop/AybuStore/AYBUStore/work/./diagrams_aybustore/use_c
+ase_diagram.pdf>]
 
 pdfTeX warning: pdflatex (file /home/naktudndrgl/Desktop/AybuStore/AYBUStore/wo
 rk/./diagrams_aybustore/class_diagram.pdf): PDF inclusion: found PDF version <1
 .7>, but at most version <1.5> allowed
-<./diagrams_aybustore/class_diagram.pdf, id=109, 648.92438pt x 413.29407pt>
+<./diagrams_aybustore/class_diagram.pdf, id=218, 648.92438pt x 413.29407pt>
 File: ./diagrams_aybustore/class_diagram.pdf Graphic file (type pdf)
 <use ./diagrams_aybustore/class_diagram.pdf>
 Package pdftex.def Info: ./diagrams_aybustore/class_diagram.pdf  used on input 
-line 117.
-(pdftex.def)             Requested size: 433.68497pt x 276.21188pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 118.
-See the caption package documentation for explanation.
-
-[4 </home/naktudndrgl/Desktop/AybuStore/AYBUStore/work/./diagrams_aybustore/use
-_case_diagram.pdf>]
-
-pdfTeX warning: pdflatex (file /home/naktudndrgl/Desktop/AybuStore/AYBUStore/wo
-rk/./diagrams_aybustore/sequence_auth.pdf): PDF inclusion: found PDF version <1
-.7>, but at most version <1.5> allowed
-<./diagrams_aybustore/sequence_auth.pdf, id=224, 733.23938pt x 650.43pt>
-File: ./diagrams_aybustore/sequence_auth.pdf Graphic file (type pdf)
-<use ./diagrams_aybustore/sequence_auth.pdf>
-Package pdftex.def Info: ./diagrams_aybustore/sequence_auth.pdf  used on input 
 line 122.
-(pdftex.def)             Requested size: 385.50183pt x 341.96718pt.
+(pdftex.def)             Requested size: 433.68497pt x 276.21188pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 123.
@@ -647,34 +647,48 @@ See the caption package documentation for explanation.
 
 
 pdfTeX warning: pdflatex (file /home/naktudndrgl/Desktop/AybuStore/AYBUStore/wo
-rk/./diagrams_aybustore/activity_diagram.pdf): PDF inclusion: found PDF version
- <1.7>, but at most version <1.5> allowed
-<./diagrams_aybustore/activity_diagram.pdf, id=225, 344.03531pt x 572.1375pt>
-File: ./diagrams_aybustore/activity_diagram.pdf Graphic file (type pdf)
-<use ./diagrams_aybustore/activity_diagram.pdf>
-Package pdftex.def Info: ./diagrams_aybustore/activity_diagram.pdf  used on inp
-ut line 127.
-(pdftex.def)             Requested size: 385.50183pt x 641.09517pt.
+rk/./diagrams_aybustore/sequence_auth.pdf): PDF inclusion: found PDF version <1
+.7>, but at most version <1.5> allowed
+<./diagrams_aybustore/sequence_auth.pdf, id=219, 733.23938pt x 650.43pt>
+File: ./diagrams_aybustore/sequence_auth.pdf Graphic file (type pdf)
+<use ./diagrams_aybustore/sequence_auth.pdf>
+Package pdftex.def Info: ./diagrams_aybustore/sequence_auth.pdf  used on input 
+line 127.
+(pdftex.def)             Requested size: 385.50183pt x 341.96718pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 128.
 See the caption package documentation for explanation.
 
-[5 </home/naktudndrgl/Desktop/AybuStore/AYBUStore/work/./diagrams_aybustore/cla
-ss_diagram.pdf> </home/naktudndrgl/Desktop/AybuStore/AYBUStore/work/./diagrams_
-aybustore/sequence_auth.pdf
+[5
+
+
+ </home/naktudndrgl/Desktop/AybuStore/AYBUStore/work/./diagrams_aybustore/class
+_diagram.pdf>]
 
 pdfTeX warning: pdflatex (file /home/naktudndrgl/Desktop/AybuStore/AYBUStore/wo
-rk/./diagrams_aybustore/sequence_auth.pdf): PDF inclusion: multiple pdfs with p
-age group included in a single page
->] [6 </home/naktudndrgl/Desktop/AybuStore/AYBUStore/work/./diagrams_aybustore/
-activity_diagram.pdf>] [7] [8]
+rk/./diagrams_aybustore/activity_diagram.pdf): PDF inclusion: found PDF version
+ <1.7>, but at most version <1.5> allowed
+<./diagrams_aybustore/activity_diagram.pdf, id=245, 344.03531pt x 572.1375pt>
+File: ./diagrams_aybustore/activity_diagram.pdf Graphic file (type pdf)
+<use ./diagrams_aybustore/activity_diagram.pdf>
+Package pdftex.def Info: ./diagrams_aybustore/activity_diagram.pdf  used on inp
+ut line 132.
+(pdftex.def)             Requested size: 385.50183pt x 641.09517pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 133.
+See the caption package documentation for explanation.
+
+[6 </home/naktudndrgl/Desktop/AybuStore/AYBUStore/work/./diagrams_aybustore/seq
+uence_auth.pdf>] [7 </home/naktudndrgl/Desktop/AybuStore/AYBUStore/work/./diagr
+ams_aybustore/activity_diagram.pdf>] [8] [9]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-67.
- (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
+72.
+
+(/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-[9]
+) [10]
 (/home/naktudndrgl/Desktop/AybuStore/AYBUStore/work/aybustore_final_report4.aux
 )
  ***********
@@ -686,22 +700,22 @@ Package rerunfilecheck Info: File `aybustore_final_report4.out' has not changed
 (rerunfilecheck)             Checksum: F344A15D131CEAC9628F13E268A56372;3201.
  ) 
 Here is how much of TeX's memory you used:
- 13032 strings out of 476182
- 204900 string characters out of 5795596
+ 13106 strings out of 476182
+ 206971 string characters out of 5795596
  1936975 words of memory out of 5000000
- 34792 multiletter control sequences out of 15000+600000
+ 34855 multiletter control sequences out of 15000+600000
  604350 words of font info for 70 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,10n,79p,1222b,654s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,10n,79p,1222b,650s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/ty
 pe1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></us
 r/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/pub
 lic/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
 Output written on /home/naktudndrgl/Desktop/AybuStore/AYBUStore/work/aybustore_
-final_report4.pdf (9 pages, 277898 bytes).
+final_report4.pdf (10 pages, 278112 bytes).
 PDF statistics:
- 356 PDF objects out of 1000 (max. 8388607)
- 218 compressed objects within 3 object streams
- 57 named destinations out of 1000 (max. 500000)
+ 361 PDF objects out of 1000 (max. 8388607)
+ 222 compressed objects within 3 object streams
+ 58 named destinations out of 1000 (max. 500000)
  181 words of extra memory for PDF output out of 10000 (max. 10000000)
 

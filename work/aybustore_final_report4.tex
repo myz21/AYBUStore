@@ -13,6 +13,7 @@
 \usepackage{hyperref}
 \usepackage[table]{xcolor}
 \usepackage{float}
+\usepackage{pdflscape}
 
 \definecolor{aybu_blue}{RGB}{31, 73, 125}
 \hypersetup{colorlinks=true, linkcolor=aybu_blue, urlcolor=blue}
@@ -624,10 +625,14 @@ the academic advisor.
 % ============================================================
 \section{Requirements Specification (SRS)}
 \subsection{Use Case Diagram}
+\clearpage
+\begin{landscape}
 \begin{center}
-    \includegraphics[width=0.8\textwidth]{use_case_diagram.pdf}
+    \includegraphics[width=0.96\linewidth,height=0.82\textheight,keepaspectratio]{use_case_diagram.pdf}
     \captionof{figure}{AYBUStore Use Case Diagram (Institutional Layer)}
 \end{center}
+\end{landscape}
+\clearpage
 
 \subsection{User Stories}
 \begin{enumerate}
